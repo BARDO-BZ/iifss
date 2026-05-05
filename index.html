@@ -976,6 +976,115 @@
     .fade-in:nth-child(2) { animation-delay: 0.1s; }
     .fade-in:nth-child(3) { animation-delay: 0.2s; }
     .fade-in:nth-child(4) { animation-delay: 0.3s; }
+    /* ─── HAMBURGER ─── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px; height: 36px;
+      padding: 6px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      flex-shrink: 0;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px; height: 2px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 2px;
+      transition: all 0.25s ease;
+    }
+    #nav.menu-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #nav.menu-open .nav-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    #nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ─── RESPONSIVE 1024 ─── */
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 52px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .variant-display { grid-template-columns: 1fr; }
+      .surgeons-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    /* ─── RESPONSIVE 768 ─── */
+    @media (max-width: 768px) {
+      :root { --pad-x: 20px; --section-py: 72px; --nav-h: 60px; }
+
+      /* Nav */
+      #nav { padding: 0 20px; position: fixed; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: var(--nav-h); left: 0; right: 0;
+        background: rgba(11,31,58,0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        flex-direction: column;
+        padding: 12px 20px 20px;
+        gap: 2px;
+      }
+      #nav.menu-open .nav-links { display: flex; }
+      .nav-link { font-size: 15px; padding: 11px 4px; color: rgba(255,255,255,0.75); border-bottom-color: transparent !important; }
+      .nav-link.active { border-bottom-color: transparent !important; color: var(--white); }
+      .nav-cta { text-align: center; padding: 12px; margin-top: 8px; border-radius: 6px; }
+
+      /* Hero */
+      .hero-inner { padding: 48px 0 64px; max-width: 100%; }
+      .hero h1 { font-size: 38px; }
+      .hero-desc { font-size: 15px; max-width: 100%; margin-bottom: 28px; }
+      .hero-actions { flex-direction: column; gap: 10px; margin-bottom: 48px; }
+      .hero-actions a { text-align: center; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .stat-card { padding: 18px 16px; }
+      .stat-card__number { font-size: 32px; }
+      .hero-bg-shape { display: none; }
+
+      /* Section labels & h2s */
+      .syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 32px; }
+
+      /* Syndrome */
+      .syndrome-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Procedure */
+      .procedure-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+      .variants-section { padding-top: 40px; }
+      .variant-display { grid-template-columns: 1fr; }
+
+      /* Results */
+      .results-grid { grid-template-columns: 1fr; gap: 40px; }
+      .results-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .results-stat__num { font-size: 28px; }
+
+      /* Patients */
+      .patients-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      /* Surgeons */
+      .surgeons-grid { grid-template-columns: 1fr; gap: 36px; }
+      .surgeon-cards { grid-template-columns: 1fr; }
+
+      /* Center */
+      .center-grid { grid-template-columns: 1fr; gap: 48px; }
+
+      /* Contact */
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-form-wrap { padding: 24px 20px; }
+
+      /* Footer */
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .footer-copy { order: 2; }
+      .footer-links { order: 3; flex-wrap: wrap; gap: 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 32px; }
+      .syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 28px; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1007,6 +1116,9 @@
     <a href="#center"    class="nav-link" data-section="center">The Center</a>
     <a href="#contact" class="nav-cta">Schedule a Consultation</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ─── HERO ─── -->
@@ -1598,6 +1710,20 @@
     });
   }, { threshold: 0.15 });
   fadeEls.forEach(el => fadeObserver.observe(el));
+
+  /* ─── HAMBURGER ─── */
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('hamburger');
+    const open = nav.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('.nav-link, .nav-cta').forEach(l => {
+    l.addEventListener('click', () => {
+      document.getElementById('nav').classList.remove('menu-open');
+      document.getElementById('hamburger').setAttribute('aria-expanded', false);
+    });
+  });
 </script>
 </body>
 </html>

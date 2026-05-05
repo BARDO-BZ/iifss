@@ -163,6 +163,42 @@
     .footer-links { display: flex; gap: 24px; }
     .footer-link { font-size: 11px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
     .footer-link:hover { color: rgba(255,255,255,0.65); }
+    /* ─── HAMBURGER ─── */
+    .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; padding: 6px; cursor: pointer; background: transparent; border: none; flex-shrink: 0; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: rgba(255,255,255,0.8); border-radius: 2px; transition: all 0.25s ease; }
+    #nav.menu-open .nav-hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    #nav.menu-open .nav-hamburger span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    #nav.menu-open .nav-hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    @media (max-width: 768px) {
+      :root { --pad-x: 20px; --nav-h: 60px; }
+      #nav { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: rgba(11,31,58,0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); flex-direction: column; padding: 12px 20px 20px; gap: 2px; }
+      #nav.menu-open .nav-links { display: flex; }
+      .nav-link { font-size: 15px; padding: 11px 4px; color: rgba(255,255,255,0.75); border-bottom-color: transparent !important; }
+      .nav-cta { text-align: center; padding: 12px; margin-top: 8px; border-radius: 6px; }
+
+      .page-header { padding-top: calc(var(--nav-h) + 48px); padding-bottom: 52px; }
+      .page-header h1 { font-size: 34px; }
+      .page-header__desc { font-size: 15px; }
+
+      .pub-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
+      .pub-card__actions { flex-direction: row; align-items: center; justify-content: space-between; }
+      .pub-card__title { font-size: 15px; }
+
+      .contact-banner__inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+
+      footer { padding: 32px 20px; }
+      .footer-inner { flex-direction: column; gap: 20px; align-items: flex-start; }
+      .footer-copy { order: 2; }
+      .footer-links { order: 3; flex-wrap: wrap; gap: 14px; }
+    }
+
+    @media (max-width: 480px) {
+      .page-header h1 { font-size: 28px; }
+      .pub-card__actions { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -194,6 +230,9 @@
     <a href="publications.html"    class="nav-link active">Publications</a>
     <a href="index.html#contact" class="nav-cta">Schedule a Consultation</a>
   </div>
+  <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <!-- ─── PAGE HEADER ─── -->
@@ -369,5 +408,19 @@
   </div>
 </footer>
 
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    const btn = document.getElementById('hamburger');
+    const open = nav.classList.toggle('menu-open');
+    btn.setAttribute('aria-expanded', open);
+  }
+  document.querySelectorAll('.nav-link, .nav-cta').forEach(l => {
+    l.addEventListener('click', () => {
+      document.getElementById('nav').classList.remove('menu-open');
+      document.getElementById('hamburger').setAttribute('aria-expanded', false);
+    });
+  });
+</script>
 </body>
 </html>
