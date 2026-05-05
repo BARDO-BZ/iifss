@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Lugones Procedure for Scimitar Syndrome</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    /* ─── RESET & BASE ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: #0B1F3A;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0B1F3A; }
+    ::-webkit-scrollbar-thumb { background: #B52430; border-radius: 3px; }
+    ::selection { background: rgba(181,36,48,0.3); }
+    a { text-decoration: none; }
+    button { cursor: pointer; border: none; background: transparent; font-family: inherit; }
+
+    /* ─── TOKENS ─── */
+    :root {
+      --navy:    #0B1F3A;
+      --navy2:   #0F2745;
+      --navy3:   #070F1D;
+      --crimson: #B52430;
+      --crimson2:#8B1C28;
+      --gold:    #C8933F;
+      --white:   #FFFFFF;
+      --offwhite:#F5F0EB;
+      --max-w:   1160px;
+      --pad-x:   48px;
+      --section-py: 120px;
+      --nav-h:   68px;
+    }
+
+    /* ─── LAYOUT ─── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+    .section { width: 100%; }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-label__num {
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--crimson);
+      letter-spacing: 0.03em;
+    }
+    .section-label__line {
+      width: 32px;
+      height: 1px;
+      background: var(--crimson);
+    }
+    .section-label__text {
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+    .section-label--light .section-label__text { color: rgba(11,31,58,0.4); }
+
+    /* ─── NAV ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      padding: 0 var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    #nav.scrolled {
+      background: rgba(11,31,58,0.97);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--white);
+    }
+    .nav-logo__wordmark { line-height: 1; }
+    .nav-logo__name {
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+    .nav-logo__sub {
+      font-weight: 400;
+      font-size: 8px;
+      color: var(--crimson);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-link:hover { color: rgba(255,255,255,0.85); }
+    .nav-link.active {
+      color: var(--white);
+      border-bottom-color: var(--crimson);
+    }
+    .nav-cta {
+      background: var(--crimson);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      padding: 9px 20px;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--crimson2); }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--nav-h);
+      background: var(--navy);
+    }
+    .hero-bg-shape {
+      position: absolute;
+      right: -80px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.04;
+      pointer-events: none;
+    }
+    .hero-inner {
+      padding: 80px 0 100px;
+      max-width: 720px;
+    }
+    .hero h1 {
+      font-weight: 700;
+      font-size: 64px;
+      letter-spacing: -0.03em;
+      line-height: 1.04;
+      margin-bottom: 24px;
+    }
+    .hero h1 span { color: var(--crimson); }
+    .hero-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+      max-width: 560px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 72px;
+    }
+    .btn-primary {
+      background: var(--crimson);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      padding: 14px 28px;
+      border-radius: 5px;
+      transition: background 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--crimson2); }
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8);
+      font-weight: 400;
+      font-size: 14px;
+      padding: 14px 28px;
+      border-radius: 5px;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      color: var(--white);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 24px 28px;
+    }
+    .stat-card--light {
+      background: rgba(11,31,58,0.06);
+      border-color: rgba(11,31,58,0.1);
+    }
+    .stat-card__number {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .stat-card--light .stat-card__number { color: var(--navy); }
+    .stat-card__unit {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--crimson);
+      margin-left: 4px;
+    }
+    .stat-card__label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+    .stat-card--light .stat-card__label { color: rgba(11,31,58,0.5); }
+    .stat-card__row { display: flex; align-items: baseline; gap: 4px; }
+
+    /* ─── SYNDROME ─── */
+    #syndrome {
+      background: #FFFFFF;
+      padding: var(--section-py) 0;
+    }
+    #syndrome .section-label__text { color: rgba(11,31,58,0.4); }
+    .syndrome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .syndrome h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--navy);
+    }
+    .toggle-bar {
+      display: flex;
+      background: rgba(11,31,58,0.06);
+      border-radius: 6px;
+      padding: 3px;
+      width: fit-content;
+      margin-bottom: 28px;
+    }
+    .toggle-btn {
+      background: transparent;
+      color: rgba(11,31,58,0.55);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      padding: 7px 18px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .toggle-btn.active {
+      background: var(--crimson);
+      color: var(--white);
+    }
+    .syndrome-text { display: none; flex-direction: column; gap: 20px; }
+    .syndrome-text.visible { display: flex; }
+    .syndrome-text p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(11,31,58,0.7);
+    }
+    .syndrome-text .good-news {
+      background: rgba(181,36,48,0.07);
+      border: 1px solid rgba(181,36,48,0.2);
+      border-radius: 8px;
+      padding: 16px 20px;
+    }
+    .syndrome-text .good-news p {
+      font-size: 14px;
+      line-height: 1.65;
+      color: rgba(11,31,58,0.75);
+    }
+    .syndrome-text .good-news strong { color: var(--navy); }
+    .syndrome-diagram {
+      background: rgba(11,31,58,0.03);
+      border: 1px solid rgba(11,31,58,0.1);
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .syndrome-diagram__label {
+      font-size: 11px;
+      color: rgba(11,31,58,0.35);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .syndrome-diagram__note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(11,31,58,0.25);
+    }
+    .why-classical {
+      background: rgba(181,36,48,0.05);
+      border: 1px solid rgba(181,36,48,0.2);
+      border-radius: 10px;
+      padding: 20px 24px;
+    }
+    .why-classical__title {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--crimson);
+      margin-bottom: 12px;
+      letter-spacing: 0.02em;
+    }
+    .bullet-list { display: flex; flex-direction: column; gap: 8px; }
+    .bullet-item { display: flex; gap: 10px; align-items: flex-start; }
+    .bullet-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--crimson);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .bullet-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(11,31,58,0.65);
+      line-height: 1.5;
+    }
+
+    /* ─── PROCEDURE ─── */
+    #procedure {
+      background: var(--navy);
+      padding: var(--section-py) 0;
+    }
+    .procedure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 80px;
+    }
+    #procedure h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    #procedure h2 span { color: var(--crimson); }
+    #procedure p {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 24px;
+    }
+    .steps { display: flex; flex-direction: column; gap: 16px; }
+    .step { display: flex; gap: 16px; align-items: flex-start; }
+    .step__num {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--crimson);
+      min-width: 28px;
+      padding-top: 1px;
+    }
+    .step__title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--white);
+      margin-bottom: 3px;
+    }
+    .step__desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.55;
+    }
+    .variants-section {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 60px;
+    }
+    .variants-caption {
+      font-weight: 500;
+      font-size: 11px;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .variants-toggle {
+      display: flex;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      padding: 4px;
+      width: fit-content;
+      margin-bottom: 32px;
+    }
+    .variant-btn {
+      background: transparent;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      padding: 9px 24px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .variant-btn.active {
+      background: var(--crimson);
+      color: var(--white);
+    }
+    .variant-display {
+      display: grid;
+      grid-template-columns: 7fr 5fr;
+      gap: 24px;
+      align-items: start;
+    }
+    .variant-video {
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+      aspect-ratio: 16/10;
+      position: relative;
+    }
+    .variant-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .variant-info {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      padding: 28px 32px;
+    }
+    .variant-info__tag {
+      font-weight: 500;
+      font-size: 10px;
+      color: var(--crimson);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .variant-info__title {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .variant-info__desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+    }
+
+    /* ─── RESULTS ─── */
+    #results {
+      background: var(--crimson2);
+      padding: var(--section-py) 0;
+    }
+    #results .section-label__text { color: rgba(255,255,255,0.4); }
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    #results h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    #results .lead {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 28px;
+    }
+    .results-quote {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.55;
+    }
+    .results-citation {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+    .results-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .results-stat {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .results-stat__num {
+      font-weight: 700;
+      font-size: 36px;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      line-height: 1;
+    }
+    .results-stat__label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 6px;
+      line-height: 1.4;
+    }
+
+    /* ─── PATIENTS ─── */
+    #patients {
+      background: var(--offwhite);
+      padding: var(--section-py) 0;
+    }
+    #patients .section-label__text { color: rgba(11,31,58,0.4); }
+    .patients-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    #patients h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    #patients h2 span { color: var(--crimson); }
+    #patients .lead {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(11,31,58,0.6);
+      margin-bottom: 32px;
+    }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item { display: flex; gap: 20px; padding-bottom: 28px; }
+    .timeline-left {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .timeline-circle {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(11,31,58,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .timeline-circle.accent { background: var(--crimson); }
+    .timeline-circle__num {
+      font-weight: 700;
+      font-size: 11px;
+      color: rgba(11,31,58,0.4);
+      letter-spacing: 0.05em;
+    }
+    .timeline-circle.accent .timeline-circle__num { color: var(--white); }
+    .timeline-line {
+      width: 1px;
+      flex: 1;
+      background: rgba(11,31,58,0.1);
+      margin-top: 4px;
+    }
+    .timeline-content { padding-top: 6px; }
+    .timeline-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .timeline-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(11,31,58,0.55);
+      line-height: 1.6;
+    }
+
+    /* ─── SURGEONS ─── */
+    #surgeons {
+      background: #FFFFFF;
+      padding: var(--section-py) 0;
+    }
+    #surgeons .section-label__text { color: rgba(11,31,58,0.4); }
+    .surgeons-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+    }
+    #surgeons h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--navy);
+    }
+    #surgeons .lead {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(11,31,58,0.65);
+    }
+    .surgeon-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .surgeon-card {
+      background: rgba(11,31,58,0.03);
+      border: 1px solid rgba(11,31,58,0.1);
+      border-radius: 10px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .surgeon-card:hover {
+      background: rgba(11,31,58,0.05);
+      border-color: rgba(181,36,48,0.2);
+    }
+    .surgeon-card__icon {
+      font-size: 20px;
+      color: var(--crimson);
+    }
+    .surgeon-card__title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .surgeon-card__desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: rgba(11,31,58,0.6);
+      line-height: 1.6;
+    }
+    .surgeon-card__cta {
+      font-weight: 500;
+      font-size: 12px;
+      color: var(--crimson);
+      margin-top: auto;
+    }
+
+    /* ─── CENTER ─── */
+    #center {
+      background: var(--navy);
+      padding: var(--section-py) 0;
+    }
+    .center-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    #center h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+    .center-photo-placeholder {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      height: 240px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 28px;
+    }
+    .placeholder-label {
+      text-align: center;
+    }
+    .placeholder-label__main {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .placeholder-label__sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(255,255,255,0.15);
+      margin-top: 4px;
+    }
+    .bio-list { display: flex; flex-direction: column; gap: 10px; }
+    .bio-item { display: flex; gap: 10px; align-items: flex-start; }
+    .bio-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+    }
+    .center-right { display: flex; flex-direction: column; gap: 32px; }
+    .center-block__title {
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .hospital-placeholder {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px;
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .hospital-placeholder span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-style: italic;
+      color: rgba(255,255,255,0.2);
+    }
+    .center-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+    }
+    .country-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .country-tag {
+      background: rgba(181,36,48,0.1);
+      border: 1px solid rgba(181,36,48,0.2);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-weight: 500;
+      font-size: 11px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: #FFFFFF;
+      padding: var(--section-py) 0;
+    }
+    #contact .section-label__text { color: rgba(11,31,58,0.4); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 80px;
+    }
+    #contact h2 {
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      color: var(--navy);
+    }
+    #contact .lead {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(11,31,58,0.65);
+      margin-bottom: 32px;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 16px; }
+    .contact-info-item__label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--crimson);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .contact-info-item__val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: rgba(11,31,58,0.7);
+    }
+    .contact-form-wrap {
+      background: rgba(11,31,58,0.03);
+      border: 1px solid rgba(11,31,58,0.1);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .form-title {
+      font-weight: 600;
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .form-fields { display: flex; flex-direction: column; gap: 16px; }
+    .form-field__label {
+      font-weight: 500;
+      font-size: 11px;
+      color: rgba(11,31,58,0.5);
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid rgba(11,31,58,0.12);
+      border-radius: 6px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--navy);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-field input,
+    .form-field select {
+      height: 40px;
+      padding: 0 14px;
+    }
+    .form-field select { appearance: none; cursor: pointer; }
+    .form-field textarea {
+      height: 100px;
+      padding: 12px 14px;
+      resize: vertical;
+    }
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: var(--crimson);
+    }
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: rgba(11,31,58,0.3);
+    }
+    .form-submit {
+      width: 100%;
+      background: var(--crimson);
+      color: var(--white);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      padding: 13px 0;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+      border: none;
+    }
+    .form-submit:hover { background: var(--crimson2); }
+    .form-note {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(11,31,58,0.35);
+      text-align: center;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy3);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 40px var(--pad-x);
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-logo__name {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
+    .footer-logo__sub {
+      font-weight: 400;
+      font-size: 8px;
+      color: var(--crimson);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-link {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: rgba(255,255,255,0.65); }
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in { opacity: 0; }
+    .fade-in.visible { animation: fadeInUp 0.6s ease forwards; }
+    .fade-in:nth-child(2) { animation-delay: 0.1s; }
+    .fade-in:nth-child(3) { animation-delay: 0.2s; }
+    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">
+    <svg viewBox="0 0 68 80" width="29" height="34" fill="none">
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#B52430" opacity="0.22"/>
+      <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+      <circle cx="58" cy="60" r="9.5" fill="#B52430"/>
+      <circle cx="58" cy="60" r="3.5" fill="#0B1F3A"/>
+      <path d="M 58 60 C 46 54 26 46 8 50" stroke="#B52430" stroke-width="5.5" stroke-linecap="round"/>
+      <circle cx="8" cy="50" r="5" fill="#B52430"/>
+      <circle cx="30" cy="7" r="3" fill="#B52430" opacity="0.28"/>
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60" stroke="#B52430" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+    </svg>
+    <div class="nav-logo__wordmark">
+      <div class="nav-logo__name">LUGONES</div>
+      <div class="nav-logo__sub">PROCEDURE</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="#syndrome"  class="nav-link" data-section="syndrome">The Syndrome</a>
+    <a href="#procedure" class="nav-link" data-section="procedure">The Procedure</a>
+    <a href="#results"   class="nav-link" data-section="results">Results</a>
+    <a href="#patients"  class="nav-link" data-section="patients">For Patients</a>
+    <a href="#surgeons"  class="nav-link" data-section="surgeons">For Surgeons</a>
+    <a href="#center"    class="nav-link" data-section="center">The Center</a>
+    <a href="#contact" class="nav-cta">Schedule a Consultation</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section id="hero" class="section">
+  <!-- Background scimitar shape -->
+  <div class="hero-bg-shape">
+    <svg viewBox="0 0 400 480" width="480" height="480" fill="none">
+      <path d="M 160 40 C 280 30 400 120 385 300 C 378 330 365 348 345 360 C 325 372 305 365 295 348 C 285 330 310 300 310 265 C 310 168 226 84 190 65 C 178 60 165 50 160 40 Z" fill="#FFFFFF"/>
+      <path d="M 190 65 C 266 96 325 180 325 275" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" opacity="0.6"/>
+      <circle cx="345" cy="360" r="57" fill="#FFFFFF"/>
+      <circle cx="345" cy="360" r="21" fill="#0B1F3A"/>
+      <path d="M 345 360 C 273 324 156 276 48 300" stroke="#FFFFFF" stroke-width="33" stroke-linecap="round"/>
+      <circle cx="48" cy="300" r="30" fill="#FFFFFF"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="section-label">
+        <div class="section-label__num">01</div>
+        <div class="section-label__line"></div>
+        <div class="section-label__text">International Reference Center · Buenos Aires</div>
+      </div>
+      <h1>
+        The World's Reference<br/>
+        <span>for Scimitar Syndrome</span><br/>
+        Repair
+      </h1>
+      <p class="hero-desc">
+        Dr. Ignacio Lugones invented a pericardial tunnel technique that achieves tension-free repair with zero reoperations — now adopted in 11 institutions across 3 continents.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Schedule a Consultation →</a>
+        <a href="#procedure" class="btn-secondary">Learn the Procedure</a>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-card__row">
+            <div class="stat-card__number">38</div>
+          </div>
+          <div class="stat-card__label">patients operated across 11 institutions</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__row">
+            <div class="stat-card__number">0</div>
+          </div>
+          <div class="stat-card__label">deaths or reoperations at mid-term follow-up</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__row">
+            <div class="stat-card__number">13.5</div>
+            <div class="stat-card__unit">y</div>
+          </div>
+          <div class="stat-card__label">maximum follow-up with no obstruction</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__row">
+            <div class="stat-card__number">11</div>
+          </div>
+          <div class="stat-card__label">international centers have adopted the technique</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE SYNDROME ─── -->
+<section id="syndrome" class="section">
+  <div class="container">
+    <div class="section-label section-label--light">
+      <div class="section-label__num">02</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">The Syndrome</div>
+    </div>
+    <div class="syndrome-grid">
+      <div>
+        <h2>What is Scimitar<br/>Syndrome?</h2>
+        <div class="toggle-bar">
+          <button class="toggle-btn active" data-view="patient" onclick="switchView('patient')">For Patients</button>
+          <button class="toggle-btn" data-view="surgeon" onclick="switchView('surgeon')">For Surgeons</button>
+        </div>
+
+        <!-- Patient view -->
+        <div class="syndrome-text visible" id="view-patient">
+          <p>Scimitar syndrome is a rare heart defect present from birth. In a healthy heart, blood from the lungs flows directly into the left side of the heart. In scimitar syndrome, a vein from the right lung takes a wrong path — draining into the wrong chamber and creating an extra workload on the heart.</p>
+          <p>The name comes from the curved shape this misrouted vein makes on a chest X-ray — resembling a scimitar, a type of curved sword.</p>
+          <div class="good-news">
+            <p><strong>The good news:</strong> When repaired with the Lugones procedure, patients achieve excellent outcomes with no reoperations needed.</p>
+          </div>
+        </div>
+
+        <!-- Surgeon view -->
+        <div class="syndrome-text" id="view-surgeon">
+          <p>Scimitar syndrome is characterized by partial anomalous pulmonary venous return from the right lung, most commonly draining into the inferior vena cava. It is frequently associated with right lung hypoplasia, dextroposition of the heart, anomalous systemic arterial supply, and atrial septal defect.</p>
+          <p>Conventional repair — intracardiac baffling or reimplantation — carries high rates of pulmonary venous obstruction (46% and 63% respectively in large series). The Lugones procedure circumvents this through an autologous pericardial tunnel, achieving wide-lumen, tension-free redirection.</p>
+        </div>
+      </div>
+
+      <div>
+        <!-- Anatomical diagram placeholder -->
+        <div class="syndrome-diagram">
+          <svg viewBox="0 0 68 80" width="60" height="60" fill="none" opacity="0.35">
+            <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#0B1F3A"/>
+            <circle cx="58" cy="60" r="9.5" fill="#0B1F3A"/>
+            <path d="M 58 60 C 46 54 26 46 8 50" stroke="#0B1F3A" stroke-width="5.5" stroke-linecap="round"/>
+            <circle cx="8" cy="50" r="5" fill="#0B1F3A"/>
+          </svg>
+          <div class="syndrome-diagram__label">Anatomical diagram</div>
+          <div class="syndrome-diagram__note">Asset to be provided by Dr. Lugones</div>
+        </div>
+        <!-- Why classical fails -->
+        <div class="why-classical">
+          <div class="why-classical__title">Why classical techniques fail</div>
+          <div class="bullet-list">
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Intracardiac baffling: 46% obstruction rate</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Reimplantation: 63% obstruction rate</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Tension on the vein causes scarring and closure</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Long tunnel distance leads to kinking</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE PROCEDURE ─── -->
+<section id="procedure" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label__num">03</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">The Procedure</div>
+    </div>
+    <div class="procedure-grid">
+      <div>
+        <h2>The Pericardial<br/><span>Tunnel Technique</span></h2>
+        <p>Instead of constructing a synthetic tube or creating an internal baffle, the Lugones procedure uses the pericardium — the natural sac surrounding the heart — as a ready-made biological tunnel.</p>
+        <p>The scimitar vein is sutured to the pericardium, which guides blood tension-free into the left atrium. The body's own tissue provides a wide, living conduit that grows with the patient and never scars shut.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <div>
+            <div class="step__title">Identify the anomalous vein</div>
+            <div class="step__desc">The scimitar vein is identified as it descends toward the inferior vena cava.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <div>
+            <div class="step__title">Open the pericardium</div>
+            <div class="step__desc">The pericardial sac is opened to create a natural tunnel pathway.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <div>
+            <div class="step__title">Suture vein to pericardium</div>
+            <div class="step__desc">The vein is sutured to the pericardial wall — no synthetic graft needed.</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__num">04</div>
+          <div>
+            <div class="step__title">Close and redirect</div>
+            <div class="step__desc">Blood now flows tension-free through the pericardial tunnel into the left atrium.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Variants -->
+    <div class="variants-section">
+      <div class="variants-caption">Three surgical variants — adaptable to any anatomy</div>
+      <div class="variants-toggle">
+        <button class="variant-btn active" onclick="switchVariant(0)" data-variant="0">Original</button>
+        <button class="variant-btn" onclick="switchVariant(1)" data-variant="1">Variant A</button>
+        <button class="variant-btn" onclick="switchVariant(2)" data-variant="2">Variant B</button>
+      </div>
+      <div class="variant-display">
+        <div class="variant-video">
+          <video id="variant-video" autoplay loop muted playsinline controls src="claude design/assets/variant-original.mp4"></video>
+        </div>
+        <div class="variant-info">
+          <div class="variant-info__tag">Surgical animation</div>
+          <div class="variant-info__title" id="variant-title">Original</div>
+          <div class="variant-info__desc" id="variant-desc">The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RESULTS ─── -->
+<section id="results" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label__num">04</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">Clinical Results</div>
+    </div>
+    <div class="results-grid">
+      <div>
+        <h2>Excellent mid-term<br/>outcomes across<br/>11 institutions</h2>
+        <p class="lead">A multicenter retrospective study across Argentina, Spain, Italy, France, India, UK, Mexico, and USA validated the durability of the Lugones procedure over a follow-up period of up to 13.5 years.</p>
+        <p class="results-quote">"CT scans consistently demonstrated wide reconstructed pathways; 4D-flow MRI showed physiological pulmonary venous flow patterns after repair."</p>
+        <div class="results-citation">— Lugones et al., JTCVS 2025</div>
+      </div>
+      <div class="results-stats">
+        <div class="results-stat">
+          <div class="results-stat__num">38</div>
+          <div class="results-stat__label">Patients operated</div>
+        </div>
+        <div class="results-stat">
+          <div class="results-stat__num">0%</div>
+          <div class="results-stat__label">In-hospital mortality</div>
+        </div>
+        <div class="results-stat">
+          <div class="results-stat__num">0</div>
+          <div class="results-stat__label">Late deaths or reoperations</div>
+        </div>
+        <div class="results-stat">
+          <div class="results-stat__num">74<span style="font-size:20px;font-weight:500;">mo</span></div>
+          <div class="results-stat__label">Mean follow-up (months)</div>
+        </div>
+        <div class="results-stat">
+          <div class="results-stat__num">11</div>
+          <div class="results-stat__label">International institutions</div>
+        </div>
+        <div class="results-stat">
+          <div class="results-stat__num">3</div>
+          <div class="results-stat__label">Surgical variants available</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOR PATIENTS ─── -->
+<section id="patients" class="section">
+  <div class="container">
+    <div class="section-label section-label--light">
+      <div class="section-label__num">05</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">For Patients</div>
+    </div>
+    <div class="patients-grid">
+      <div>
+        <h2>Your path to<br/><span>a full recovery</span></h2>
+        <p class="lead">Whether you are an infant, a child, or an adult who has recently received a diagnosis, Dr. Lugones and his team are here to guide you from first consultation to full recovery.</p>
+        <a href="#contact" class="btn-primary">Book a Video Consultation →</a>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-circle accent"><div class="timeline-circle__num">01</div></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">First consultation</div>
+            <div class="timeline-desc">Video call with Dr. Lugones to review your imaging and discuss your case. International patients welcome.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-circle"><div class="timeline-circle__num">02</div></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Pre-operative evaluation</div>
+            <div class="timeline-desc">Complete cardiac imaging (echo, CT, MRI) to define anatomy and choose the right surgical variant.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-circle"><div class="timeline-circle__num">03</div></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Surgery at Hospital Austral</div>
+            <div class="timeline-desc">The Lugones procedure is performed in Pilar, Buenos Aires, at a world-class cardiac surgery facility.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-left">
+            <div class="timeline-circle"><div class="timeline-circle__num">04</div></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-title">Recovery &amp; follow-up</div>
+            <div class="timeline-desc">Serial echocardiography and imaging over 12 months. Most patients have no restrictions by 6 months.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOR SURGEONS ─── -->
+<section id="surgeons" class="section">
+  <div class="container">
+    <div class="section-label section-label--light">
+      <div class="section-label__num">06</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">For Surgeons</div>
+    </div>
+    <div class="surgeons-grid">
+      <div>
+        <h2>Learn, refer,<br/>collaborate</h2>
+        <p class="lead">The Lugones procedure is reproducible and teachable. Dr. Lugones actively collaborates with centers worldwide and welcomes surgical observers, referrals, and second opinions.</p>
+      </div>
+      <div class="surgeon-cards">
+        <a href="publications.html" class="surgeon-card">
+          <div class="surgeon-card__icon">◈</div>
+          <div>
+            <div class="surgeon-card__title">Publications</div>
+            <div class="surgeon-card__desc">Access the multicenter study, preprints, and institutional papers validating the procedure.</div>
+          </div>
+          <div class="surgeon-card__cta">View publications →</div>
+        </a>
+        <a href="videos.html" class="surgeon-card">
+          <div class="surgeon-card__icon">▷</div>
+          <div>
+            <div class="surgeon-card__title">Surgical Videos</div>
+            <div class="surgeon-card__desc">Schematic and real intraoperative videos of the original procedure and its three variants.</div>
+          </div>
+          <div class="surgeon-card__cta">View videos →</div>
+        </a>
+        <a href="#contact" class="surgeon-card">
+          <div class="surgeon-card__icon">⊕</div>
+          <div>
+            <div class="surgeon-card__title">Training &amp; Observership</div>
+            <div class="surgeon-card__desc">Join the surgical team in Buenos Aires. Short-term fellowships and observerships available.</div>
+          </div>
+          <div class="surgeon-card__cta">Apply →</div>
+        </a>
+        <a href="#contact" class="surgeon-card">
+          <div class="surgeon-card__icon">⟶</div>
+          <div>
+            <div class="surgeon-card__title">Refer a Patient</div>
+            <div class="surgeon-card__desc">Submit a complex case directly to Dr. Lugones for a second opinion or referral coordination.</div>
+          </div>
+          <div class="surgeon-card__cta">Submit a case →</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── THE CENTER ─── -->
+<section id="center" class="section">
+  <div class="container">
+    <div class="section-label">
+      <div class="section-label__num">07</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">The Center</div>
+    </div>
+    <div class="center-grid">
+      <div>
+        <h2>Dr. Ignacio<br/>Lugones</h2>
+        <div class="center-photo-placeholder">
+          <div class="placeholder-label">
+            <div class="placeholder-label__main">Portrait photo</div>
+            <div class="placeholder-label__sub">To be provided</div>
+          </div>
+        </div>
+        <div class="bio-list">
+          <div class="bio-item">
+            <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
+            <div class="bio-text">Pediatric cardiovascular surgeon, MD PhD</div>
+          </div>
+          <div class="bio-item">
+            <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
+            <div class="bio-text">Hospital General de Niños "Dr. Pedro de Elizalde", Buenos Aires</div>
+          </div>
+          <div class="bio-item">
+            <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
+            <div class="bio-text">Hospital Universitario Austral, Pilar</div>
+          </div>
+          <div class="bio-item">
+            <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
+            <div class="bio-text">Long Island University, Brooklyn, NY</div>
+          </div>
+          <div class="bio-item">
+            <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
+            <div class="bio-text">Inventor of the pericardial tunnel technique (2012)</div>
+          </div>
+        </div>
+      </div>
+      <div class="center-right">
+        <div>
+          <div class="center-block__title">Hospital Universitario Austral</div>
+          <div class="hospital-placeholder">
+            <span>Hospital imagery — to be provided</span>
+          </div>
+          <p class="center-desc">Located in Pilar, Buenos Aires, Hospital Austral is one of Argentina's leading academic medical centers and the primary site for the Lugones procedure. Internationally recognized and JCI-accredited.</p>
+        </div>
+        <div>
+          <div class="center-block__title">International Network</div>
+          <div class="country-tags">
+            <div class="country-tag">Argentina</div>
+            <div class="country-tag">Spain</div>
+            <div class="country-tag">UK</div>
+            <div class="country-tag">France</div>
+            <div class="country-tag">Italy</div>
+            <div class="country-tag">India</div>
+            <div class="country-tag">Mexico</div>
+            <div class="country-tag">USA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT ─── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-label section-label--light">
+      <div class="section-label__num">08</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">Schedule a Consultation</div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <h2>Get in touch<br/>with Dr. Lugones</h2>
+        <p class="lead">Whether you are a patient seeking surgery, a family looking for answers, or a surgeon interested in collaboration — Dr. Lugones welcomes your inquiry.</p>
+        <div class="contact-info">
+          <div class="contact-info-item">
+            <div class="contact-info-item__label">Email</div>
+            <div class="contact-info-item__val">cardiocongenitas@gmail.com</div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-item__label">Location</div>
+            <div class="contact-info-item__val">Hospital Austral, Pilar, Buenos Aires</div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-item__label">Video consultation</div>
+            <div class="contact-info-item__val">Available for international patients</div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <div class="form-title">Send a message</div>
+        <form class="form-fields" onsubmit="handleSubmit(event)">
+          <div class="form-field">
+            <div class="form-field__label">Your name</div>
+            <input type="text" placeholder="Full name" required/>
+          </div>
+          <div class="form-field">
+            <div class="form-field__label">Email address</div>
+            <input type="email" placeholder="your@email.com" required/>
+          </div>
+          <div class="form-field">
+            <div class="form-field__label">I am a…</div>
+            <select required>
+              <option value="" disabled selected>Select one</option>
+              <option value="patient">Patient</option>
+              <option value="family">Family member of a patient</option>
+              <option value="surgeon">Cardiac surgeon</option>
+              <option value="cardiologist">Cardiologist / Pediatric cardiologist</option>
+              <option value="other">Other healthcare professional</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <div class="form-field__label">Message</div>
+            <textarea placeholder="Describe your case or inquiry…"></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <div class="form-note">Calendly integration available for scheduling video calls</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg viewBox="0 0 68 80" width="24" height="28" fill="none">
+        <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#B52430" opacity="0.22"/>
+        <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <circle cx="58" cy="60" r="9.5" fill="#B52430"/>
+        <circle cx="58" cy="60" r="3.5" fill="#070F1D"/>
+        <path d="M 58 60 C 46 54 26 46 8 50" stroke="#B52430" stroke-width="5.5" stroke-linecap="round"/>
+        <circle cx="8" cy="50" r="5" fill="#B52430"/>
+        <circle cx="30" cy="7" r="3" fill="#B52430" opacity="0.28"/>
+        <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60" stroke="#B52430" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+      </svg>
+      <div>
+        <div class="footer-logo__name">LUGONES</div>
+        <div class="footer-logo__sub">PROCEDURE</div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 Dr. Ignacio Lugones · Hospital Universitario Austral, Buenos Aires</div>
+    <div class="footer-links">
+      <a href="#patients"  class="footer-link">For Patients</a>
+      <a href="#surgeons"  class="footer-link">For Surgeons</a>
+      <a href="#procedure" class="footer-link">Publications</a>
+      <a href="#contact"   class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ─── NAV SCROLL STATE ─── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  /* ─── ACTIVE SECTION TRACKING ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link[data-section]');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === id));
+      }
+    });
+  }, { threshold: 0.35 });
+
+  sections.forEach(s => observer.observe(s));
+
+  /* ─── SYNDROME TOGGLE ─── */
+  function switchView(view) {
+    document.querySelectorAll('.toggle-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.view === view);
+    });
+    document.getElementById('view-patient').classList.toggle('visible', view === 'patient');
+    document.getElementById('view-surgeon').classList.toggle('visible', view === 'surgeon');
+  }
+
+  /* ─── PROCEDURE VARIANTS ─── */
+  const variants = [
+    {
+      label: 'Original',
+      src: 'claude design/assets/variant-original.mp4',
+      desc: 'The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.',
+    },
+    {
+      label: 'Variant A',
+      src: 'claude design/assets/variant-a.mp4',
+      desc: 'Atrial septum repositioning for cases where the left atrium is small or the scimitar vein inserts high. The septum is moved to enlarge the left atrial volume.',
+    },
+    {
+      label: 'Variant B',
+      src: 'claude design/assets/variant-b.mp4',
+      desc: 'An interatrial pericardial flap is used to bridge the connection when standard tunneling is insufficient due to anatomical constraints.',
+    },
+  ];
+
+  function switchVariant(i) {
+    document.querySelectorAll('.variant-btn').forEach((b, idx) => {
+      b.classList.toggle('active', idx === i);
+    });
+    const video = document.getElementById('variant-video');
+    video.src = variants[i].src;
+    video.play();
+    document.getElementById('variant-title').textContent = variants[i].label;
+    document.getElementById('variant-desc').textContent = variants[i].desc;
+  }
+
+  /* ─── CONTACT FORM ─── */
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-submit');
+    btn.textContent = 'Message sent ✓';
+    btn.style.background = '#2a7a4b';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3000);
+  }
+
+  /* ─── SCROLL FADE-IN ─── */
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        fadeObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  fadeEls.forEach(el => fadeObserver.observe(el));
+</script>
+</body>
+</html>

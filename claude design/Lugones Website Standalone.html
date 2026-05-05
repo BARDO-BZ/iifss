@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Lugones Procedure for Scimitar Syndrome</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <meta name="ext-resource-dependency" content="assets/variant-original.mp4" data-resource-id="videoOriginal"/>
+  <meta name="ext-resource-dependency" content="assets/variant-a.mp4" data-resource-id="videoA"/>
+  <meta name="ext-resource-dependency" content="assets/variant-b.mp4" data-resource-id="videoB"/>
+  <template id="__bundler_thumbnail" data-bg-color="#0B1F3A">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1200" height="800" fill="#0B1F3A"/>
+      <g transform="translate(480,240)">
+        <path d="M 90 21 C 138 15 198 60 192 150 C 189 165 183 174 174 180 C 165 186 156 183 150 174 C 144 165 156 150 156 132 C 156 84 114 42 96 33 C 90 30 84 24 90 21 Z" fill="#B52430" opacity="0.22"/>
+        <circle cx="174" cy="180" r="28" fill="#B52430"/>
+        <circle cx="174" cy="180" r="10" fill="#0B1F3A"/>
+        <path d="M 174 180 C 138 162 78 138 24 150" stroke="#B52430" stroke-width="16" stroke-linecap="round" fill="none"/>
+        <circle cx="24" cy="150" r="15" fill="#B52430"/>
+      </g>
+      <text x="600" y="560" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-size="48" font-weight="700" letter-spacing="-1">LUGONES</text>
+      <text x="600" y="600" text-anchor="middle" fill="#B52430" font-family="sans-serif" font-size="18" letter-spacing="6">PROCEDURE</text>
+    </svg>
+  </template>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0B1F3A; font-family: 'Space Grotesk', sans-serif; color: #fff; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0B1F3A; }
+    ::-webkit-scrollbar-thumb { background: #B52430; border-radius: 3px; }
+    ::selection { background: rgba(181,36,48,0.3); }
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+/* ─── TOKENS ─── */
+const NAVY    = '#0B1F3A';
+const NAVY2   = '#0F2745';
+const CRIMSON = '#B52430';
+const CRIMSON2= '#8B1C28';
+const GOLD    = '#C8933F';
+const WHITE   = '#FFFFFF';
+const OFFWHITE= '#F5F0EB';
+
+/* ─── LOGO ICON ─── */
+const LogoIcon = ({ size = 36, onLight = false }) => {
+  const acc = onLight ? NAVY : CRIMSON;
+  const bg  = onLight ? WHITE : NAVY;
+  return (
+    <svg viewBox="0 0 68 80" width={size * 68/80} height={size} fill="none">
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill={acc} opacity="0.22"/>
+      <path d="M 32 11 C 44 16 54 30 54 46" stroke={acc} strokeWidth="1.5" strokeLinecap="round" opacity="0.35"/>
+      <circle cx="58" cy="60" r="9.5" fill={acc}/>
+      <circle cx="58" cy="60" r="3.5" fill={bg}/>
+      <path d="M 58 60 C 46 54 26 46 8 50" stroke={acc} strokeWidth="5.5" strokeLinecap="round"/>
+      <circle cx="8" cy="50" r="5" fill={acc}/>
+      <circle cx="30" cy="7" r="3" fill={acc} opacity="0.28"/>
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60" stroke={acc} strokeWidth="2.5" strokeLinecap="round" opacity="0.18"/>
+    </svg>
+  );
+};
+
+/* ─── NAV ─── */
+const NAV_LINKS = [
+  { label: 'The Syndrome', href: '#syndrome' },
+  { label: 'The Procedure', href: '#procedure' },
+  { label: 'Results', href: '#results' },
+  { label: 'For Patients', href: '#patients' },
+  { label: 'For Surgeons', href: '#surgeons' },
+  { label: 'The Center', href: '#center' },
+];
+
+const Nav = ({ active }) => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener('scroll', fn);
+    return () => window.removeEventListener('scroll', fn);
+  }, []);
+
+  return (
+    <nav style={{
+      position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
+      background: scrolled ? 'rgba(11,31,58,0.97)' : 'transparent',
+      borderBottom: scrolled ? '1px solid rgba(255,255,255,0.07)' : 'none',
+      backdropFilter: scrolled ? 'blur(12px)' : 'none',
+      transition: 'all 0.3s ease',
+      padding: '0 48px',
+      display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      height: 68,
+    }}>
+      {/* Logo */}
+      <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+        <LogoIcon size={34} />
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 15, color: WHITE, letterSpacing: '-0.01em', lineHeight: 1 }}>LUGONES</div>
+          <div style={{ fontWeight: 400, fontSize: 8, color: CRIMSON, letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: 2 }}>PROCEDURE</div>
+        </div>
+      </a>
+      {/* Links */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
+        {NAV_LINKS.map(l => (
+          <a key={l.href} href={l.href} style={{
+            fontWeight: 400, fontSize: 13, letterSpacing: '0.01em',
+            color: active === l.href.slice(1) ? WHITE : 'rgba(255,255,255,0.5)',
+            textDecoration: 'none', transition: 'color 0.2s',
+            borderBottom: active === l.href.slice(1) ? `1px solid ${CRIMSON}` : '1px solid transparent',
+            paddingBottom: 2,
+          }}>{l.label}</a>
+        ))}
+        <a href="#contact" style={{
+          background: CRIMSON, color: WHITE, fontWeight: 600, fontSize: 12,
+          letterSpacing: '0.04em', padding: '9px 20px', borderRadius: 4,
+          textDecoration: 'none', whiteSpace: 'nowrap',
+        }}>Schedule a Consultation</a>
+      </div>
+    </nav>
+  );
+};
+
+/* ─── SECTION WRAPPER ─── */
+const Section = ({ id, bg = NAVY, children, style = {} }) => (
+  <section id={id} data-screen-label={id} style={{ background: bg, ...style }}>{children}</section>
+);
+
+const Container = ({ children, style = {} }) => (
+  <div style={{ maxWidth: 1160, margin: '0 auto', padding: '0 48px', ...style }}>{children}</div>
+);
+
+/* ─── SECTION LABEL ─── */
+const SectionLabel = ({ n, text, light = false }) => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 20 }}>
+    <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 11, color: CRIMSON, letterSpacing: '0.03em' }}>{String(n).padStart(2, '0')}</div>
+    <div style={{ width: 32, height: 1, background: CRIMSON }}/>
+    <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 11, letterSpacing: '0.18em', textTransform: 'uppercase', color: light ? 'rgba(11,31,58,0.4)' : 'rgba(255,255,255,0.35)' }}>{text}</div>
+  </div>
+);
+
+/* ─── STAT CARD ─── */
+const StatCard = ({ number, unit = '', label, light = false }) => (
+  <div style={{
+    background: light ? 'rgba(11,31,58,0.06)' : 'rgba(255,255,255,0.05)',
+    border: `1px solid ${light ? 'rgba(11,31,58,0.1)' : 'rgba(255,255,255,0.08)'}`,
+    borderRadius: 10, padding: '24px 28px',
+  }}>
+    <div style={{ display: 'flex', alignItems: 'baseline', gap: 4 }}>
+      <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.03em', color: light ? NAVY : WHITE, lineHeight: 1 }}>{number}</div>
+      {unit && <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 16, color: CRIMSON }}>{unit}</div>}
+    </div>
+    <div style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 13, color: light ? 'rgba(11,31,58,0.5)' : 'rgba(255,255,255,0.45)', marginTop: 6, lineHeight: 1.4 }}>{label}</div>
+  </div>
+);
+
+/* ─── HERO ─── */
+const Hero = () => (
+  <Section id="hero" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', paddingTop: 68 }}>
+    {/* Background scimitar shape */}
+    <div style={{ position: 'absolute', right: -80, top: '50%', transform: 'translateY(-50%)', opacity: 0.04, pointerEvents: 'none' }}>
+      <svg viewBox="0 0 400 480" width={480} height={480} fill="none">
+        <path d="M 160 40 C 280 30 400 120 385 300 C 378 330 365 348 345 360 C 325 372 305 365 295 348 C 285 330 310 300 310 265 C 310 168 226 84 190 65 C 178 60 165 50 160 40 Z" fill={WHITE}/>
+        <path d="M 190 65 C 266 96 325 180 325 275" stroke={WHITE} strokeWidth="9" strokeLinecap="round" opacity="0.6"/>
+        <circle cx="345" cy="360" r="57" fill={WHITE}/>
+        <circle cx="345" cy="360" r="21" fill={NAVY}/>
+        <path d="M 345 360 C 273 324 156 276 48 300" stroke={WHITE} strokeWidth="33" strokeLinecap="round"/>
+        <circle cx="48" cy="300" r="30" fill={WHITE}/>
+      </svg>
+    </div>
+
+    <Container style={{ paddingTop: 80, paddingBottom: 100 }}>
+      <div style={{ maxWidth: 720 }}>
+        <SectionLabel n={1} text="International Reference Center · Buenos Aires" />
+        <h1 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 64, letterSpacing: '-0.03em', lineHeight: 1.04, marginBottom: 24, textWrap: 'balance' }}>
+          The World's Reference<br/>
+          <span style={{ color: CRIMSON }}>for Scimitar Syndrome</span><br/>
+          Repair
+        </h1>
+        <p style={{ fontFamily: "'DM Sans'", fontWeight: 300, fontSize: 18, lineHeight: 1.7, color: 'rgba(255,255,255,0.6)', marginBottom: 40, maxWidth: 560, textWrap: 'pretty' }}>
+          Dr. Ignacio Lugones invented a pericardial tunnel technique that achieves tension-free repair with zero reoperations — now adopted in 11 institutions across 3 continents.
+        </p>
+        <div style={{ display: 'flex', gap: 12, marginBottom: 72 }}>
+          <a href="#contact" style={{ background: CRIMSON, color: WHITE, fontWeight: 600, fontSize: 14, letterSpacing: '0.03em', padding: '14px 28px', borderRadius: 5, textDecoration: 'none' }}>
+            Schedule a Consultation →
+          </a>
+          <a href="#procedure" style={{ border: '1px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.8)', fontWeight: 400, fontSize: 14, padding: '14px 28px', borderRadius: 5, textDecoration: 'none' }}>
+            Learn the Procedure
+          </a>
+        </div>
+        {/* Stats row */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 12 }}>
+          <StatCard number="38" label="patients operated across 11 institutions" />
+          <StatCard number="0" label="deaths or reoperations at mid-term follow-up" />
+          <StatCard number="13.5" unit="y" label="maximum follow-up with no obstruction" />
+          <StatCard number="11" label="international centers have adopted the technique" />
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── THE SYNDROME ─── */
+const Syndrome = () => {
+  const [view, setView] = useState('patient');
+  return (
+    <Section id="syndrome" bg={'#FFFFFF'} style={{ padding: '120px 0' }}>
+      <Container>
+        <SectionLabel n={2} text="The Syndrome" light />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start' }}>
+          <div>
+            <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 24, color: NAVY }}>
+              What is Scimitar<br/>Syndrome?
+            </h2>
+            {/* Toggle */}
+            <div style={{ display: 'flex', gap: 0, marginBottom: 28, background: 'rgba(11,31,58,0.06)', borderRadius: 6, padding: 3, width: 'fit-content' }}>
+              {[{ k: 'patient', l: 'For Patients' }, { k: 'surgeon', l: 'For Surgeons' }].map(({ k, l }) => (
+                <button key={k} onClick={() => setView(k)} style={{
+                  background: view === k ? CRIMSON : 'transparent',
+                  border: 'none', color: view === k ? WHITE : 'rgba(11,31,58,0.55)',
+                  fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 12,
+                  letterSpacing: '0.04em', padding: '7px 18px', borderRadius: 4, cursor: 'pointer',
+                  transition: 'all 0.2s',
+                }}>{l}</button>
+              ))}
+            </div>
+
+            {view === 'patient' ? (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(11,31,58,0.7)', textWrap: 'pretty' }}>
+                  Scimitar syndrome is a rare heart defect present from birth. In a healthy heart, blood from the lungs flows directly into the left side of the heart. In scimitar syndrome, a vein from the right lung takes a wrong path — draining into the wrong chamber and creating an extra workload on the heart.
+                </p>
+                <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(11,31,58,0.7)', textWrap: 'pretty' }}>
+                  The name comes from the curved shape this misrouted vein makes on a chest X-ray — resembling a scimitar, a type of curved sword.
+                </p>
+                <div style={{ background: 'rgba(181,36,48,0.07)', border: '1px solid rgba(181,36,48,0.2)', borderRadius: 8, padding: '16px 20px' }}>
+                  <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 14, lineHeight: 1.65, color: 'rgba(11,31,58,0.75)' }}>
+                    <strong style={{ color: NAVY }}>The good news:</strong> When repaired with the Lugones procedure, patients achieve excellent outcomes with no reoperations needed.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 15, lineHeight: 1.75, color: 'rgba(11,31,58,0.7)', textWrap: 'pretty' }}>
+                  Scimitar syndrome is characterized by partial anomalous pulmonary venous return from the right lung, most commonly draining into the inferior vena cava. It is frequently associated with right lung hypoplasia, dextroposition of the heart, anomalous systemic arterial supply, and atrial septal defect.
+                </p>
+                <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 15, lineHeight: 1.75, color: 'rgba(11,31,58,0.7)', textWrap: 'pretty' }}>
+                  Conventional repair — intracardiac baffling or reimplantation — carries high rates of pulmonary venous obstruction (46% and 63% respectively in large series). The Lugones procedure circumvents this through an autologous pericardial tunnel, achieving wide-lumen, tension-free redirection.
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Diagram placeholder */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            <div style={{ background: 'rgba(11,31,58,0.03)', border: '1px solid rgba(11,31,58,0.1)', borderRadius: 12, aspectRatio: '4/3', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12 }}>
+              <svg viewBox="0 0 68 80" width={60} height={60} fill="none" opacity={0.35}>
+                <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill={NAVY}/>
+                <circle cx="58" cy="60" r="9.5" fill={NAVY}/>
+                <path d="M 58 60 C 46 54 26 46 8 50" stroke={NAVY} strokeWidth="5.5" strokeLinecap="round"/>
+                <circle cx="8" cy="50" r="5" fill={NAVY}/>
+              </svg>
+              <div style={{ fontFamily: "'Space Grotesk'", fontSize: 11, color: 'rgba(11,31,58,0.35)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Anatomical diagram</div>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: 11, fontStyle: 'italic', color: 'rgba(11,31,58,0.25)' }}>Asset to be provided by Dr. Lugones</div>
+            </div>
+            {/* Why classical fails */}
+            <div style={{ background: 'rgba(181,36,48,0.05)', border: '1px solid rgba(181,36,48,0.2)', borderRadius: 10, padding: '20px 24px' }}>
+              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 13, color: CRIMSON, marginBottom: 12, letterSpacing: '0.02em' }}>Why classical techniques fail</div>
+              {[
+                'Intracardiac baffling: 46% obstruction rate',
+                'Reimplantation: 63% obstruction rate',
+                'Tension on the vein causes scarring and closure',
+                'Long tunnel distance leads to kinking',
+              ].map((item, i) => (
+                <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: i < 3 ? 8 : 0 }}>
+                  <div style={{ width: 4, height: 4, borderRadius: '50%', background: CRIMSON, marginTop: 6, flexShrink: 0 }}/>
+                  <div style={{ fontFamily: "'DM Sans'", fontSize: 13, color: 'rgba(11,31,58,0.65)', lineHeight: 1.5 }}>{item}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+/* ─── THE PROCEDURE ─── */
+const Procedure = () => {
+  const [variant, setVariant] = useState(0);
+  const variants = [
+    { label: 'Original', desc: 'The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.', video: window.__resources.videoOriginal },
+    { label: 'Variant A', desc: 'Atrial septum repositioning for cases where the left atrium is small or the scimitar vein inserts high. The septum is moved to enlarge the left atrial volume.', video: window.__resources.videoA },
+    { label: 'Variant B', desc: 'An interatrial pericardial flap is used to bridge the connection when standard tunneling is insufficient due to anatomical constraints.', video: window.__resources.videoB },
+  ];
+  return (
+    <Section id="procedure" style={{ padding: '120px 0', background: NAVY }}>
+      <Container>
+        <SectionLabel n={3} text="The Procedure" />
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginBottom: 80 }}>
+          <div>
+            <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 24 }}>
+              The Pericardial<br/>
+              <span style={{ color: CRIMSON }}>Tunnel Technique</span>
+            </h2>
+            <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', marginBottom: 24, textWrap: 'pretty' }}>
+              Instead of constructing a synthetic tube or creating an internal baffle, the Lugones procedure uses the pericardium — the natural sac surrounding the heart — as a ready-made biological tunnel.
+            </p>
+            <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.6)', textWrap: 'pretty' }}>
+              The scimitar vein is sutured to the pericardium, which guides blood tension-free into the left atrium. The body's own tissue provides a wide, living conduit that grows with the patient and never scars shut.
+            </p>
+          </div>
+          {/* Step diagram */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              { n: '01', t: 'Identify the anomalous vein', d: 'The scimitar vein is identified as it descends toward the inferior vena cava.' },
+              { n: '02', t: 'Open the pericardium', d: 'The pericardial sac is opened to create a natural tunnel pathway.' },
+              { n: '03', t: 'Suture vein to pericardium', d: 'The vein is sutured to the pericardial wall — no synthetic graft needed.' },
+              { n: '04', t: 'Close and redirect', d: 'Blood now flows tension-free through the pericardial tunnel into the left atrium.' },
+            ].map(({ n, t, d }) => (
+              <div key={n} style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 13, color: CRIMSON, minWidth: 28, paddingTop: 1 }}>{n}</div>
+                <div>
+                  <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 14, color: WHITE, marginBottom: 3 }}>{t}</div>
+                  <div style={{ fontFamily: "'DM Sans'", fontSize: 13, color: 'rgba(255,255,255,0.5)', lineHeight: 1.55 }}>{d}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 3 Variants */}
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: 60 }}>
+          <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 11, color: 'rgba(255,255,255,0.3)', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 28 }}>
+            Three surgical variants — adaptable to any anatomy
+          </div>
+          <div style={{ display: 'flex', gap: 0, marginBottom: 32, background: 'rgba(255,255,255,0.05)', borderRadius: 8, padding: 4, width: 'fit-content' }}>
+            {variants.map(({ label }, i) => (
+              <button key={i} onClick={() => setVariant(i)} style={{
+                background: variant === i ? CRIMSON : 'transparent',
+                border: 'none', color: variant === i ? WHITE : 'rgba(255,255,255,0.5)',
+                fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 13,
+                padding: '9px 24px', borderRadius: 6, cursor: 'pointer', transition: 'all 0.2s',
+              }}>{label}</button>
+            ))}
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: '7fr 5fr', gap: 24, alignItems: 'start' }}>
+            {/* Video */}
+            <div style={{ background: '#000', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, overflow: 'hidden', aspectRatio: '16/10', position: 'relative' }}>
+              <video
+                key={variants[variant].video}
+                src={variants[variant].video}
+                autoPlay
+                loop
+                muted
+                playsInline
+                controls
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+              />
+            </div>
+            {/* Description */}
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, padding: '28px 32px' }}>
+              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 500, fontSize: 10, color: CRIMSON, letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 10 }}>Surgical animation</div>
+              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 18, color: WHITE, marginBottom: 12 }}>{variants[variant].label}</div>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7 }}>{variants[variant].desc}</div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  );
+};
+
+/* ─── RESULTS ─── */
+const Results = () => (
+  <Section id="results" bg={CRIMSON2} style={{ padding: '120px 0' }}>
+    <Container>
+      <SectionLabel n={4} text="Clinical Results" />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div>
+          <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 24 }}>
+            Excellent mid-term<br/>outcomes across<br/>11 institutions
+          </h2>
+          <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(255,255,255,0.7)', marginBottom: 28, textWrap: 'pretty' }}>
+            A multicenter retrospective study across Argentina, Spain, Italy, France, India, UK, Mexico, and USA validated the durability of the Lugones procedure over a follow-up period of up to 13.5 years.
+          </p>
+          <p style={{ fontFamily: "'Crimson Pro'", fontStyle: 'italic', fontSize: 18, color: 'rgba(255,255,255,0.6)', lineHeight: 1.55 }}>
+            "CT scans consistently demonstrated wide reconstructed pathways; 4D-flow MRI showed physiological pulmonary venous flow patterns after repair."
+          </p>
+          <div style={{ fontFamily: "'DM Sans'", fontSize: 12, color: 'rgba(255,255,255,0.35)', marginTop: 8, letterSpacing: '0.04em' }}>— Lugones et al., JTCVS 2025</div>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+          {[
+            { n: '38', label: 'Patients operated', unit: '' },
+            { n: '0%', label: 'In-hospital mortality', unit: '' },
+            { n: '0', label: 'Late deaths or reoperations', unit: '' },
+            { n: '74', label: 'Mean follow-up (months)', unit: 'mo' },
+            { n: '11', label: 'International institutions', unit: '' },
+            { n: '3', label: 'Surgical variants available', unit: '' },
+          ].map(({ n, label }) => (
+            <div key={label} style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 10, padding: '20px 22px' }}>
+              <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 36, letterSpacing: '-0.02em', color: WHITE, lineHeight: 1 }}>{n}</div>
+              <div style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 12, color: 'rgba(255,255,255,0.5)', marginTop: 6, lineHeight: 1.4 }}>{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── FOR PATIENTS ─── */
+const Patients = () => (
+  <Section id="patients" bg={OFFWHITE} style={{ padding: '120px 0' }}>
+    <Container>
+      <SectionLabel n={5} text="For Patients" light />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
+        <div>
+          <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, color: NAVY, marginBottom: 24 }}>
+            Your path to<br/>
+            <span style={{ color: CRIMSON }}>a full recovery</span>
+          </h2>
+          <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(11,31,58,0.6)', marginBottom: 32, textWrap: 'pretty' }}>
+            Whether you are an infant, a child, or an adult who has recently received a diagnosis, Dr. Lugones and his team are here to guide you from first consultation to full recovery.
+          </p>
+          <a href="#contact" style={{ display: 'inline-block', background: CRIMSON, color: WHITE, fontWeight: 600, fontSize: 14, letterSpacing: '0.03em', padding: '14px 28px', borderRadius: 5, textDecoration: 'none' }}>
+            Book a Video Consultation →
+          </a>
+        </div>
+        {/* Journey timeline */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
+          {[
+            { n: '01', t: 'First consultation', d: 'Video call with Dr. Lugones to review your imaging and discuss your case. International patients welcome.', accent: true },
+            { n: '02', t: 'Pre-operative evaluation', d: 'Complete cardiac imaging (echo, CT, MRI) to define anatomy and choose the right surgical variant.' },
+            { n: '03', t: 'Surgery at Hospital Austral', d: 'The Lugones procedure is performed in Pilar, Buenos Aires, at a world-class cardiac surgery facility.' },
+            { n: '04', t: 'Recovery & follow-up', d: 'Serial echocardiography and imaging over 12 months. Most patients have no restrictions by 6 months.' },
+          ].map(({ n, t, d, accent }, i) => (
+            <div key={n} style={{ display: 'flex', gap: 20, paddingBottom: 28, position: 'relative' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', flexShrink: 0 }}>
+                <div style={{ width: 36, height: 36, borderRadius: '50%', background: accent ? CRIMSON : 'rgba(11,31,58,0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 11, color: accent ? WHITE : 'rgba(11,31,58,0.4)', letterSpacing: '0.05em' }}>{n}</div>
+                </div>
+                {i < 3 && <div style={{ width: 1, flex: 1, background: 'rgba(11,31,58,0.1)', marginTop: 4 }}/>}
+              </div>
+              <div style={{ paddingTop: 6, paddingBottom: i < 3 ? 0 : 0 }}>
+                <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 15, color: NAVY, marginBottom: 4 }}>{t}</div>
+                <div style={{ fontFamily: "'DM Sans'", fontSize: 14, color: 'rgba(11,31,58,0.55)', lineHeight: 1.6 }}>{d}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── FOR SURGEONS ─── */
+const Surgeons = () => (
+  <Section id="surgeons" bg={'#FFFFFF'} style={{ padding: '120px 0' }}>
+    <Container>
+      <SectionLabel n={6} text="For Surgeons" light />
+      <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: 80 }}>
+        <div>
+          <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 24, color: NAVY }}>
+            Learn, refer,<br/>collaborate
+          </h2>
+          <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(11,31,58,0.65)', textWrap: 'pretty' }}>
+            The Lugones procedure is reproducible and teachable. Dr. Lugones actively collaborates with centers worldwide and welcomes surgical observers, referrals, and second opinions.
+          </p>
+        </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          {[
+            { icon: '◈', title: 'Publications', desc: 'Access the multicenter study, preprints, and institutional papers validating the procedure.', cta: 'View publications →' },
+            { icon: '▷', title: 'Surgical Videos', desc: 'Schematic and real intraoperative videos of the original procedure and its three variants.', cta: 'Request access →' },
+            { icon: '⊕', title: 'Training & Observership', desc: 'Join the surgical team in Buenos Aires. Short-term fellowships and observerships available.', cta: 'Apply →' },
+            { icon: '⟶', title: 'Refer a Patient', desc: 'Submit a complex case directly to Dr. Lugones for a second opinion or referral coordination.', cta: 'Submit a case →' },
+          ].map(({ icon, title, desc, cta }) => (
+            <div key={title} style={{ background: 'rgba(11,31,58,0.03)', border: '1px solid rgba(11,31,58,0.1)', borderRadius: 10, padding: '24px 24px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+              <div style={{ fontFamily: "'Space Grotesk'", fontSize: 20, color: CRIMSON }}>{icon}</div>
+              <div>
+                <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 15, color: NAVY, marginBottom: 6 }}>{title}</div>
+                <div style={{ fontFamily: "'DM Sans'", fontSize: 13, color: 'rgba(11,31,58,0.6)', lineHeight: 1.6 }}>{desc}</div>
+              </div>
+              <div style={{ fontFamily: "'Space Grotesk'", fontSize: 12, fontWeight: 500, color: CRIMSON, marginTop: 'auto' }}>{cta}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── THE CENTER ─── */
+const Center = () => (
+  <Section id="center" bg={NAVY} style={{ padding: '120px 0' }}>
+    <Container>
+      <SectionLabel n={7} text="The Center" />
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80 }}>
+        {/* Dr. Lugones */}
+        <div>
+          <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 32 }}>
+            Dr. Ignacio<br/>Lugones
+          </h2>
+          {/* Photo placeholder */}
+          <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, height: 240, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 28 }}>
+            <div style={{ textAlign: 'center' }}>
+              <div style={{ fontFamily: "'Space Grotesk'", fontSize: 11, color: 'rgba(255,255,255,0.2)', letterSpacing: '0.1em', textTransform: 'uppercase' }}>Portrait photo</div>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: 11, fontStyle: 'italic', color: 'rgba(255,255,255,0.15)', marginTop: 4 }}>To be provided</div>
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            {[
+              'Pediatric cardiovascular surgeon, MD PhD',
+              'Hospital General de Niños "Dr. Pedro de Elizalde", Buenos Aires',
+              'Hospital Universitario Austral, Pilar',
+              'Long Island University, Brooklyn, NY',
+              'Inventor of the pericardial tunnel technique (2012)',
+            ].map((item, i) => (
+              <div key={i} style={{ display: 'flex', gap: 10, alignItems: 'flex-start' }}>
+                <div style={{ width: 4, height: 4, borderRadius: '50%', background: CRIMSON, marginTop: 6, flexShrink: 0 }}/>
+                <div style={{ fontFamily: "'DM Sans'", fontSize: 14, color: 'rgba(255,255,255,0.6)' }}>{item}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 32 }}>
+          {/* Hospital Austral */}
+          <div>
+            <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 18, color: WHITE, marginBottom: 12 }}>Hospital Universitario Austral</div>
+            <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}>
+              <div style={{ fontFamily: "'DM Sans'", fontSize: 11, fontStyle: 'italic', color: 'rgba(255,255,255,0.2)' }}>Hospital imagery — to be provided</div>
+            </div>
+            <div style={{ fontFamily: "'DM Sans'", fontSize: 14, color: 'rgba(255,255,255,0.55)', lineHeight: 1.65 }}>
+              Located in Pilar, Buenos Aires, Hospital Austral is one of Argentina's leading academic medical centers and the primary site for the Lugones procedure. Internationally recognized and JCI-accredited.
+            </div>
+          </div>
+          {/* International network */}
+          <div>
+            <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 18, color: WHITE, marginBottom: 16 }}>International Network</div>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+              {['Argentina', 'Spain', 'UK', 'France', 'Italy', 'India', 'Mexico', 'USA'].map(c => (
+                <div key={c} style={{ background: 'rgba(181,36,48,0.1)', border: '1px solid rgba(181,36,48,0.2)', borderRadius: 4, padding: '5px 12px', fontFamily: "'Space Grotesk'", fontSize: 11, fontWeight: 500, color: 'rgba(255,255,255,0.6)', letterSpacing: '0.05em' }}>{c}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── CONTACT ─── */
+const Contact = () => (
+  <Section id="contact" bg={'#FFFFFF'} style={{ padding: '120px 0' }}>
+    <Container>
+      <SectionLabel n={8} text="Schedule a Consultation" light />
+      <div style={{ display: 'grid', gridTemplateColumns: '5fr 7fr', gap: 80 }}>
+        <div>
+          <h2 style={{ fontFamily: "'Space Grotesk'", fontWeight: 700, fontSize: 44, letterSpacing: '-0.02em', lineHeight: 1.1, marginBottom: 24, color: NAVY }}>
+            Get in touch<br/>with Dr. Lugones
+          </h2>
+          <p style={{ fontFamily: "'DM Sans'", fontWeight: 400, fontSize: 16, lineHeight: 1.75, color: 'rgba(11,31,58,0.65)', marginBottom: 32, textWrap: 'pretty' }}>
+            Whether you are a patient seeking surgery, a family looking for answers, or a surgeon interested in collaboration — Dr. Lugones welcomes your inquiry.
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              { label: 'Email', value: 'cardiocongenitas@gmail.com' },
+              { label: 'Location', value: 'Hospital Austral, Pilar, Buenos Aires' },
+              { label: 'Video consultation', value: 'Available for international patients' },
+            ].map(({ label, value }) => (
+              <div key={label}>
+                <div style={{ fontFamily: "'Space Grotesk'", fontSize: 10, fontWeight: 600, color: CRIMSON, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 3 }}>{label}</div>
+                <div style={{ fontFamily: "'DM Sans'", fontSize: 14, color: 'rgba(11,31,58,0.7)' }}>{value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Form / Calendly placeholder */}
+        <div style={{ background: 'rgba(11,31,58,0.03)', border: '1px solid rgba(11,31,58,0.1)', borderRadius: 12, padding: '40px 40px' }}>
+          <div style={{ fontFamily: "'Space Grotesk'", fontWeight: 600, fontSize: 16, color: NAVY, marginBottom: 24 }}>Send a message</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {[
+              { label: 'Your name', ph: 'Full name' },
+              { label: 'Email address', ph: 'your@email.com' },
+              { label: 'I am a…', ph: '' },
+            ].map(({ label, ph }) => (
+              <div key={label}>
+                <div style={{ fontFamily: "'Space Grotesk'", fontSize: 11, fontWeight: 500, color: 'rgba(11,31,58,0.5)', letterSpacing: '0.08em', marginBottom: 6 }}>{label}</div>
+                <div style={{ background: '#FFFFFF', border: '1px solid rgba(11,31,58,0.12)', borderRadius: 6, height: 40, display: 'flex', alignItems: 'center', padding: '0 14px' }}>
+                  <div style={{ fontFamily: "'DM Sans'", fontSize: 13, color: 'rgba(11,31,58,0.3)' }}>{ph}</div>
+                </div>
+              </div>
+            ))}
+            <div>
+              <div style={{ fontFamily: "'Space Grotesk'", fontSize: 11, fontWeight: 500, color: 'rgba(11,31,58,0.5)', letterSpacing: '0.08em', marginBottom: 6 }}>Message</div>
+              <div style={{ background: '#FFFFFF', border: '1px solid rgba(11,31,58,0.12)', borderRadius: 6, height: 100 }}/>
+            </div>
+            <div style={{ background: CRIMSON, color: WHITE, fontWeight: 600, fontSize: 14, letterSpacing: '0.03em', padding: '13px 0', borderRadius: 5, textAlign: 'center', cursor: 'pointer' }}>
+              Send Message
+            </div>
+            <div style={{ fontFamily: "'DM Sans'", fontSize: 12, color: 'rgba(11,31,58,0.35)', textAlign: 'center', fontStyle: 'italic' }}>
+              Calendly integration available for scheduling video calls
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </Section>
+);
+
+/* ─── FOOTER ─── */
+const Footer = () => (
+  <footer style={{ background: '#070F1D', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '40px 48px' }}>
+    <div style={{ maxWidth: 1160, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+        <LogoIcon size={28}/>
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 13, color: WHITE, letterSpacing: '-0.01em' }}>LUGONES</div>
+          <div style={{ fontWeight: 400, fontSize: 8, color: CRIMSON, letterSpacing: '0.2em', textTransform: 'uppercase', marginTop: 1 }}>PROCEDURE</div>
+        </div>
+      </div>
+      <div style={{ fontFamily: "'DM Sans'", fontSize: 12, color: 'rgba(255,255,255,0.25)' }}>
+        © 2025 Dr. Ignacio Lugones · Hospital Universitario Austral, Buenos Aires
+      </div>
+      <div style={{ display: 'flex', gap: 24 }}>
+        {['For Patients', 'For Surgeons', 'Publications', 'Contact'].map(l => (
+          <div key={l} style={{ fontFamily: "'Space Grotesk'", fontSize: 11, color: 'rgba(255,255,255,0.35)' }}>{l}</div>
+        ))}
+      </div>
+    </div>
+  </footer>
+);
+
+/* ─── APP ─── */
+const App = () => {
+  const [activeSection, setActiveSection] = useState('hero');
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
+      },
+      { threshold: 0.4 }
+    );
+    sections.forEach(s => observer.observe(s));
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div>
+      <Nav active={activeSection} />
+      <Hero />
+      <Syndrome />
+      <Procedure />
+      <Results />
+      <Patients />
+      <Surgeons />
+      <Center />
+      <Contact />
+      <Footer />
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

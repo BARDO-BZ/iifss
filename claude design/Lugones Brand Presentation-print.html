@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lugones Procedure — Brand Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <script src="deck-stage.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap');
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0a0a0a; font-family: 'Space Grotesk', sans-serif; }
+
+    :root {
+      --navy: #0B1F3A;
+      --navy-deep: #07172B;
+      --navy-2: #0F2745;
+      --crimson: #B52430;
+      --crimson-deep: #8B1C28;
+      --crimson-tint: #F5EDEF;
+      --offwhite: #F5F0EB;
+      --white: #FFFFFF;
+      --paper: #FAFAFA;
+    }
+
+    deck-stage section {
+      width: 1920px; height: 1080px;
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+
+    .grotesk { font-family: 'Space Grotesk', sans-serif; }
+    .dm { font-family: 'DM Sans', sans-serif; }
+    .crimson-pro { font-family: 'Crimson Pro', serif; }
+
+    .label {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 14px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+    }
+    .small-label {
+      font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 11px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+    }
+    .slide-meta {
+      position: absolute; bottom: 56px; left: 88px; right: 88px;
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: 'Space Grotesk'; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    }
+    .deck-pad { padding: 100px 120px; }
+    .h-divider { height: 1px; width: 80px; }
+  </style>
+</head>
+<body>
+<deck-stage>
+
+<!-- ============ SLIDE 01 — COVER ============ -->
+<section data-screen-label="01 Cover" style="background: var(--navy);">
+  <!-- Background scimitar shape -->
+  <svg viewBox="0 0 1920 1080" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.04;" preserveAspectRatio="xMidYMid slice">
+    <g transform="translate(1080,200)">
+      <path d="M 200 50 C 380 35 560 220 530 540 C 520 580 500 605 470 615 C 440 625 415 615 405 590 C 395 565 430 530 430 470 C 430 290 290 130 220 100 C 200 90 180 70 200 50 Z" fill="#FFFFFF"/>
+      <circle cx="470" cy="615" r="80" fill="#FFFFFF"/>
+      <circle cx="470" cy="615" r="30" fill="#0B1F3A"/>
+      <path d="M 470 615 C 360 565 165 490 30 530" stroke="#FFFFFF" stroke-width="46" stroke-linecap="round" fill="none"/>
+      <circle cx="30" cy="530" r="42" fill="#FFFFFF"/>
+    </g>
+  </svg>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; padding:88px 120px; position:relative;">
+    <!-- Top bar -->
+    <div style="display:flex; justify-content:space-between; align-items:center; color:rgba(255,255,255,0.5);">
+      <div class="small-label">Brand Identity Presentation · 2026</div>
+      <div class="small-label" style="color: var(--crimson);">Propuesta 02 — The Reroute</div>
+    </div>
+
+    <!-- Center title block -->
+    <div style="max-width: 1200px;">
+      <div style="font-family:'Space Grotesk'; font-size:18px; font-weight:500; letter-spacing:0.32em; text-transform:uppercase; color: var(--crimson); margin-bottom:48px;">
+        The Lugones Procedure
+      </div>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:170px; line-height:0.92; letter-spacing:-0.04em; color: var(--white); text-wrap: balance;">
+        Sistema de<br/>
+        <span style="color: var(--crimson);">Identidad Visual</span>
+      </div>
+      <div style="margin-top:56px; font-family:'DM Sans'; font-weight:300; font-size:24px; line-height:1.55; color: rgba(255,255,255,0.55); max-width:760px; text-wrap: pretty;">
+        Marca, paleta, tipografía y aplicaciones para la presentación oficial de la técnica del túnel pericárdico para Síndrome de la Cimitarra.
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <div>
+        <div class="small-label" style="color: rgba(255,255,255,0.35); margin-bottom:6px;">Preparado para</div>
+        <div style="font-family:'Space Grotesk'; font-weight:600; font-size:20px; color: var(--white);">Dr. Ignacio Lugones</div>
+        <div style="font-family:'DM Sans'; font-size:14px; color: rgba(255,255,255,0.45); margin-top:4px;">Hospital Universitario Austral · Buenos Aires</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div style="width:44px; height:1px; background: var(--crimson);"></div>
+        <div class="small-label" style="color: rgba(255,255,255,0.5);">01 / 09</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 02 — INTRO / CONCEPT ============ -->
+<section data-screen-label="02 Concept" style="background: var(--navy);">
+  <div style="flex:1; display:grid; grid-template-columns: 5fr 7fr; gap:100px; padding:120px;">
+    <div style="display:flex; flex-direction:column; justify-content:center;">
+      <div class="small-label" style="color: var(--crimson); margin-bottom:24px;">01 — Concepto</div>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:88px; line-height:1; letter-spacing:-0.03em; color:#fff; text-wrap: balance;">
+        Capturar.<br/>Corregir.<br/><span style="color: var(--crimson);">Salvar.</span>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; justify-content:center; gap:40px;">
+      <div style="font-family:'DM Sans'; font-weight:300; font-size:30px; line-height:1.5; color: rgba(255,255,255,0.7); text-wrap: pretty;">
+        La marca cuenta el procedimiento mismo: la vena anómala desciende en una curva tenue, es capturada por el túnel pericárdico — el nodo carmesí — y redirigida con un trazo decidido hacia la aurícula izquierda.
+      </div>
+      <div style="height:1px; width:100%; background: rgba(255,255,255,0.12);"></div>
+      <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:32px;">
+        <div>
+          <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Voz</div>
+          <div style="font-family:'DM Sans'; font-size:18px; color:#fff; line-height:1.4;">Clínica, precisa, humana</div>
+        </div>
+        <div>
+          <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Tono</div>
+          <div style="font-family:'DM Sans'; font-size:18px; color:#fff; line-height:1.4;">Autoridad serena</div>
+        </div>
+        <div>
+          <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Audiencia</div>
+          <div style="font-family:'DM Sans'; font-size:18px; color:#fff; line-height:1.4;">Pacientes y cirujanos internacionales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 03 — LOGO PRINCIPAL ============ -->
+<section data-screen-label="03 Logo" style="background: var(--paper);">
+  <div style="flex:1; display:flex; flex-direction:column; padding:100px 120px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:40px;">
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">02 — Marca</div>
+        <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color: var(--navy);">
+          El logotipo principal
+        </div>
+      </div>
+      <div style="text-align:right; max-width:380px;">
+        <div style="font-family:'DM Sans'; font-size:16px; color: rgba(11,31,58,0.55); line-height:1.55;">Lockup horizontal — uso por defecto en headers, papelería y aplicaciones digitales.</div>
+      </div>
+    </div>
+
+    <!-- Logo display -->
+    <div style="flex:1; background:#fff; border-radius:20px; display:flex; align-items:center; justify-content:center; gap:64px; padding:60px; box-shadow: 0 30px 80px -40px rgba(11,31,58,0.25);">
+      <!-- Icon -->
+      <svg viewBox="0 0 80 80" width="220" height="220" fill="none">
+        <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.16"/>
+        <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+        <circle cx="58" cy="62" r="11" fill="#B52430"/>
+        <circle cx="58" cy="62" r="4.5" fill="#FFFFFF"/>
+        <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+        <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+        <circle cx="18" cy="8" r="3" fill="#B52430" opacity="0.3"/>
+      </svg>
+      <div style="width:1px; height:200px; background: rgba(11,31,58,0.12);"></div>
+      <!-- Wordmark -->
+      <div style="line-height:1;">
+        <div style="font-family:'Space Grotesk'; font-weight:700; font-size:96px; color: var(--navy); letter-spacing:-0.02em;">LUGONES</div>
+        <div style="font-family:'Space Grotesk'; font-weight:400; font-size:34px; color: var(--crimson); letter-spacing:0.22em; text-transform:uppercase; margin-top:14px;">PROCEDURE</div>
+        <div style="font-family:'DM Sans'; font-weight:300; font-style:italic; font-size:22px; color: rgba(11,31,58,0.45); letterSpacing:0.06em; margin-top:14px;">for Scimitar Syndrome</div>
+      </div>
+    </div>
+
+    <!-- Captions -->
+    <div style="margin-top:32px; display:grid; grid-template-columns: repeat(3, 1fr); gap:32px;">
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:8px;">Símbolo</div>
+        <div style="font-family:'DM Sans'; font-size:14px; color: rgba(11,31,58,0.6); line-height:1.55;">Vena cimitarra (tenue), nodo pericárdico, ruta corregida hacia aurícula izquierda.</div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:8px;">Wordmark</div>
+        <div style="font-family:'DM Sans'; font-size:14px; color: rgba(11,31,58,0.6); line-height:1.55;">Space Grotesk Bold con trackeo negativo. PROCEDURE en letterspacing amplio.</div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:8px;">Descriptor</div>
+        <div style="font-family:'DM Sans'; font-size:14px; color: rgba(11,31,58,0.6); line-height:1.55;">DM Sans Light Italic — añade calidez clínica al sistema.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 04 — VARIANTES DE LOGO ============ -->
+<section data-screen-label="04 Variantes Logo" style="background: var(--paper);">
+  <div style="flex:1; display:flex; flex-direction:column; padding:100px 120px;">
+    <div style="margin-bottom:48px;">
+      <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">03 — Variantes</div>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color: var(--navy);">
+        Versiones del logotipo
+      </div>
+    </div>
+
+    <div style="flex:1; display:grid; grid-template-columns: repeat(3, 1fr); gap:24px;">
+      <!-- Card 1: Dark -->
+      <div style="background: var(--navy); border-radius:16px; display:flex; flex-direction:column; padding:48px; gap:36px;">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
+          <svg viewBox="0 0 80 80" width="120" height="120" fill="none">
+            <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.18"/>
+            <circle cx="58" cy="62" r="11" fill="#B52430"/>
+            <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+            <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+            <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+          </svg>
+          <div style="text-align:center; line-height:1;">
+            <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color:#fff; letter-spacing:-0.02em;">LUGONES</div>
+            <div style="font-family:'Space Grotesk'; font-size:13px; color: var(--crimson); letter-spacing:0.22em; text-transform:uppercase; margin-top:8px;">PROCEDURE</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.1); padding-top:18px; display:flex; justify-content:space-between; align-items:center;">
+          <div class="small-label" style="color: rgba(255,255,255,0.5);">Versión Dark</div>
+          <div style="font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.4);">Aplicación principal</div>
+        </div>
+      </div>
+
+      <!-- Card 2: Light -->
+      <div style="background:#fff; border:1px solid rgba(11,31,58,0.08); border-radius:16px; display:flex; flex-direction:column; padding:48px; gap:36px;">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
+          <svg viewBox="0 0 80 80" width="120" height="120" fill="none">
+            <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.18"/>
+            <circle cx="58" cy="62" r="11" fill="#B52430"/>
+            <circle cx="58" cy="62" r="4.5" fill="#FFFFFF"/>
+            <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+            <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+          </svg>
+          <div style="text-align:center; line-height:1;">
+            <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color: var(--navy); letter-spacing:-0.02em;">LUGONES</div>
+            <div style="font-family:'Space Grotesk'; font-size:13px; color: var(--crimson); letter-spacing:0.22em; text-transform:uppercase; margin-top:8px;">PROCEDURE</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(11,31,58,0.08); padding-top:18px; display:flex; justify-content:space-between; align-items:center;">
+          <div class="small-label" style="color: rgba(11,31,58,0.5);">Versión Light</div>
+          <div style="font-family:'DM Sans'; font-size:11px; color: rgba(11,31,58,0.4);">Documentos y prensa</div>
+        </div>
+      </div>
+
+      <!-- Card 3: Accent -->
+      <div style="background: var(--crimson); border-radius:16px; display:flex; flex-direction:column; padding:48px; gap:36px;">
+        <div style="flex:1; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px;">
+          <svg viewBox="0 0 80 80" width="120" height="120" fill="none">
+            <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#FFFFFF" opacity="0.22"/>
+            <circle cx="58" cy="62" r="11" fill="#FFFFFF"/>
+            <circle cx="58" cy="62" r="4.5" fill="#B52430"/>
+            <path d="M 49 58 C 38 52 22 46 10 42" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round"/>
+            <circle cx="10" cy="42" r="5.5" fill="#FFFFFF"/>
+          </svg>
+          <div style="text-align:center; line-height:1;">
+            <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color:#fff; letter-spacing:-0.02em;">LUGONES</div>
+            <div style="font-family:'Space Grotesk'; font-size:13px; color:#fff; letter-spacing:0.22em; text-transform:uppercase; margin-top:8px; opacity:0.85;">PROCEDURE</div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.2); padding-top:18px; display:flex; justify-content:space-between; align-items:center;">
+          <div class="small-label" style="color: rgba(255,255,255,0.85);">Versión Accent</div>
+          <div style="font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.7);">Highlights y campañas</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 05 — ICONO Y TAMAÑOS ============ -->
+<section data-screen-label="05 Icono" style="background: var(--paper);">
+  <div style="flex:1; display:flex; flex-direction:column; padding:100px 120px;">
+    <div style="margin-bottom:60px;">
+      <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">04 — Símbolo</div>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color: var(--navy);">
+        El icono solo
+      </div>
+      <div style="font-family:'DM Sans'; font-weight:300; font-size:22px; color: rgba(11,31,58,0.55); margin-top:20px; max-width:780px; line-height:1.5;">
+        El símbolo funciona aislado en favicons, avatares, sellos y aplicaciones donde el wordmark sería ilegible.
+      </div>
+    </div>
+
+    <div style="flex:1; display:grid; grid-template-columns: 1.4fr 1fr; gap:40px;">
+      <!-- Hero icon -->
+      <div style="background: var(--navy); border-radius:20px; display:flex; align-items:center; justify-content:center; position:relative;">
+        <div class="small-label" style="position:absolute; top:32px; left:36px; color: rgba(255,255,255,0.35);">Sobre fondo navy</div>
+        <svg viewBox="0 0 80 80" width="380" height="380" fill="none">
+          <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.2"/>
+          <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+          <circle cx="58" cy="62" r="11" fill="#B52430"/>
+          <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+          <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+          <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+          <circle cx="18" cy="8" r="3" fill="#B52430" opacity="0.3"/>
+        </svg>
+      </div>
+
+      <!-- Sizes -->
+      <div style="background:#fff; border:1px solid rgba(11,31,58,0.08); border-radius:20px; display:flex; flex-direction:column; padding:48px; gap:32px;">
+        <div class="small-label" style="color: rgba(11,31,58,0.45);">Escalado · 16 → 96 px</div>
+        <div style="flex:1; display:flex; align-items:center; justify-content:space-around; gap:20px;">
+          <!-- 96 -->
+          <div style="background: var(--navy); border-radius:14px; padding:14px;">
+            <svg viewBox="0 0 80 80" width="96" height="96" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+              <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.18"/>
+            </svg>
+          </div>
+          <!-- 64 -->
+          <div style="background: var(--navy); border-radius:10px; padding:10px;">
+            <svg viewBox="0 0 80 80" width="64" height="64" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+            </svg>
+          </div>
+          <!-- 40 -->
+          <div style="background: var(--navy); border-radius:8px; padding:8px;">
+            <svg viewBox="0 0 80 80" width="40" height="40" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+            </svg>
+          </div>
+          <!-- 24 -->
+          <div style="background: var(--navy); border-radius:5px; padding:5px;">
+            <svg viewBox="0 0 80 80" width="24" height="24" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="9" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="6" fill="#B52430"/>
+            </svg>
+          </div>
+          <!-- 16 -->
+          <div style="background: var(--navy); border-radius:4px; padding:4px;">
+            <svg viewBox="0 0 80 80" width="16" height="16" fill="none">
+              <circle cx="58" cy="62" r="14" fill="#B52430"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="11" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="8" fill="#B52430"/>
+            </svg>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(11,31,58,0.08); padding-top:18px;">
+          <div style="font-family:'DM Sans'; font-size:14px; color: rgba(11,31,58,0.55); line-height:1.55;">
+            En tamaños menores a 24px, el blade tenue desaparece para mantener legibilidad. Tamaño mínimo recomendado: <strong style="color: var(--navy);">16 × 16 px</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 06 — PALETA DE COLORES ============ -->
+<section data-screen-label="06 Paleta" style="background:#fff;">
+  <div style="flex:1; display:flex; flex-direction:column; padding:100px 120px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:60px;">
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">05 — Color</div>
+        <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color: var(--navy);">
+          Paleta cromática
+        </div>
+      </div>
+      <div style="max-width:380px; text-align:right;">
+        <div style="font-family:'DM Sans'; font-weight:300; font-size:18px; color: rgba(11,31,58,0.55); line-height:1.55;">
+          Navy + Crimson: autoridad clínica con la urgencia del corazón. Neutros cálidos para suavizar el contraste.
+        </div>
+      </div>
+    </div>
+
+    <!-- Primary colors -->
+    <div style="display:grid; grid-template-columns: 1.2fr 1.2fr 0.8fr 0.8fr 0.8fr; gap:14px; height:380px; margin-bottom:32px;">
+      <!-- Navy -->
+      <div style="background: var(--navy); border-radius:16px; padding:32px; display:flex; flex-direction:column; justify-content:space-between; color:#fff;">
+        <div>
+          <div class="small-label" style="color: rgba(255,255,255,0.5); margin-bottom:8px;">Primario</div>
+          <div style="font-family:'Space Grotesk'; font-weight:700; font-size:38px; letter-spacing:-0.01em;">Deep Navy</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk'; font-size:16px; font-weight:500; letter-spacing:0.06em;">#0B1F3A</div>
+          <div style="font-family:'DM Sans'; font-size:12px; color: rgba(255,255,255,0.5); margin-top:4px;">RGB 11 · 31 · 58 &nbsp;·&nbsp; CMYK 81 · 67 · 36 · 60</div>
+        </div>
+      </div>
+      <!-- Crimson -->
+      <div style="background: var(--crimson); border-radius:16px; padding:32px; display:flex; flex-direction:column; justify-content:space-between; color:#fff;">
+        <div>
+          <div class="small-label" style="color: rgba(255,255,255,0.65); margin-bottom:8px;">Acento</div>
+          <div style="font-family:'Space Grotesk'; font-weight:700; font-size:38px; letter-spacing:-0.01em;">Cardiac Crimson</div>
+        </div>
+        <div>
+          <div style="font-family:'Space Grotesk'; font-size:16px; font-weight:500; letter-spacing:0.06em;">#B52430</div>
+          <div style="font-family:'DM Sans'; font-size:12px; color: rgba(255,255,255,0.7); margin-top:4px;">RGB 181 · 36 · 48 &nbsp;·&nbsp; CMYK 18 · 96 · 80 · 8</div>
+        </div>
+      </div>
+      <!-- Crimson deep -->
+      <div style="background: var(--crimson-deep); border-radius:16px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; color:#fff;">
+        <div>
+          <div class="small-label" style="color: rgba(255,255,255,0.6); margin-bottom:6px;">Profundo</div>
+          <div style="font-family:'Space Grotesk'; font-weight:600; font-size:22px;">Deep Crimson</div>
+        </div>
+        <div style="font-family:'Space Grotesk'; font-size:14px; font-weight:500; letter-spacing:0.06em;">#8B1C28</div>
+      </div>
+      <!-- Offwhite -->
+      <div style="background: var(--offwhite); border-radius:16px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; color: var(--navy);">
+        <div>
+          <div class="small-label" style="color: rgba(11,31,58,0.5); margin-bottom:6px;">Superficie</div>
+          <div style="font-family:'Space Grotesk'; font-weight:600; font-size:22px;">Off-white</div>
+        </div>
+        <div style="font-family:'Space Grotesk'; font-size:14px; font-weight:500; letter-spacing:0.06em;">#F5F0EB</div>
+      </div>
+      <!-- White -->
+      <div style="background:#fff; border:1px solid rgba(11,31,58,0.08); border-radius:16px; padding:24px; display:flex; flex-direction:column; justify-content:space-between; color: var(--navy);">
+        <div>
+          <div class="small-label" style="color: rgba(11,31,58,0.5); margin-bottom:6px;">Limpio</div>
+          <div style="font-family:'Space Grotesk'; font-weight:600; font-size:22px;">Pure White</div>
+        </div>
+        <div style="font-family:'Space Grotesk'; font-size:14px; font-weight:500; letter-spacing:0.06em;">#FFFFFF</div>
+      </div>
+    </div>
+
+    <!-- Usage proportions -->
+    <div style="display:grid; grid-template-columns: 1fr auto; gap:48px; align-items:center;">
+      <div>
+        <div class="small-label" style="color: rgba(11,31,58,0.4); margin-bottom:14px;">Proporciones de uso recomendadas</div>
+        <div style="display:flex; height:36px; border-radius:6px; overflow:hidden;">
+          <div style="flex:55; background: var(--navy);"></div>
+          <div style="flex:25; background: var(--offwhite);"></div>
+          <div style="flex:12; background:#fff; border-top:1px solid rgba(11,31,58,0.08); border-bottom:1px solid rgba(11,31,58,0.08);"></div>
+          <div style="flex:8; background: var(--crimson);"></div>
+        </div>
+        <div style="display:flex; margin-top:10px; font-family:'DM Sans'; font-size:13px; color: rgba(11,31,58,0.55);">
+          <div style="flex:55;">Navy 55%</div>
+          <div style="flex:25;">Off-white 25%</div>
+          <div style="flex:12;">White 12%</div>
+          <div style="flex:8;">Crimson 8%</div>
+        </div>
+      </div>
+      <div style="font-family:'DM Sans'; font-style:italic; font-size:14px; color: rgba(11,31,58,0.5); max-width:280px; line-height:1.5;">
+        El crimson es la chispa, no el lienzo. Reservarlo para acentos y CTAs.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 07 — TIPOGRAFÍA ============ -->
+<section data-screen-label="07 Tipografia" style="background: var(--navy);">
+  <div style="flex:1; display:grid; grid-template-columns: 1fr 1.2fr; gap:0;">
+    <!-- Left col -->
+    <div style="padding:100px 80px 100px 120px; display:flex; flex-direction:column; justify-content:space-between; border-right:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">06 — Tipografía</div>
+        <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color:#fff; margin-bottom:32px;">
+          Sistema<br/>tipográfico
+        </div>
+        <div style="font-family:'DM Sans'; font-weight:300; font-size:20px; color: rgba(255,255,255,0.6); line-height:1.55; max-width:420px; text-wrap: pretty;">
+          Tres familias para tres roles: estructura, narrativa y autoridad académica.
+        </div>
+      </div>
+
+      <!-- Family cards -->
+      <div style="display:flex; flex-direction:column; gap:20px;">
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+            <div style="font-family:'Space Grotesk'; font-weight:700; font-size:22px; color:#fff;">Space Grotesk</div>
+            <div class="small-label" style="color: var(--crimson);">Display + UI</div>
+          </div>
+          <div style="font-family:'DM Sans'; font-size:13px; color: rgba(255,255,255,0.55); line-height:1.5;">Títulos, labels, navegación. Pesos 400 / 500 / 600 / 700.</div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+            <div style="font-family:'DM Sans'; font-weight:500; font-size:22px; color:#fff;">DM Sans</div>
+            <div class="small-label" style="color: var(--crimson);">Cuerpo</div>
+          </div>
+          <div style="font-family:'DM Sans'; font-size:13px; color: rgba(255,255,255,0.55); line-height:1.5;">Texto largo, descripciones, formularios. Pesos 300 / 400 / 500 + itálica.</div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.1); border-radius:12px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px;">
+            <div style="font-family:'Crimson Pro'; font-style:italic; font-weight:400; font-size:24px; color:#fff;">Crimson Pro</div>
+            <div class="small-label" style="color: var(--crimson);">Académico</div>
+          </div>
+          <div style="font-family:'DM Sans'; font-size:13px; color: rgba(255,255,255,0.55); line-height:1.5;">Citas, referencias, papers. Solo 400 e itálica para gravitas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right col — type specimen -->
+    <div style="padding:100px 120px; display:flex; flex-direction:column; justify-content:center; gap:40px;">
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Display · Space Grotesk 700 · 96 px</div>
+        <div style="font-family:'Space Grotesk'; font-weight:700; font-size:96px; color:#fff; letter-spacing:-0.03em; line-height:1;">LUGONES</div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Heading · Space Grotesk 600 · 44 px</div>
+        <div style="font-family:'Space Grotesk'; font-weight:600; font-size:44px; color:#fff; letter-spacing:-0.015em; line-height:1.1;">Pericardial Tunnel Technique</div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Label · Space Grotesk 500 · 14 px · trackeo amplio</div>
+        <div style="font-family:'Space Grotesk'; font-weight:500; font-size:14px; color: rgba(255,255,255,0.7); letter-spacing:0.22em; text-transform:uppercase;">Since 2012 · 11 international centers</div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Body · DM Sans 400 · 22 px · interlineado 1.65</div>
+        <div style="font-family:'DM Sans'; font-weight:400; font-size:22px; color: rgba(255,255,255,0.7); line-height:1.65; max-width:680px; text-wrap: pretty;">
+          La técnica utiliza el pericardio como un túnel autólogo natural para redirigir la vena cimitarra hacia la aurícula izquierda, logrando una reparación de luz amplia y sin tensión.
+        </div>
+      </div>
+      <div>
+        <div class="small-label" style="color: var(--crimson); margin-bottom:10px;">Académico · Crimson Pro 400 italic · 26 px</div>
+        <div style="font-family:'Crimson Pro'; font-weight:400; font-style:italic; font-size:26px; color: rgba(255,255,255,0.55); line-height:1.4;">
+          "No deaths, no reoperations, 13.5-year maximum follow-up" — JTCVS 2025
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 08 — APLICACIONES ============ -->
+<section data-screen-label="08 Aplicaciones" style="background: var(--paper);">
+  <div style="flex:1; display:flex; flex-direction:column; padding:100px 120px;">
+    <div style="margin-bottom:48px;">
+      <div class="small-label" style="color: var(--crimson); margin-bottom:14px;">07 — Aplicaciones</div>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:72px; line-height:1; letter-spacing:-0.03em; color: var(--navy);">
+        En aplicación
+      </div>
+    </div>
+
+    <div style="flex:1; display:grid; grid-template-columns: 1.6fr 1fr; grid-template-rows: 1fr 1fr; gap:24px;">
+      <!-- Web mockup (large, spans 2 rows) -->
+      <div style="grid-row: span 2; background: var(--navy); border-radius:18px; overflow:hidden; display:flex; flex-direction:column;">
+        <!-- Browser chrome -->
+        <div style="background: var(--navy-deep); padding:14px 20px; display:flex; align-items:center; gap:8px; border-bottom:1px solid rgba(255,255,255,0.05);">
+          <div style="width:11px; height:11px; border-radius:50%; background:#FF5F56;"></div>
+          <div style="width:11px; height:11px; border-radius:50%; background:#FFBD2E;"></div>
+          <div style="width:11px; height:11px; border-radius:50%; background:#27C93F;"></div>
+          <div style="margin-left:18px; flex:1; background: rgba(255,255,255,0.06); border-radius:6px; padding:6px 14px; font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.4);">lugonesprocedure.com</div>
+        </div>
+        <!-- Nav -->
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:24px 40px; border-bottom:1px solid rgba(255,255,255,0.06);">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <svg viewBox="0 0 80 80" width="36" height="36" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+            </svg>
+            <div style="line-height:1;">
+              <div style="font-family:'Space Grotesk'; font-weight:700; font-size:15px; color:#fff; letter-spacing:-0.01em;">LUGONES</div>
+              <div style="font-family:'Space Grotesk'; font-size:8px; color: var(--crimson); letter-spacing:0.22em; text-transform:uppercase; margin-top:2px;">PROCEDURE</div>
+            </div>
+          </div>
+          <div style="display:flex; gap:28px; font-family:'Space Grotesk'; font-size:13px; color: rgba(255,255,255,0.6);">
+            <span>The Syndrome</span><span>The Procedure</span><span>Results</span><span>For Surgeons</span>
+          </div>
+          <div style="background: var(--crimson); color:#fff; font-family:'Space Grotesk'; font-weight:600; font-size:12px; padding:9px 20px; border-radius:5px; letter-spacing:0.04em;">Schedule</div>
+        </div>
+        <!-- Hero -->
+        <div style="flex:1; padding:60px; display:flex; flex-direction:column; justify-content:center;">
+          <div class="small-label" style="color: var(--crimson); margin-bottom:18px;">Buenos Aires · International Reference Center</div>
+          <div style="font-family:'Space Grotesk'; font-weight:700; font-size:54px; color:#fff; letter-spacing:-0.025em; line-height:1.04; margin-bottom:24px; text-wrap: balance;">
+            The world's reference for<br/><span style="color: var(--crimson);">Scimitar Syndrome</span> repair
+          </div>
+          <div style="font-family:'DM Sans'; font-size:16px; color: rgba(255,255,255,0.55); line-height:1.65; max-width:480px; margin-bottom:32px;">Pericardial tunnel technique with zero reoperations across 38 patients in 11 institutions.</div>
+          <div style="display:flex; gap:24px;">
+            <div>
+              <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color: var(--crimson); letter-spacing:-0.02em;">38</div>
+              <div style="font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase;">patients</div>
+            </div>
+            <div style="width:1px; background: rgba(255,255,255,0.1);"></div>
+            <div>
+              <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color: var(--crimson); letter-spacing:-0.02em;">11</div>
+              <div style="font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase;">centers</div>
+            </div>
+            <div style="width:1px; background: rgba(255,255,255,0.1);"></div>
+            <div>
+              <div style="font-family:'Space Grotesk'; font-weight:700; font-size:36px; color: var(--crimson); letter-spacing:-0.02em;">0</div>
+              <div style="font-family:'DM Sans'; font-size:11px; color: rgba(255,255,255,0.4); letter-spacing:0.1em; text-transform:uppercase;">reoperations</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Business card -->
+      <div style="background:#fff; border:1px solid rgba(11,31,58,0.08); border-radius:18px; padding:32px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div class="small-label" style="color: rgba(11,31,58,0.4);">Tarjeta personal</div>
+        <div style="background: var(--navy); border-radius:8px; padding:24px; aspect-ratio: 16/10; display:flex; flex-direction:column; justify-content:space-between;">
+          <div style="display:flex; align-items:center; gap:10px;">
+            <svg viewBox="0 0 80 80" width="28" height="28" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+            </svg>
+            <div style="line-height:1;">
+              <div style="font-family:'Space Grotesk'; font-weight:700; font-size:11px; color:#fff; letter-spacing:-0.01em;">LUGONES</div>
+              <div style="font-family:'Space Grotesk'; font-size:6px; color: var(--crimson); letter-spacing:0.22em; text-transform:uppercase; margin-top:1px;">PROCEDURE</div>
+            </div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk'; font-weight:600; font-size:14px; color:#fff; letter-spacing:-0.01em;">Dr. Ignacio Lugones</div>
+            <div style="font-family:'DM Sans'; font-size:9px; color: rgba(255,255,255,0.55); margin-top:3px;">Pediatric cardiovascular surgeon</div>
+            <div style="height:1px; background: var(--crimson); width:24px; margin:8px 0;"></div>
+            <div style="font-family:'DM Sans'; font-size:8px; color: rgba(255,255,255,0.5);">cardiocongenitas@gmail.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social avatar -->
+      <div style="background:#fff; border:1px solid rgba(11,31,58,0.08); border-radius:18px; padding:32px; display:flex; flex-direction:column; gap:20px;">
+        <div class="small-label" style="color: rgba(11,31,58,0.4);">Avatar / Social</div>
+        <div style="flex:1; display:flex; align-items:center; gap:24px;">
+          <div style="background: var(--navy); width:120px; height:120px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg viewBox="0 0 80 80" width="60" height="60" fill="none">
+              <circle cx="58" cy="62" r="11" fill="#B52430"/>
+              <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+              <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+              <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk'; font-weight:600; font-size:18px; color: var(--navy);">@lugonesprocedure</div>
+            <div style="font-family:'DM Sans'; font-size:13px; color: rgba(11,31,58,0.55); margin-top:4px; line-height:1.5;">International reference center for Scimitar Syndrome repair.</div>
+            <div style="display:flex; gap:8px; margin-top:12px;">
+              <div style="background: var(--crimson); color:#fff; font-family:'Space Grotesk'; font-size:10px; font-weight:600; padding:4px 10px; border-radius:4px; letter-spacing:0.04em;">Follow</div>
+              <div style="border:1px solid rgba(11,31,58,0.15); color: var(--navy); font-family:'Space Grotesk'; font-size:10px; font-weight:500; padding:4px 10px; border-radius:4px;">Message</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SLIDE 09 — CIERRE ============ -->
+<section data-screen-label="09 Cierre" style="background: var(--navy);">
+  <!-- Bg shape -->
+  <svg viewBox="0 0 1920 1080" style="position:absolute; inset:0; width:100%; height:100%; opacity:0.05;" preserveAspectRatio="xMidYMid slice">
+    <g transform="translate(-100,400)">
+      <circle cx="600" cy="200" r="60" fill="#B52430"/>
+      <path d="M 510 180 C 380 150 200 120 60 160" stroke="#B52430" stroke-width="32" stroke-linecap="round" fill="none"/>
+      <circle cx="60" cy="160" r="32" fill="#B52430"/>
+    </g>
+  </svg>
+
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:120px; text-align:center; position:relative;">
+    <svg viewBox="0 0 80 80" width="180" height="180" fill="none" style="margin-bottom:48px;">
+      <path d="M 18 8 C 34 10 54 22 60 46 C 61.5 52 61 58 58 62 C 55.5 64 52 63 50.5 60 C 49 57 51.5 53 51 47 C 50 30 34 18 18 14 Z" fill="#B52430" opacity="0.2"/>
+      <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.45"/>
+      <circle cx="58" cy="62" r="11" fill="#B52430"/>
+      <circle cx="58" cy="62" r="4.5" fill="#0B1F3A"/>
+      <path d="M 49 58 C 38 52 22 46 10 42" stroke="#B52430" stroke-width="6.5" stroke-linecap="round"/>
+      <circle cx="10" cy="42" r="5.5" fill="#B52430"/>
+      <circle cx="18" cy="8" r="3" fill="#B52430" opacity="0.3"/>
+    </svg>
+
+    <div style="font-family:'Crimson Pro'; font-style:italic; font-weight:400; font-size:48px; color: rgba(255,255,255,0.85); line-height:1.3; max-width:1100px; text-wrap: balance;">
+      "Una marca que no ilustra el problema —<br/>cuenta la solución."
+    </div>
+
+    <div style="margin-top:64px; display:flex; align-items:center; gap:24px;">
+      <div style="width:48px; height:1px; background: var(--crimson);"></div>
+      <div class="small-label" style="color: var(--crimson);">Próximos pasos</div>
+      <div style="width:48px; height:1px; background: var(--crimson);"></div>
+    </div>
+
+    <div style="margin-top:32px; display:flex; gap:40px;">
+      <div style="font-family:'DM Sans'; font-size:18px; color: rgba(255,255,255,0.65);">Aprobación de marca</div>
+      <div style="color: rgba(255,255,255,0.2);">·</div>
+      <div style="font-family:'DM Sans'; font-size:18px; color: rgba(255,255,255,0.65);">Producción de assets</div>
+      <div style="color: rgba(255,255,255,0.2);">·</div>
+      <div style="font-family:'DM Sans'; font-size:18px; color: rgba(255,255,255,0.65);">Lanzamiento</div>
+    </div>
+
+    <div style="position:absolute; bottom:60px; left:120px; right:120px; display:flex; justify-content:space-between; align-items:center;">
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:14px; color:#fff; letter-spacing:-0.01em;">LUGONES <span style="color: var(--crimson); font-weight:400; letter-spacing:0.22em; margin-left:8px;">PROCEDURE</span></div>
+      <div class="small-label" style="color: rgba(255,255,255,0.4);">09 / 09 — Gracias</div>
+    </div>
+  </div>
+</section>
+
+</deck-stage>
+<script>
+(async () => {
+  try { await customElements.whenDefined('deck-stage'); } catch (e) {}
+  try { await document.fonts.ready; } catch (e) {}
+  setTimeout(() => { try { window.print(); } catch (e) {} }, 500);
+})();
+</script>
+</body>
+</html>

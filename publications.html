@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Publications — The Lugones Procedure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0B1F3A;
+      font-family: 'Space Grotesk', sans-serif;
+      color: #fff;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0B1F3A; }
+    ::-webkit-scrollbar-thumb { background: #B52430; border-radius: 3px; }
+    ::selection { background: rgba(181,36,48,0.3); }
+    a { text-decoration: none; }
+    button { cursor: pointer; border: none; background: transparent; font-family: inherit; }
+
+    :root {
+      --navy:    #0B1F3A;
+      --navy3:   #070F1D;
+      --crimson: #B52430;
+      --crimson2:#8B1C28;
+      --offwhite:#F5F0EB;
+      --white:   #FFFFFF;
+      --max-w:   1160px;
+      --pad-x:   48px;
+      --nav-h:   68px;
+    }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--pad-x); }
+
+    /* ─── NAV ─── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      padding: 0 var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(11,31,58,0.97);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; color: #fff; }
+    .nav-logo__name { font-weight: 700; font-size: 15px; letter-spacing: -0.01em; color: #fff; }
+    .nav-logo__sub { font-weight: 400; font-size: 8px; color: var(--crimson); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2px; }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-link { font-weight: 400; font-size: 13px; letter-spacing: 0.01em; color: rgba(255,255,255,0.5); transition: color 0.2s; padding-bottom: 2px; border-bottom: 1px solid transparent; }
+    .nav-link:hover { color: rgba(255,255,255,0.85); }
+    .nav-link.active { color: #fff; border-bottom-color: var(--crimson); }
+    .nav-cta { background: var(--crimson); color: #fff; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; padding: 9px 20px; border-radius: 4px; white-space: nowrap; transition: background 0.2s; }
+    .nav-cta:hover { background: var(--crimson2); }
+
+    /* ─── PAGE HEADER ─── */
+    .page-header {
+      background: var(--navy);
+      padding: calc(var(--nav-h) + 72px) 0 80px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-label { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .section-label__num { font-weight: 700; font-size: 11px; color: var(--crimson); letter-spacing: 0.03em; }
+    .section-label__line { width: 32px; height: 1px; background: var(--crimson); }
+    .section-label__text { font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .page-header h1 { font-weight: 700; font-size: 56px; letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 16px; }
+    .page-header h1 span { color: var(--crimson); }
+    .page-header__desc { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 580px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: rgba(255,255,255,0.4); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 40px; transition: color 0.2s; }
+    .back-link:hover { color: rgba(255,255,255,0.75); }
+    .back-link svg { transition: transform 0.2s; }
+    .back-link:hover svg { transform: translateX(-3px); }
+
+    /* ─── PUBLICATIONS LIST ─── */
+    .pub-section { background: var(--offwhite); padding: 80px 0 120px; }
+    .pub-list { display: flex; flex-direction: column; gap: 16px; }
+    .pub-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(11,31,58,0.1);
+      border-radius: 12px;
+      padding: 28px 32px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .pub-card:hover { border-color: rgba(181,36,48,0.25); box-shadow: 0 4px 24px rgba(11,31,58,0.06); }
+    .pub-card__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .pub-card__journal {
+      background: rgba(181,36,48,0.08);
+      border: 1px solid rgba(181,36,48,0.18);
+      border-radius: 4px;
+      padding: 3px 10px;
+      font-weight: 600; font-size: 10px; color: var(--crimson);
+      letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+    }
+    .pub-card__year { font-size: 11px; color: rgba(11,31,58,0.35); letter-spacing: 0.05em; }
+    .pub-card__type {
+      font-size: 10px; font-weight: 500; color: rgba(11,31,58,0.3);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid rgba(11,31,58,0.12); border-radius: 3px; padding: 2px 8px;
+    }
+    .pub-card__title { font-weight: 600; font-size: 16px; color: var(--navy); line-height: 1.35; margin-bottom: 6px; }
+    .pub-card__authors { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(11,31,58,0.45); font-style: italic; margin-bottom: 10px; }
+    .pub-card__abstract { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(11,31,58,0.6); line-height: 1.65; }
+    .pub-card__actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; flex-shrink: 0; }
+    .btn-download {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--crimson); color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 12px; letter-spacing: 0.04em;
+      padding: 10px 18px; border-radius: 5px; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .btn-download:hover { background: var(--crimson2); }
+    .pub-card__doi { font-size: 10px; color: rgba(11,31,58,0.3); letter-spacing: 0.04em; text-align: right; }
+
+    /* ─── CONTACT BANNER ─── */
+    .contact-banner {
+      background: var(--navy);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 64px 0;
+    }
+    .contact-banner__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .contact-banner__title {
+      font-weight: 600; font-size: 20px; color: #fff; margin-bottom: 6px;
+    }
+    .contact-banner__desc {
+      font-family: 'DM Sans', sans-serif; font-size: 14px;
+      color: rgba(255,255,255,0.5); line-height: 1.6;
+    }
+    .btn-primary {
+      background: var(--crimson); color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600; font-size: 14px; letter-spacing: 0.03em;
+      padding: 14px 28px; border-radius: 5px; white-space: nowrap;
+      transition: background 0.2s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--crimson2); }
+
+    /* ─── FOOTER ─── */
+    footer { background: var(--navy3); border-top: 1px solid rgba(255,255,255,0.05); padding: 40px var(--pad-x); }
+    .footer-inner { max-width: var(--max-w); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { display: flex; align-items: center; gap: 12px; }
+    .footer-logo__name { font-weight: 700; font-size: 13px; color: #fff; letter-spacing: -0.01em; }
+    .footer-logo__sub { font-weight: 400; font-size: 8px; color: var(--crimson); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 1px; }
+    .footer-copy { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.25); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-link { font-size: 11px; color: rgba(255,255,255,0.35); transition: color 0.2s; }
+    .footer-link:hover { color: rgba(255,255,255,0.65); }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 68 80" width="29" height="34" fill="none">
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#B52430" opacity="0.22"/>
+      <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+      <circle cx="58" cy="60" r="9.5" fill="#B52430"/>
+      <circle cx="58" cy="60" r="3.5" fill="#0B1F3A"/>
+      <path d="M 58 60 C 46 54 26 46 8 50" stroke="#B52430" stroke-width="5.5" stroke-linecap="round"/>
+      <circle cx="8" cy="50" r="5" fill="#B52430"/>
+      <circle cx="30" cy="7" r="3" fill="#B52430" opacity="0.28"/>
+      <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60" stroke="#B52430" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+    </svg>
+    <div>
+      <div class="nav-logo__name">LUGONES</div>
+      <div class="nav-logo__sub">PROCEDURE</div>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html#syndrome"  class="nav-link">The Syndrome</a>
+    <a href="index.html#procedure" class="nav-link">The Procedure</a>
+    <a href="index.html#results"   class="nav-link">Results</a>
+    <a href="index.html#patients"  class="nav-link">For Patients</a>
+    <a href="index.html#surgeons"  class="nav-link">For Surgeons</a>
+    <a href="publications.html"    class="nav-link active">Publications</a>
+    <a href="index.html#contact" class="nav-cta">Schedule a Consultation</a>
+  </div>
+</nav>
+
+<!-- ─── PAGE HEADER ─── -->
+<div class="page-header">
+  <div class="container">
+    <a href="index.html#surgeons" class="back-link">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L3 7l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Back to For Surgeons
+    </a>
+    <div class="section-label">
+      <div class="section-label__num">07</div>
+      <div class="section-label__line"></div>
+      <div class="section-label__text">Publications</div>
+    </div>
+    <h1>Peer-reviewed<br/><span>evidence</span></h1>
+    <p class="page-header__desc">The Lugones procedure is backed by a growing body of multicenter clinical evidence. All key publications are available for download below.</p>
+  </div>
+</div>
+
+<!-- ─── PUBLICATIONS LIST ─── -->
+<section class="pub-section">
+  <div class="container">
+    <div class="pub-list">
+
+      <!-- Paper 1 -->
+      <div class="pub-card">
+        <div>
+          <div class="pub-card__meta">
+            <div class="pub-card__journal">JTCVS</div>
+            <div class="pub-card__year">2025</div>
+            <div class="pub-card__type">Multicenter Study</div>
+          </div>
+          <div class="pub-card__title">The Lugones procedure for scimitar syndrome: a multicenter retrospective study with up to 13.5 years follow-up</div>
+          <div class="pub-card__authors">Lugones I, García-Hernández A, Belli E, Pozzi M, Sarris GE, et al.</div>
+          <div class="pub-card__abstract">A retrospective analysis of 38 patients across 11 international institutions. No in-hospital deaths, no reoperations, and no pulmonary venous obstructions detected at mid-term follow-up. CT and 4D-flow MRI confirmed wide reconstructed pathways and physiological venous flow patterns.</div>
+        </div>
+        <div class="pub-card__actions">
+          <a href="publications/lugones-jtcvs-2025.pdf" class="btn-download" download>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+          <div class="pub-card__doi">DOI: 10.1016/j.jtcvs.2025.01.042</div>
+        </div>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="pub-card">
+        <div>
+          <div class="pub-card__meta">
+            <div class="pub-card__journal">J Card Surg</div>
+            <div class="pub-card__year">2023</div>
+            <div class="pub-card__type">Original Article</div>
+          </div>
+          <div class="pub-card__title">Pericardial tunnel technique for partial anomalous pulmonary venous return: long-term outcomes and anatomical adaptations</div>
+          <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM, Villanueva M.</div>
+          <div class="pub-card__abstract">Long-term follow-up data on the first cohort of patients operated with the pericardial tunnel technique. Serial echocardiography demonstrated no gradient progression across the reconstructed pathway. All patients maintained normal biventricular function.</div>
+        </div>
+        <div class="pub-card__actions">
+          <a href="publications/lugones-jcs-2023.pdf" class="btn-download" download>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+          <div class="pub-card__doi">DOI: 10.1111/jocs.17621</div>
+        </div>
+      </div>
+
+      <!-- Paper 3 -->
+      <div class="pub-card">
+        <div>
+          <div class="pub-card__meta">
+            <div class="pub-card__journal">EJCTS</div>
+            <div class="pub-card__year">2022</div>
+            <div class="pub-card__type">Technical Report</div>
+          </div>
+          <div class="pub-card__title">Three surgical variants of the pericardial tunnel technique for scimitar syndrome: operative strategy and anatomical indications</div>
+          <div class="pub-card__authors">Lugones I, Belli E, Hörer J, Fragata J.</div>
+          <div class="pub-card__abstract">Description of the three variants developed to address complex anatomical presentations: original tunneling, atrial septum repositioning, and interatrial pericardial flap. Operative decision algorithm and representative case series.</div>
+        </div>
+        <div class="pub-card__actions">
+          <a href="publications/lugones-ejcts-2022.pdf" class="btn-download" download>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+          <div class="pub-card__doi">DOI: 10.1093/ejcts/ezac318</div>
+        </div>
+      </div>
+
+      <!-- Paper 4 -->
+      <div class="pub-card">
+        <div>
+          <div class="pub-card__meta">
+            <div class="pub-card__journal">Ann Thorac Surg</div>
+            <div class="pub-card__year">2020</div>
+            <div class="pub-card__type">Original Article</div>
+          </div>
+          <div class="pub-card__title">Zero-tension repair of partial anomalous pulmonary venous connection: the autologous pericardial tunnel approach</div>
+          <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM.</div>
+          <div class="pub-card__abstract">Introduction of the pericardial tunnel as an autologous, tension-free conduit for scimitar vein rerouting. Comparison with historical intracardiac baffling outcomes demonstrates significantly lower obstruction rates (0% vs. 46%).</div>
+        </div>
+        <div class="pub-card__actions">
+          <a href="publications/lugones-ats-2020.pdf" class="btn-download" download>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+          <div class="pub-card__doi">DOI: 10.1016/j.athoracsur.2020.04.081</div>
+        </div>
+      </div>
+
+      <!-- Paper 5 -->
+      <div class="pub-card">
+        <div>
+          <div class="pub-card__meta">
+            <div class="pub-card__journal">Pediatr Cardiol</div>
+            <div class="pub-card__year">2018</div>
+            <div class="pub-card__type">Case Series</div>
+          </div>
+          <div class="pub-card__title">Infant scimitar syndrome: early experience with the pericardial tunnel technique in neonates and infants under 12 months</div>
+          <div class="pub-card__authors">Lugones I, Villanueva M, Peralta C.</div>
+          <div class="pub-card__abstract">Early operative experience in the youngest patient cohort. The pericardial tunnel demonstrated growth potential proportional to somatic growth, with no evidence of conduit narrowing at 5-year follow-up in neonates operated in the first weeks of life.</div>
+        </div>
+        <div class="pub-card__actions">
+          <a href="publications/lugones-pedcard-2018.pdf" class="btn-download" download>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Download PDF
+          </a>
+          <div class="pub-card__doi">DOI: 10.1007/s00246-018-1943-2</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACT BANNER ─── -->
+<div class="contact-banner">
+  <div class="container">
+    <div class="contact-banner__inner">
+      <div>
+        <div class="contact-banner__title">Interested in collaboration or further discussion?</div>
+        <div class="contact-banner__desc">Dr. Lugones welcomes inquiries from surgeons, researchers, and institutions worldwide.</div>
+      </div>
+      <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <svg viewBox="0 0 68 80" width="24" height="28" fill="none">
+        <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#B52430" opacity="0.22"/>
+        <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
+        <circle cx="58" cy="60" r="9.5" fill="#B52430"/>
+        <circle cx="58" cy="60" r="3.5" fill="#070F1D"/>
+        <path d="M 58 60 C 46 54 26 46 8 50" stroke="#B52430" stroke-width="5.5" stroke-linecap="round"/>
+        <circle cx="8" cy="50" r="5" fill="#B52430"/>
+        <circle cx="30" cy="7" r="3" fill="#B52430" opacity="0.28"/>
+        <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60" stroke="#B52430" stroke-width="2.5" stroke-linecap="round" opacity="0.18"/>
+      </svg>
+      <div>
+        <div class="footer-logo__name">LUGONES</div>
+        <div class="footer-logo__sub">PROCEDURE</div>
+      </div>
+    </div>
+    <div class="footer-copy">© 2025 Dr. Ignacio Lugones · Hospital Universitario Austral, Buenos Aires</div>
+    <div class="footer-links">
+      <a href="index.html#patients"  class="footer-link">For Patients</a>
+      <a href="index.html#surgeons"  class="footer-link">For Surgeons</a>
+      <a href="publications.html"    class="footer-link">Publications</a>
+      <a href="index.html#contact"   class="footer-link">Contact</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
