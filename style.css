@@ -39,7 +39,9 @@ button { cursor: pointer; border: none; background: transparent; font-family: in
 .section-label__num { font-weight: 700; font-size: 11px; color: white; letter-spacing: 0.03em; }
 .section-label__line { width: 32px; height: 1px; background: white; }
 .section-label__text { font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: white; }
-.section-label--light .section-label__text { color: rgba(11,31,58,0.4); }
+.section-label--light .section-label__num  { color: var(--navy); }
+.section-label--light .section-label__line { background: var(--navy); }
+.section-label--light .section-label__text { color: rgba(11,31,58,0.45); }
 
 /* ─── BUTTONS ─── */
 .btn-primary {

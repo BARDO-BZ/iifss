@@ -77,8 +77,10 @@
     .stat-card { background: var(--navy); padding: 28px 32px; }
     .stat-card__number { font-weight: 700; font-size: 44px; letter-spacing: -0.03em; color: var(--white); line-height: 1; }
     .stat-card__unit { font-weight: 500; font-size: 16px; color: var(--crimson); margin-left: 4px; }
-    .stat-card__label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.4); margin-top: 8px; line-height: 1.4; }
+    .stat-card__label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 13px; color: rgba(255,255,255,0.62); margin-top: 8px; line-height: 1.4; }
     .stat-card__row { display: flex; align-items: baseline; gap: 4px; }
+    .stat-card__label--world { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 22px; color: var(--white); letter-spacing: -0.01em; margin-bottom: 10px; margin-top: 4px; }
+    .stat-card__sublabel { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.55; }
 
     /* ─── SYNDROME ─── */
     #syndrome { background: #FFFFFF; padding: var(--section-py) 0; }
@@ -108,9 +110,9 @@
     #procedure p { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.6); margin-bottom: 24px; }
     .steps { display: flex; flex-direction: column; gap: 16px; }
     .step { display: flex; gap: 16px; align-items: flex-start; }
-    .step__num { font-weight: 700; font-size: 13px; color: var(--crimson); min-width: 28px; padding-top: 1px; }
+    .step__num { font-weight: 700; font-size: 13px; color: #D94050; min-width: 28px; padding-top: 1px; }
     .step__title { font-weight: 600; font-size: 14px; color: var(--white); margin-bottom: 3px; }
-    .step__desc { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.55; }
+    .step__desc { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(255,255,255,0.68); line-height: 1.55; }
     .variants-section { border-top: 1px solid rgba(255,255,255,0.07); padding-top: 60px; }
     .variants-caption { font-weight: 500; font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 28px; }
     .variants-toggle { display: flex; background: rgba(255,255,255,0.05); border-radius: 8px; padding: 4px; width: fit-content; margin-bottom: 32px; }
@@ -120,22 +122,22 @@
     .variant-video { background: #000; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; aspect-ratio: 16/10; }
     .variant-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
     .variant-info { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 28px 32px; }
-    .variant-info__tag { font-weight: 500; font-size: 10px; color: var(--crimson); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
+    .variant-info__tag { font-weight: 500; font-size: 10px; color: #D94050; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 10px; }
     .variant-info__title { font-weight: 600; font-size: 18px; color: var(--white); margin-bottom: 12px; }
-    .variant-info__desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .variant-info__desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.75); line-height: 1.7; }
 
     /* ─── RESULTS ─── */
     #results { background: var(--crimson2); padding: var(--section-py) 0; }
-    #results .section-label__text { color: rgba(255,255,255,0.4); }
+    #results .section-label__text { color: rgba(255,255,255,0.62); }
     .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
     #results h2 { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; }
-    #results .lead { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.7); margin-bottom: 28px; }
-    .results-quote { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.55; }
-    .results-citation { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 8px; letter-spacing: 0.04em; }
+    #results .lead { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 16px; line-height: 1.75; color: rgba(255,255,255,0.82); margin-bottom: 28px; }
+    .results-quote { font-family: 'Crimson Pro', serif; font-style: italic; font-size: 18px; color: rgba(255,255,255,0.85); line-height: 1.55; }
+    .results-citation { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 8px; letter-spacing: 0.04em; }
     .results-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .results-stat { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; padding: 20px 22px; }
+    .results-stat { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 20px 22px; }
     .results-stat__num { font-weight: 700; font-size: 36px; letter-spacing: -0.02em; color: var(--white); line-height: 1; }
-    .results-stat__label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 6px; line-height: 1.4; }
+    .results-stat__label { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.72); margin-top: 6px; line-height: 1.4; }
 
     /* ─── PATIENTS ─── */
     #patients { background: var(--offwhite); padding: var(--section-py) 0; }
@@ -185,9 +187,9 @@
     .center-block__title { font-weight: 600; font-size: 18px; color: var(--white); margin-bottom: 12px; }
     .hospital-placeholder { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; height: 140px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
     .hospital-placeholder span { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: italic; color: rgba(255,255,255,0.2); }
-    .center-desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+    .center-desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.65; }
     .country-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .country-tag { background: rgba(181,36,48,0.1); border: 1px solid rgba(181,36,48,0.2); border-radius: 4px; padding: 5px 12px; font-weight: 500; font-size: 11px; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; }
+    .country-tag { background: rgba(181,36,48,0.15); border: 1px solid rgba(181,36,48,0.3); border-radius: 4px; padding: 5px 12px; font-weight: 500; font-size: 11px; color: rgba(255,255,255,0.82); letter-spacing: 0.05em; }
 
     /* ─── CONTACT ─── */
     #contact { background: #FFFFFF; padding: var(--section-py) 0; }
@@ -312,23 +314,23 @@
   <div class="container">
     <div class="stats-grid">
       <div class="stat-card">
-        <div class="stat-card__row"><div class="stat-card__number">38</div></div>
-        <div class="stat-card__label">patients operated across 11 institutions</div>
+        <div class="stat-card__row"><div class="stat-card__number">0</div></div>
+        <div class="stat-card__label">in-hospital deaths — zero mortality in all operated cases</div>
       </div>
       <div class="stat-card">
         <div class="stat-card__row"><div class="stat-card__number">0</div></div>
-        <div class="stat-card__label">deaths or reoperations at mid-term follow-up</div>
+        <div class="stat-card__label">reoperations at mid-term follow-up across all centers</div>
       </div>
       <div class="stat-card">
         <div class="stat-card__row">
           <div class="stat-card__number">13.5</div>
           <div class="stat-card__unit">y</div>
         </div>
-        <div class="stat-card__label">maximum follow-up with no obstruction</div>
+        <div class="stat-card__label">maximum follow-up with no obstruction recorded</div>
       </div>
       <div class="stat-card">
-        <div class="stat-card__row"><div class="stat-card__number">11</div></div>
-        <div class="stat-card__label">international centers have adopted the technique</div>
+        <div class="stat-card__label stat-card__label--world">Performed worldwide</div>
+        <div class="stat-card__sublabel">Adopted by institutions across Argentina, Spain, UK, France, Italy, India, Mexico &amp; USA</div>
       </div>
     </div>
   </div>
