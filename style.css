@@ -114,6 +114,14 @@ button { cursor: pointer; border: none; background: transparent; font-family: in
 }
 .nav-cta:hover { background: var(--crimson2); }
 
+/* ─── LANG SWITCH ─── */
+.nav-controls { display: flex; align-items: center; gap: 12px; }
+.lang-switch { display: flex; align-items: center; gap: 5px; }
+.lang-btn { font-weight: 600; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.38); transition: color 0.2s; padding: 3px 0; }
+.lang-btn:hover { color: rgba(255,255,255,0.75); }
+.lang-btn.active { color: var(--white); }
+.lang-divider { font-size: 11px; color: rgba(255,255,255,0.18); }
+
 /* ─── HAMBURGER ─── */
 .nav-hamburger {
   display: none;

@@ -1,75 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>The Lugones Procedure for Scimitar Syndrome</title>
+  <title>El Procedimiento Lugones para el Síndrome de Cimitarra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../style.css"/>
   <style>
     /* ─── HERO ─── */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: flex-end;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-bg-img {
-      position: absolute;
-      inset: 0;
-      background-image: url('assets/6088.jpg');
-      background-size: cover;
-      background-position: 60% center;
-      z-index: 0;
-    }
-    .hero-bg-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to top, rgba(11,31,58,1) 0%, rgba(11,31,58,0.82) 40%, rgba(11,31,58,0.55) 100%),
-        linear-gradient(to right, rgba(11,31,58,0.85) 0%, rgba(11,31,58,0.1) 60%);
-    }
-    .hero-wrap {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 48px;
-      position: relative;
-      z-index: 1;
-    }
-    .hero-content {
-      padding: 160px 0 80px;
-    }
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
+    #hero { min-height: 100vh; display: flex; align-items: flex-end; position: relative; overflow: hidden; }
+    .hero-bg-img { position: absolute; inset: 0; background-image: url('../assets/6088.jpg'); background-size: cover; background-position: 60% center; z-index: 0; }
+    .hero-bg-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11,31,58,1) 0%, rgba(11,31,58,0.82) 40%, rgba(11,31,58,0.55) 100%), linear-gradient(to right, rgba(11,31,58,0.85) 0%, rgba(11,31,58,0.1) 60%); }
+    .hero-wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 48px; position: relative; z-index: 1; }
+    .hero-content { padding: 160px 0 80px; }
+    .hero-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 28px; }
     .hero-eyebrow__line { width: 32px; height: 1px; background: var(--crimson); }
     .hero-eyebrow__text { font-weight: 500; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
-    .hero-content h1 {
-      font-weight: 700;
-      font-size: 88px;
-      letter-spacing: -0.04em;
-      line-height: 0.96;
-      margin-bottom: 32px;
-      color: var(--white);
-    }
+    .hero-content h1 { font-weight: 700; font-size: 88px; letter-spacing: -0.04em; line-height: 0.96; margin-bottom: 32px; color: var(--white); }
     .hero-content h1 span { color: var(--crimson); }
-    .hero-desc {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 19px;
-      line-height: 1.7;
-      color: rgba(255,255,255,0.6);
-      max-width: 560px;
-      margin-bottom: 80px;
-    }
+    .hero-desc { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 560px; margin-bottom: 80px; }
 
     /* ─── STATS STRIP ─── */
     #stats { background-color: #0b1f3ad9; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 50px; }
@@ -96,9 +47,7 @@
     .syndrome-text .good-news { background: rgba(181,36,48,0.07); border: 1px solid rgba(181,36,48,0.2); border-radius: 8px; padding: 16px 20px; }
     .syndrome-text .good-news p { font-size: 14px; line-height: 1.65; color: rgba(11,31,58,0.75); }
     .syndrome-text .good-news strong { color: var(--navy); }
-    .syndrome-diagram { background: rgba(11,31,58,0.03); border: 1px solid rgba(11,31,58,0.1); border-radius: 12px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; }
-    .syndrome-diagram__label { font-size: 11px; color: rgba(11,31,58,0.35); letter-spacing: 0.1em; text-transform: uppercase; }
-    .syndrome-diagram__note { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: italic; color: rgba(11,31,58,0.25); }
+    .syndrome-diagram { background: rgba(11,31,58,0.03); border: 1px solid rgba(11,31,58,0.1); border-radius: 12px; aspect-ratio: 4/3; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; margin-bottom: 20px; overflow: hidden; }
     .why-classical { background: rgba(181,36,48,0.05); border: 1px solid rgba(181,36,48,0.2); border-radius: 10px; padding: 20px 24px; }
     .why-classical__title { font-weight: 600; font-size: 13px; color: var(--crimson); margin-bottom: 12px; letter-spacing: 0.02em; }
 
@@ -177,17 +126,14 @@
     #center { background: var(--navy); padding: var(--section-py) 0; }
     .center-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
     #center h2 { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 32px; }
-    .center-photo-placeholder { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; height: 240px; display: flex; align-items: center; justify-content: center; margin-bottom: 28px; }
-    .placeholder-label { text-align: center; }
-    .placeholder-label__main { font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; text-transform: uppercase; }
-    .placeholder-label__sub { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: italic; color: rgba(255,255,255,0.15); margin-top: 4px; }
+    .center-photo-wrap { border-radius: 12px; overflow: hidden; height: 300px; margin-bottom: 28px; }
     .bio-list { display: flex; flex-direction: column; gap: 10px; }
     .bio-item { display: flex; gap: 10px; align-items: flex-start; }
     .bio-text { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); }
     .center-right { display: flex; flex-direction: column; gap: 32px; }
     .center-block__title { font-weight: 600; font-size: 18px; color: var(--white); margin-bottom: 12px; }
-    .hospital-placeholder { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; height: 140px; display: flex; align-items: center; justify-content: center; margin-bottom: 12px; }
-    .hospital-placeholder span { font-family: 'DM Sans', sans-serif; font-size: 11px; font-style: italic; color: rgba(255,255,255,0.2); }
+    .hospital-img-wrap { border-radius: 10px; overflow: hidden; height: 200px; margin-bottom: 12px; }
+    .section-img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .center-desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.65; }
     .country-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .country-tag { background: rgba(181,36,48,0.15); border: 1px solid rgba(181,36,48,0.3); border-radius: 4px; padding: 5px 12px; font-weight: 500; font-size: 11px; color: rgba(255,255,255,0.82); letter-spacing: 0.05em; }
@@ -214,21 +160,8 @@
     .form-submit { width: 100%; background: var(--crimson); color: var(--white); font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: 0.03em; padding: 13px 0; border-radius: 5px; cursor: pointer; transition: background 0.2s; border: none; }
     .form-submit:hover { background: var(--crimson2); }
     .form-note { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(11,31,58,0.35); text-align: center; font-style: italic; margin-top: 4px; }
-
-    /* ─── IMAGES ─── */
-    .section-img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .center-photo-wrap { border-radius: 12px; overflow: hidden; height: 300px; margin-bottom: 28px; }
-    .hospital-img-wrap { border-radius: 10px; overflow: hidden; height: 200px; margin-bottom: 12px; }
-    .procedure-img-wrap { border-radius: 12px; overflow: hidden; height: 260px; margin-top: 32px; }
     .patients-img-wrap { border-radius: 12px; overflow: hidden; height: 260px; margin-top: 32px; }
-
-    /* ─── ANIMATIONS ─── */
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-    .fade-in { opacity: 0; }
-    .fade-in.visible { animation: fadeInUp 0.6s ease forwards; }
-    .fade-in:nth-child(2) { animation-delay: 0.1s; }
-    .fade-in:nth-child(3) { animation-delay: 0.2s; }
-    .fade-in:nth-child(4) { animation-delay: 0.3s; }
+    .procedure-img-wrap { border-radius: 12px; overflow: hidden; height: 260px; margin-top: 32px; }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
@@ -236,18 +169,15 @@
       .hero-content { padding: 120px 0 60px; }
       .hero-content h1 { font-size: 44px; }
       .hero-desc { font-size: 16px; max-width: 100%; margin-bottom: 52px; }
-      .hero-bg-img { background-position: 70% center; }
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
       .stat-card { padding: 20px 18px; }
       .stat-card__number { font-size: 32px; }
       #syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 32px; }
       .syndrome-grid { grid-template-columns: 1fr; gap: 40px; }
       .procedure-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
-      .variants-section { padding-top: 40px; }
       .variant-display { grid-template-columns: 1fr; }
       .results-grid { grid-template-columns: 1fr; gap: 40px; }
       .results-stats { grid-template-columns: 1fr 1fr; gap: 10px; }
-      .results-stat__num { font-size: 28px; }
       .patients-grid { grid-template-columns: 1fr; gap: 40px; }
       .surgeons-grid { grid-template-columns: 1fr; gap: 36px; }
       .surgeon-cards { grid-template-columns: 1fr; }
@@ -266,7 +196,7 @@
 
 <!-- ─── NAV ─── -->
 <nav id="nav">
-  <a href="#hero" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 68 80" width="29" height="34" fill="none">
       <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#B52430" opacity="0.22"/>
       <path d="M 32 11 C 44 16 54 30 54 46" stroke="#B52430" stroke-width="1.5" stroke-linecap="round" opacity="0.35"/>
@@ -279,25 +209,25 @@
     </svg>
     <div class="nav-logo__wordmark">
       <div class="nav-logo__name">LUGONES</div>
-      <div class="nav-logo__sub">PROCEDURE</div>
+      <div class="nav-logo__sub">PROCEDIMIENTO</div>
     </div>
   </a>
   <div class="nav-links">
-    <a href="#syndrome"  class="nav-link" data-section="syndrome">The Syndrome</a>
-    <a href="#procedure" class="nav-link" data-section="procedure">The Procedure</a>
-    <a href="#results"   class="nav-link" data-section="results">Results</a>
-    <a href="#patients"  class="nav-link" data-section="patients">For Patients</a>
-    <a href="#surgeons"  class="nav-link" data-section="surgeons">For Surgeons</a>
-    <a href="#center"    class="nav-link" data-section="center">The Center</a>
-    <a href="#contact" class="nav-cta">Schedule a Consultation</a>
+    <a href="#syndrome"  class="nav-link" data-section="syndrome">El Síndrome</a>
+    <a href="#procedure" class="nav-link" data-section="procedure">El Procedimiento</a>
+    <a href="#results"   class="nav-link" data-section="results">Resultados</a>
+    <a href="#patients"  class="nav-link" data-section="patients">Para Pacientes</a>
+    <a href="#surgeons"  class="nav-link" data-section="surgeons">Para Cirujanos</a>
+    <a href="#center"    class="nav-link" data-section="center">El Centro</a>
+    <a href="#contact" class="nav-cta">Solicitar Consulta</a>
   </div>
   <div class="nav-controls">
     <div class="lang-switch">
-      <span class="lang-btn active">EN</span>
+      <a href="../index.html" class="lang-btn">EN</a>
       <span class="lang-divider">/</span>
-      <a href="es/index.html" class="lang-btn">ES</a>
+      <span class="lang-btn active">ES</span>
     </div>
-    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -310,15 +240,15 @@
     <div class="hero-content">
       <div class="hero-eyebrow">
         <div class="hero-eyebrow__line"></div>
-        <div class="hero-eyebrow__text">International Reference Center · Buenos Aires</div>
+        <div class="hero-eyebrow__text">Centro de Referencia Internacional · Buenos Aires</div>
       </div>
       <h1>
-        The World's Reference<br/>
-        <span>for Scimitar</span><br/>
-        Syndrome Repair
+        La Referencia Mundial<br/>
+        <span>para el Síndrome</span><br/>
+        de Cimitarra
       </h1>
       <p class="hero-desc">
-        Dr. Ignacio Lugones invented a pericardial tunnel technique that achieves tension-free repair with zero reoperations — now adopted in 11 institutions across 3 continents.
+        El Dr. Ignacio Lugones inventó una técnica de túnel pericárdico que logra una reparación sin tensión con cero reoperaciones — adoptada actualmente en 11 instituciones en 3 continentes.
       </p>
     </div>
   </div>
@@ -330,65 +260,65 @@
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-card__row"><div class="stat-card__number">0</div></div>
-        <div class="stat-card__label">in-hospital deaths — zero mortality in all operated cases</div>
+        <div class="stat-card__label">muertes hospitalarias — mortalidad cero en todos los casos operados</div>
       </div>
       <div class="stat-card">
         <div class="stat-card__row"><div class="stat-card__number">0</div></div>
-        <div class="stat-card__label">reoperations at mid-term follow-up across all centers</div>
+        <div class="stat-card__label">reoperaciones en el seguimiento a mediano plazo en todos los centros</div>
       </div>
       <div class="stat-card">
         <div class="stat-card__row">
           <div class="stat-card__number">13.5</div>
-          <div class="stat-card__unit">y</div>
+          <div class="stat-card__unit">a</div>
         </div>
-        <div class="stat-card__label">maximum follow-up with no obstruction recorded</div>
+        <div class="stat-card__label">seguimiento máximo sin obstrucción registrada</div>
       </div>
       <div class="stat-card">
-        <div class="stat-card__label stat-card__label--world">Performed worldwide</div>
-        <div class="stat-card__sublabel">Adopted by institutions across Argentina, Spain, UK, France, Italy, India, Mexico &amp; USA</div>
+        <div class="stat-card__label stat-card__label--world">Realizado en todo el mundo</div>
+        <div class="stat-card__sublabel">Adoptado por instituciones en Argentina, España, Reino Unido, Francia, Italia, India, México y EE.UU.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── THE SYNDROME ─── -->
+<!-- ─── EL SÍNDROME ─── -->
 <section id="syndrome" class="section">
   <div class="container">
     <div class="section-label section-label--light">
       <div class="section-label__num">02</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">The Syndrome</div>
+      <div class="section-label__text">El Síndrome</div>
     </div>
     <div class="syndrome-grid">
       <div>
-        <h2>What is Scimitar<br/>Syndrome?</h2>
+        <h2>¿Qué es el Síndrome<br/>de Cimitarra?</h2>
         <div class="toggle-bar">
-          <button class="toggle-btn active" data-view="patient" onclick="switchView('patient')">For Patients</button>
-          <button class="toggle-btn" data-view="surgeon" onclick="switchView('surgeon')">For Surgeons</button>
+          <button class="toggle-btn active" data-view="patient" onclick="switchView('patient')">Para Pacientes</button>
+          <button class="toggle-btn" data-view="surgeon" onclick="switchView('surgeon')">Para Cirujanos</button>
         </div>
         <div class="syndrome-text visible" id="view-patient">
-          <p>Scimitar syndrome is a rare heart defect present from birth. In a healthy heart, blood from the lungs flows directly into the left side of the heart. In scimitar syndrome, a vein from the right lung takes a wrong path — draining into the wrong chamber and creating an extra workload on the heart.</p>
-          <p>The name comes from the curved shape this misrouted vein makes on a chest X-ray — resembling a scimitar, a type of curved sword.</p>
+          <p>El síndrome de cimitarra es un defecto cardíaco congénito poco frecuente. En un corazón sano, la sangre de los pulmones fluye directamente hacia el lado izquierdo del corazón. En este síndrome, una vena del pulmón derecho toma un camino erróneo, drenando en la cámara incorrecta y generando una sobrecarga en el corazón.</p>
+          <p>El nombre proviene de la curva característica que esta vena mal dirigida dibuja en la radiografía de tórax, similar a una cimitarra, una espada curva.</p>
           <div class="good-news">
-            <p><strong>The good news:</strong> When repaired with the Lugones procedure, patients achieve excellent outcomes with no reoperations needed.</p>
+            <p><strong>La buena noticia:</strong> Con el procedimiento Lugones, los pacientes alcanzan excelentes resultados sin necesidad de reoperaciones.</p>
           </div>
         </div>
         <div class="syndrome-text" id="view-surgeon">
-          <p>Scimitar syndrome is characterized by partial anomalous pulmonary venous return from the right lung, most commonly draining into the inferior vena cava. It is frequently associated with right lung hypoplasia, dextroposition of the heart, anomalous systemic arterial supply, and atrial septal defect.</p>
-          <p>Conventional repair — intracardiac baffling or reimplantation — carries high rates of pulmonary venous obstruction (46% and 63% respectively in large series). The Lugones procedure circumvents this through an autologous pericardial tunnel, achieving wide-lumen, tension-free redirection.</p>
+          <p>El síndrome de cimitarra se caracteriza por un retorno venoso pulmonar anómalo parcial del pulmón derecho, que drena habitualmente en la vena cava inferior. Se asocia frecuentemente con hipoplasia pulmonar derecha, dextroposición cardíaca, suministro arterial sistémico anómalo y comunicación interauricular.</p>
+          <p>La reparación convencional —bafle intracardíaco o reimplantación— presenta altas tasas de obstrucción venosa pulmonar (46% y 63% respectivamente en grandes series). El procedimiento Lugones elude este problema mediante un túnel pericárdico autólogo, logrando una redirección de amplia luz y sin tensión.</p>
         </div>
       </div>
       <div>
         <div class="syndrome-diagram">
-          <img src="assets/img/2209.jpg" alt="Surgical team" class="section-img"/>
+          <img src="../assets/img/2209.jpg" alt="Equipo quirúrgico" class="section-img"/>
         </div>
         <div class="why-classical">
-          <div class="why-classical__title">Why classical techniques fail</div>
+          <div class="why-classical__title">Por qué fallan las técnicas clásicas</div>
           <div class="bullet-list">
-            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Intracardiac baffling: 46% obstruction rate</div></div>
-            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Reimplantation: 63% obstruction rate</div></div>
-            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Tension on the vein causes scarring and closure</div></div>
-            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Long tunnel distance leads to kinking</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Bafle intracardíaco: 46% de tasa de obstrucción</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">Reimplantación: 63% de tasa de obstrucción</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">La tensión en la vena provoca cicatrización y cierre</div></div>
+            <div class="bullet-item"><div class="bullet-dot"></div><div class="bullet-text">La longitud del túnel genera acodamiento</div></div>
           </div>
         </div>
       </div>
@@ -396,117 +326,117 @@
   </div>
 </section>
 
-<!-- ─── THE PROCEDURE ─── -->
+<!-- ─── EL PROCEDIMIENTO ─── -->
 <section id="procedure" class="section">
   <div class="container">
     <div class="section-label">
       <div class="section-label__num">03</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">The Procedure</div>
+      <div class="section-label__text">El Procedimiento</div>
     </div>
     <div class="procedure-grid">
       <div>
-        <h2>The Pericardial<br/><span>Tunnel Technique</span></h2>
-        <p>Instead of constructing a synthetic tube or creating an internal baffle, the Lugones procedure uses the pericardium — the natural sac surrounding the heart — as a ready-made biological tunnel.</p>
-        <p>The scimitar vein is sutured to the pericardium, which guides blood tension-free into the left atrium. The body's own tissue provides a wide, living conduit that grows with the patient and never scars shut.</p>
+        <h2>La Técnica del<br/><span>Túnel Pericárdico</span></h2>
+        <p>En lugar de construir un tubo sintético o crear un bafle interno, el procedimiento Lugones utiliza el pericardio —el saco natural que rodea el corazón— como un túnel biológico ya formado.</p>
+        <p>La vena de cimitarra se sutura al pericardio, que guía la sangre sin tensión hacia la aurícula izquierda. El propio tejido del paciente proporciona un conducto amplio y vivo que crece con él y nunca se cierra por fibrosis.</p>
         <div class="procedure-img-wrap">
-          <img src="assets/img/64896.jpg" alt="Surgeons operating" class="section-img"/>
+          <img src="../assets/img/64896.jpg" alt="Cirujanos operando" class="section-img"/>
         </div>
       </div>
       <div class="steps">
         <div class="step">
           <div class="step__num">01</div>
           <div>
-            <div class="step__title">Identify the anomalous vein</div>
-            <div class="step__desc">The scimitar vein is identified as it descends toward the inferior vena cava.</div>
+            <div class="step__title">Identificar la vena anómala</div>
+            <div class="step__desc">La vena de cimitarra se identifica a medida que desciende hacia la vena cava inferior.</div>
           </div>
         </div>
         <div class="step">
           <div class="step__num">02</div>
           <div>
-            <div class="step__title">Open the pericardium</div>
-            <div class="step__desc">The pericardial sac is opened to create a natural tunnel pathway.</div>
+            <div class="step__title">Abrir el pericardio</div>
+            <div class="step__desc">Se abre el saco pericárdico para crear el trayecto natural del túnel.</div>
           </div>
         </div>
         <div class="step">
           <div class="step__num">03</div>
           <div>
-            <div class="step__title">Suture vein to pericardium</div>
-            <div class="step__desc">The vein is sutured to the pericardial wall — no synthetic graft needed.</div>
+            <div class="step__title">Suturar la vena al pericardio</div>
+            <div class="step__desc">La vena se sutura a la pared pericárdica — sin necesidad de injerto sintético.</div>
           </div>
         </div>
         <div class="step">
           <div class="step__num">04</div>
           <div>
-            <div class="step__title">Close and redirect</div>
-            <div class="step__desc">Blood now flows tension-free through the pericardial tunnel into the left atrium.</div>
+            <div class="step__title">Cerrar y redirigir</div>
+            <div class="step__desc">La sangre fluye ahora sin tensión a través del túnel pericárdico hacia la aurícula izquierda.</div>
           </div>
         </div>
       </div>
     </div>
     <div class="variants-section">
-      <div class="variants-caption">Three surgical variants — adaptable to any anatomy</div>
+      <div class="variants-caption">Tres variantes quirúrgicas — adaptables a cualquier anatomía</div>
       <div class="variants-toggle">
         <button class="variant-btn active" onclick="switchVariant(0)">Original</button>
-        <button class="variant-btn" onclick="switchVariant(1)">Variant A</button>
-        <button class="variant-btn" onclick="switchVariant(2)">Variant B</button>
+        <button class="variant-btn" onclick="switchVariant(1)">Variante A</button>
+        <button class="variant-btn" onclick="switchVariant(2)">Variante B</button>
       </div>
       <div class="variant-display">
         <div class="variant-video">
-          <video id="variant-video" autoplay loop muted playsinline controls src="assets/variant-original.mp4"></video>
+          <video id="variant-video" autoplay loop muted playsinline controls src="../assets/variant-original.mp4"></video>
         </div>
         <div class="variant-info">
-          <div class="variant-info__tag">Surgical animation</div>
+          <div class="variant-info__tag">Animación quirúrgica</div>
           <div class="variant-info__title" id="variant-title">Original</div>
-          <div class="variant-info__desc" id="variant-desc">The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.</div>
+          <div class="variant-info__desc" id="variant-desc">La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── RESULTS ─── -->
+<!-- ─── RESULTADOS ─── -->
 <section id="results" class="section">
   <div class="container">
     <div class="section-label">
       <div class="section-label__num">04</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">Clinical Results</div>
+      <div class="section-label__text">Resultados Clínicos</div>
     </div>
     <div class="results-grid">
       <div>
-        <h2>Excellent mid-term<br/>outcomes across<br/>11 institutions</h2>
-        <p class="lead">A multicenter retrospective study across Argentina, Spain, Italy, France, India, UK, Mexico, and USA validated the durability of the Lugones procedure over a follow-up period of up to 13.5 years.</p>
-        <p class="results-quote">"CT scans consistently demonstrated wide reconstructed pathways; 4D-flow MRI showed physiological pulmonary venous flow patterns after repair."</p>
+        <h2>Excelentes resultados<br/>a mediano plazo en<br/>11 instituciones</h2>
+        <p class="lead">Un estudio retrospectivo multicéntrico en Argentina, España, Italia, Francia, India, Reino Unido, México y EE.UU. validó la durabilidad del procedimiento Lugones en un seguimiento de hasta 13,5 años.</p>
+        <p class="results-quote">"Las tomografías mostraron consistentemente vías reconstruidas de amplia luz; la resonancia magnética 4D-flow demostró patrones fisiológicos de flujo venoso pulmonar tras la reparación."</p>
         <div class="results-citation">— Lugones et al., JTCVS 2025</div>
       </div>
       <div class="results-stats">
-        <div class="results-stat"><div class="results-stat__num">38</div><div class="results-stat__label">Patients operated</div></div>
-        <div class="results-stat"><div class="results-stat__num">0%</div><div class="results-stat__label">In-hospital mortality</div></div>
-        <div class="results-stat"><div class="results-stat__num">0</div><div class="results-stat__label">Late deaths or reoperations</div></div>
-        <div class="results-stat"><div class="results-stat__num">74<span style="font-size:20px;font-weight:500;">mo</span></div><div class="results-stat__label">Mean follow-up (months)</div></div>
-        <div class="results-stat"><div class="results-stat__num">11</div><div class="results-stat__label">International institutions</div></div>
-        <div class="results-stat"><div class="results-stat__num">3</div><div class="results-stat__label">Surgical variants available</div></div>
+        <div class="results-stat"><div class="results-stat__num">38</div><div class="results-stat__label">Pacientes operados</div></div>
+        <div class="results-stat"><div class="results-stat__num">0%</div><div class="results-stat__label">Mortalidad hospitalaria</div></div>
+        <div class="results-stat"><div class="results-stat__num">0</div><div class="results-stat__label">Muertes tardías o reoperaciones</div></div>
+        <div class="results-stat"><div class="results-stat__num">74<span style="font-size:20px;font-weight:500;">m</span></div><div class="results-stat__label">Seguimiento medio (meses)</div></div>
+        <div class="results-stat"><div class="results-stat__num">11</div><div class="results-stat__label">Instituciones internacionales</div></div>
+        <div class="results-stat"><div class="results-stat__num">3</div><div class="results-stat__label">Variantes quirúrgicas disponibles</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── FOR PATIENTS ─── -->
+<!-- ─── PARA PACIENTES ─── -->
 <section id="patients" class="section">
   <div class="container">
     <div class="section-label section-label--light">
       <div class="section-label__num">05</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">For Patients</div>
+      <div class="section-label__text">Para Pacientes</div>
     </div>
     <div class="patients-grid">
       <div>
-        <h2>Your path to<br/><span>a full recovery</span></h2>
-        <p class="lead">Whether you are an infant, a child, or an adult who has recently received a diagnosis, Dr. Lugones and his team are here to guide you from first consultation to full recovery.</p>
-        <a href="#contact" class="btn-primary">Book a Video Consultation →</a>
+        <h2>Tu camino hacia<br/><span>una recuperación plena</span></h2>
+        <p class="lead">Ya sea un recién nacido, un niño o un adulto con diagnóstico reciente, el Dr. Lugones y su equipo acompañan desde la primera consulta hasta la recuperación completa.</p>
+        <a href="#contact" class="btn-primary">Solicitar Videoconsulta →</a>
         <div class="patients-img-wrap">
-          <img src="assets/img/31856.jpg" alt="Doctor with patient" class="section-img"/>
+          <img src="../assets/img/31856.jpg" alt="Médico con paciente" class="section-img"/>
         </div>
       </div>
       <div class="timeline">
@@ -516,8 +446,8 @@
             <div class="timeline-line"></div>
           </div>
           <div class="timeline-content">
-            <div class="timeline-title">First consultation</div>
-            <div class="timeline-desc">Video call with Dr. Lugones to review your imaging and discuss your case. International patients welcome.</div>
+            <div class="timeline-title">Primera consulta</div>
+            <div class="timeline-desc">Videollamada con el Dr. Lugones para revisar las imágenes y analizar el caso. Pacientes internacionales bienvenidos.</div>
           </div>
         </div>
         <div class="timeline-item">
@@ -526,8 +456,8 @@
             <div class="timeline-line"></div>
           </div>
           <div class="timeline-content">
-            <div class="timeline-title">Pre-operative evaluation</div>
-            <div class="timeline-desc">Complete cardiac imaging (echo, CT, MRI) to define anatomy and choose the right surgical variant.</div>
+            <div class="timeline-title">Evaluación preoperatoria</div>
+            <div class="timeline-desc">Estudios cardíacos completos (ecocardiograma, TC, RM) para definir la anatomía y elegir la variante quirúrgica adecuada.</div>
           </div>
         </div>
         <div class="timeline-item">
@@ -536,8 +466,8 @@
             <div class="timeline-line"></div>
           </div>
           <div class="timeline-content">
-            <div class="timeline-title">Surgery at Hospital Austral</div>
-            <div class="timeline-desc">The Lugones procedure is performed in Pilar, Buenos Aires, at a world-class cardiac surgery facility.</div>
+            <div class="timeline-title">Cirugía en Hospital Austral</div>
+            <div class="timeline-desc">El procedimiento Lugones se realiza en Pilar, Buenos Aires, en una institución de cirugía cardíaca de primer nivel internacional.</div>
           </div>
         </div>
         <div class="timeline-item">
@@ -545,8 +475,8 @@
             <div class="timeline-circle"><div class="timeline-circle__num">04</div></div>
           </div>
           <div class="timeline-content">
-            <div class="timeline-title">Recovery &amp; follow-up</div>
-            <div class="timeline-desc">Serial echocardiography and imaging over 12 months. Most patients have no restrictions by 6 months.</div>
+            <div class="timeline-title">Recuperación y seguimiento</div>
+            <div class="timeline-desc">Ecocardiografías e imágenes seriadas durante 12 meses. La mayoría de los pacientes no tienen restricciones a los 6 meses.</div>
           </div>
         </div>
       </div>
@@ -554,75 +484,75 @@
   </div>
 </section>
 
-<!-- ─── FOR SURGEONS ─── -->
+<!-- ─── PARA CIRUJANOS ─── -->
 <section id="surgeons" class="section">
   <div class="container">
     <div class="section-label section-label--light">
       <div class="section-label__num">06</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">For Surgeons</div>
+      <div class="section-label__text">Para Cirujanos</div>
     </div>
     <div class="surgeons-grid">
       <div>
-        <h2>Learn, refer,<br/>collaborate</h2>
-        <p class="lead">The Lugones procedure is reproducible and teachable. Dr. Lugones actively collaborates with centers worldwide and welcomes surgical observers, referrals, and second opinions.</p>
+        <h2>Aprendé, derivá,<br/>colaborá</h2>
+        <p class="lead">El procedimiento Lugones es reproducible y enseñable. El Dr. Lugones colabora activamente con centros de todo el mundo y recibe observadores quirúrgicos, derivaciones y segundas opiniones.</p>
       </div>
       <div class="surgeon-cards">
         <a href="publications.html" class="surgeon-card">
           <div class="surgeon-card__icon">◈</div>
           <div>
-            <div class="surgeon-card__title">Publications</div>
-            <div class="surgeon-card__desc">Access the multicenter study, preprints, and institutional papers validating the procedure.</div>
+            <div class="surgeon-card__title">Publicaciones</div>
+            <div class="surgeon-card__desc">Accedé al estudio multicéntrico, preprints y artículos institucionales que validan el procedimiento.</div>
           </div>
-          <div class="surgeon-card__cta">View publications →</div>
+          <div class="surgeon-card__cta">Ver publicaciones →</div>
         </a>
         <a href="videos.html" class="surgeon-card">
           <div class="surgeon-card__icon">▷</div>
           <div>
-            <div class="surgeon-card__title">Surgical Videos</div>
-            <div class="surgeon-card__desc">Schematic and real intraoperative videos of the original procedure and its three variants.</div>
+            <div class="surgeon-card__title">Videos Quirúrgicos</div>
+            <div class="surgeon-card__desc">Videos esquemáticos e intraoperatorios reales del procedimiento original y sus tres variantes.</div>
           </div>
-          <div class="surgeon-card__cta">View videos →</div>
+          <div class="surgeon-card__cta">Ver videos →</div>
         </a>
         <a href="#contact" class="surgeon-card">
           <div class="surgeon-card__icon">⊕</div>
           <div>
-            <div class="surgeon-card__title">Training &amp; Observership</div>
-            <div class="surgeon-card__desc">Join the surgical team in Buenos Aires. Short-term fellowships and observerships available.</div>
+            <div class="surgeon-card__title">Formación y Observership</div>
+            <div class="surgeon-card__desc">Sumate al equipo quirúrgico en Buenos Aires. Fellowships y observerships de corta duración disponibles.</div>
           </div>
-          <div class="surgeon-card__cta">Apply →</div>
+          <div class="surgeon-card__cta">Postularme →</div>
         </a>
         <a href="#contact" class="surgeon-card">
           <div class="surgeon-card__icon">⟶</div>
           <div>
-            <div class="surgeon-card__title">Refer a Patient</div>
-            <div class="surgeon-card__desc">Submit a complex case directly to Dr. Lugones for a second opinion or referral coordination.</div>
+            <div class="surgeon-card__title">Derivar un Paciente</div>
+            <div class="surgeon-card__desc">Enviá un caso complejo directamente al Dr. Lugones para una segunda opinión o coordinación de derivación.</div>
           </div>
-          <div class="surgeon-card__cta">Submit a case →</div>
+          <div class="surgeon-card__cta">Enviar un caso →</div>
         </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── THE CENTER ─── -->
+<!-- ─── EL CENTRO ─── -->
 <section id="center" class="section">
   <div class="container">
     <div class="section-label">
       <div class="section-label__num">07</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">The Center</div>
+      <div class="section-label__text">El Centro</div>
     </div>
     <div class="center-grid">
       <div>
         <h2>Dr. Ignacio<br/>Lugones</h2>
         <div class="center-photo-wrap">
-          <img src="assets/img/2151237457.jpg" alt="Dr. Ignacio Lugones" class="section-img"/>
+          <img src="../assets/img/2151237457.jpg" alt="Dr. Ignacio Lugones" class="section-img"/>
         </div>
         <div class="bio-list">
           <div class="bio-item">
             <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
-            <div class="bio-text">Pediatric cardiovascular surgeon, MD PhD</div>
+            <div class="bio-text">Cirujano cardiovascular pediátrico, MD PhD</div>
           </div>
           <div class="bio-item">
             <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
@@ -638,7 +568,7 @@
           </div>
           <div class="bio-item">
             <div class="bullet-dot" style="margin-top:7px;background:var(--crimson);"></div>
-            <div class="bio-text">Inventor of the pericardial tunnel technique (2012)</div>
+            <div class="bio-text">Inventor de la técnica del túnel pericárdico (2012)</div>
           </div>
         </div>
       </div>
@@ -646,21 +576,21 @@
         <div>
           <div class="center-block__title">Hospital Universitario Austral</div>
           <div class="hospital-img-wrap">
-            <img src="assets/img/2150829891.jpg" alt="Hospital Universitario Austral" class="section-img"/>
+            <img src="../assets/img/2150829891.jpg" alt="Hospital Universitario Austral" class="section-img"/>
           </div>
-          <p class="center-desc">Located in Pilar, Buenos Aires, Hospital Austral is one of Argentina's leading academic medical centers and the primary site for the Lugones procedure. Internationally recognized and JCI-accredited.</p>
+          <p class="center-desc">Ubicado en Pilar, Buenos Aires, el Hospital Austral es uno de los principales centros académicos de medicina de Argentina y la sede principal del procedimiento Lugones. Reconocido internacionalmente y acreditado por JCI.</p>
         </div>
         <div>
-          <div class="center-block__title">International Network</div>
+          <div class="center-block__title">Red Internacional</div>
           <div class="country-tags">
             <div class="country-tag">Argentina</div>
-            <div class="country-tag">Spain</div>
-            <div class="country-tag">UK</div>
-            <div class="country-tag">France</div>
-            <div class="country-tag">Italy</div>
+            <div class="country-tag">España</div>
+            <div class="country-tag">Reino Unido</div>
+            <div class="country-tag">Francia</div>
+            <div class="country-tag">Italia</div>
             <div class="country-tag">India</div>
-            <div class="country-tag">Mexico</div>
-            <div class="country-tag">USA</div>
+            <div class="country-tag">México</div>
+            <div class="country-tag">EE.UU.</div>
           </div>
         </div>
       </div>
@@ -668,61 +598,61 @@
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
+<!-- ─── CONTACTO ─── -->
 <section id="contact" class="section">
   <div class="container">
     <div class="section-label section-label--light">
       <div class="section-label__num">08</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">Schedule a Consultation</div>
+      <div class="section-label__text">Solicitar una Consulta</div>
     </div>
     <div class="contact-grid">
       <div>
-        <h2>Get in touch<br/>with Dr. Lugones</h2>
-        <p class="lead">Whether you are a patient seeking surgery, a family looking for answers, or a surgeon interested in collaboration — Dr. Lugones welcomes your inquiry.</p>
+        <h2>Contactar al<br/>Dr. Lugones</h2>
+        <p class="lead">Ya sea un paciente que necesita cirugía, una familia en busca de respuestas, o un cirujano interesado en colaboración — el Dr. Lugones recibe tu consulta.</p>
         <div class="contact-info">
           <div class="contact-info-item">
             <div class="contact-info-item__label">Email</div>
             <div class="contact-info-item__val">cardiocongenitas@gmail.com</div>
           </div>
           <div class="contact-info-item">
-            <div class="contact-info-item__label">Location</div>
+            <div class="contact-info-item__label">Ubicación</div>
             <div class="contact-info-item__val">Hospital Austral, Pilar, Buenos Aires</div>
           </div>
           <div class="contact-info-item">
-            <div class="contact-info-item__label">Video consultation</div>
-            <div class="contact-info-item__val">Available for international patients</div>
+            <div class="contact-info-item__label">Videoconsulta</div>
+            <div class="contact-info-item__val">Disponible para pacientes internacionales</div>
           </div>
         </div>
       </div>
       <div class="contact-form-wrap">
-        <div class="form-title">Send a message</div>
+        <div class="form-title">Enviá un mensaje</div>
         <form class="form-fields" onsubmit="handleSubmit(event)">
           <div class="form-field">
-            <div class="form-field__label">Your name</div>
-            <input type="text" placeholder="Full name" required/>
+            <div class="form-field__label">Tu nombre</div>
+            <input type="text" placeholder="Nombre completo" required/>
           </div>
           <div class="form-field">
-            <div class="form-field__label">Email address</div>
-            <input type="email" placeholder="your@email.com" required/>
+            <div class="form-field__label">Correo electrónico</div>
+            <input type="email" placeholder="tu@email.com" required/>
           </div>
           <div class="form-field">
-            <div class="form-field__label">I am a…</div>
+            <div class="form-field__label">Soy…</div>
             <select required>
-              <option value="" disabled selected>Select one</option>
-              <option value="patient">Patient</option>
-              <option value="family">Family member of a patient</option>
-              <option value="surgeon">Cardiac surgeon</option>
-              <option value="cardiologist">Cardiologist / Pediatric cardiologist</option>
-              <option value="other">Other healthcare professional</option>
+              <option value="" disabled selected>Seleccioná una opción</option>
+              <option value="patient">Paciente</option>
+              <option value="family">Familiar de un paciente</option>
+              <option value="surgeon">Cirujano cardíaco</option>
+              <option value="cardiologist">Cardiólogo / Cardiólogo pediátrico</option>
+              <option value="other">Otro profesional de la salud</option>
             </select>
           </div>
           <div class="form-field">
-            <div class="form-field__label">Message</div>
-            <textarea placeholder="Describe your case or inquiry…"></textarea>
+            <div class="form-field__label">Mensaje</div>
+            <textarea placeholder="Describí tu caso o consulta…"></textarea>
           </div>
-          <button type="submit" class="form-submit">Send Message</button>
-          <div class="form-note">Calendly integration available for scheduling video calls</div>
+          <button type="submit" class="form-submit">Enviar Mensaje</button>
+          <div class="form-note">Integración con Calendly disponible para agendar videollamadas</div>
         </form>
       </div>
     </div>
@@ -745,20 +675,20 @@
       </svg>
       <div>
         <div class="footer-logo__name">LUGONES</div>
-        <div class="footer-logo__sub">PROCEDURE</div>
+        <div class="footer-logo__sub">PROCEDIMIENTO</div>
       </div>
     </div>
     <div class="footer-copy">© 2025 Dr. Ignacio Lugones · Hospital Universitario Austral, Buenos Aires</div>
     <div class="footer-links">
-      <a href="#patients"  class="footer-link">For Patients</a>
-      <a href="#surgeons"  class="footer-link">For Surgeons</a>
-      <a href="publications.html" class="footer-link">Publications</a>
-      <a href="#contact"   class="footer-link">Contact</a>
+      <a href="#patients"  class="footer-link">Para Pacientes</a>
+      <a href="#surgeons"  class="footer-link">Para Cirujanos</a>
+      <a href="publications.html" class="footer-link">Publicaciones</a>
+      <a href="#contact"   class="footer-link">Contacto</a>
     </div>
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="../main.js"></script>
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
@@ -784,9 +714,9 @@
   }
 
   const variants = [
-    { label: 'Original',   src: 'assets/variant-original.mp4', desc: 'The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.' },
-    { label: 'Variant A',  src: 'assets/variant-a.mp4',        desc: 'Atrial septum repositioning for cases where the left atrium is small or the scimitar vein inserts high. The septum is moved to enlarge the left atrial volume.' },
-    { label: 'Variant B',  src: 'assets/variant-b.mp4',        desc: 'An interatrial pericardial flap is used to bridge the connection when standard tunneling is insufficient due to anatomical constraints.' },
+    { label: 'Original',    src: '../assets/variant-original.mp4', desc: 'La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.' },
+    { label: 'Variante A',  src: '../assets/variant-a.mp4',        desc: 'Reposicionamiento del tabique auricular para casos en que la aurícula izquierda es pequeña o la vena de cimitarra se inserta alta. El tabique se desplaza para ampliar el volumen auricular.' },
+    { label: 'Variante B',  src: '../assets/variant-b.mp4',        desc: 'Se utiliza un colgajo pericárdico interauricular para establecer la conexión cuando el túnel estándar resulta insuficiente por limitaciones anatómicas.' },
   ];
   function switchVariant(i) {
     document.querySelectorAll('.variant-btn').forEach((b, idx) => b.classList.toggle('active', idx === i));
@@ -800,26 +730,17 @@
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('.form-submit');
-    btn.textContent = 'Message sent ✓';
+    btn.textContent = 'Mensaje enviado ✓';
     btn.style.background = '#2a7a4b';
     btn.disabled = true;
     setTimeout(() => {
-      btn.textContent = 'Send Message';
+      btn.textContent = 'Enviar Mensaje';
       btn.style.background = '';
       btn.disabled = false;
       e.target.reset();
     }, 3000);
   }
 
-  const fadeEls = document.querySelectorAll('.fade-in');
-  const fadeObserver = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); fadeObserver.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  fadeEls.forEach(el => fadeObserver.observe(el));
-
-  /* ─── TIMELINE SCROLL ACTIVATION ─── */
   const timelineObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
@@ -829,7 +750,6 @@
       }
     });
   }, { threshold: 0.6, rootMargin: '0px 0px -60px 0px' });
-
   document.querySelectorAll('.timeline-item').forEach(item => timelineObserver.observe(item));
 </script>
 </body>

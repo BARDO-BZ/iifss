@@ -1,27 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Publications — The Lugones Procedure</title>
+  <title>Publicaciones — El Procedimiento Lugones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="../style.css"/>
   <style>
     .pub-section { background: var(--offwhite); padding: 80px 0 120px; }
     .pub-list { display: flex; flex-direction: column; gap: 16px; }
-    .pub-card {
-      background: #FFFFFF;
-      border: 1px solid rgba(11,31,58,0.1);
-      border-radius: 12px;
-      padding: 28px 32px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: center;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
+    .pub-card { background: #FFFFFF; border: 1px solid rgba(11,31,58,0.1); border-radius: 12px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; transition: border-color 0.2s, box-shadow 0.2s; }
     .pub-card:hover { border-color: rgba(181,36,48,0.25); box-shadow: 0 4px 24px rgba(11,31,58,0.06); }
     .pub-card__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
     .pub-card__journal { background: rgba(181,36,48,0.08); border: 1px solid rgba(181,36,48,0.18); border-radius: 4px; padding: 3px 10px; font-weight: 600; font-size: 10px; color: var(--crimson); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
@@ -34,26 +24,21 @@
     .btn-download { display: flex; align-items: center; gap: 8px; background: var(--crimson); color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; padding: 10px 18px; border-radius: 5px; white-space: nowrap; transition: background 0.2s; }
     .btn-download:hover { background: var(--crimson2); }
     .pub-card__doi { font-size: 10px; color: rgba(11,31,58,0.3); letter-spacing: 0.04em; text-align: right; }
-
     .contact-banner { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 0; }
     .contact-banner__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .contact-banner__title { font-weight: 600; font-size: 20px; color: #fff; margin-bottom: 6px; }
     .contact-banner__desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-
     @media (max-width: 768px) {
       .pub-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
       .pub-card__actions { flex-direction: row; align-items: center; justify-content: space-between; }
       .pub-card__title { font-size: 15px; }
       .contact-banner__inner { flex-direction: column; gap: 20px; align-items: flex-start; }
     }
-    @media (max-width: 480px) {
-      .pub-card__actions { flex-direction: column; align-items: flex-start; }
-    }
+    @media (max-width: 480px) { .pub-card__actions { flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
 <body>
 
-<!-- ─── NAV ─── -->
 <nav id="nav" class="scrolled">
   <a href="index.html" class="nav-logo">
     <svg viewBox="0 0 68 80" width="29" height="34" fill="none">
@@ -68,48 +53,46 @@
     </svg>
     <div class="nav-logo__wordmark">
       <div class="nav-logo__name">LUGONES</div>
-      <div class="nav-logo__sub">PROCEDURE</div>
+      <div class="nav-logo__sub">PROCEDIMIENTO</div>
     </div>
   </a>
   <div class="nav-links">
-    <a href="index.html#syndrome"  class="nav-link">The Syndrome</a>
-    <a href="index.html#procedure" class="nav-link">The Procedure</a>
-    <a href="index.html#results"   class="nav-link">Results</a>
-    <a href="index.html#patients"  class="nav-link">For Patients</a>
-    <a href="index.html#surgeons"  class="nav-link">For Surgeons</a>
-    <a href="publications.html"    class="nav-link active">Publications</a>
-    <a href="index.html#contact" class="nav-cta">Schedule a Consultation</a>
+    <a href="index.html#syndrome"  class="nav-link">El Síndrome</a>
+    <a href="index.html#procedure" class="nav-link">El Procedimiento</a>
+    <a href="index.html#results"   class="nav-link">Resultados</a>
+    <a href="index.html#patients"  class="nav-link">Para Pacientes</a>
+    <a href="index.html#surgeons"  class="nav-link">Para Cirujanos</a>
+    <a href="publications.html"    class="nav-link active">Publicaciones</a>
+    <a href="index.html#contact" class="nav-cta">Solicitar Consulta</a>
   </div>
   <div class="nav-controls">
     <div class="lang-switch">
-      <span class="lang-btn active">EN</span>
+      <a href="../publications.html" class="lang-btn">EN</a>
       <span class="lang-divider">/</span>
-      <a href="es/publications.html" class="lang-btn">ES</a>
+      <span class="lang-btn active">ES</span>
     </div>
-    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Toggle menu" aria-expanded="false">
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<!-- ─── PAGE HEADER ─── -->
 <div class="page-header">
   <div class="container">
     <a href="index.html#surgeons" class="back-link">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 2L3 7l6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Back to For Surgeons
+      Volver a Para Cirujanos
     </a>
     <div class="section-label">
       <div class="section-label__num">07</div>
       <div class="section-label__line"></div>
-      <div class="section-label__text">Publications</div>
+      <div class="section-label__text">Publicaciones</div>
     </div>
-    <h1>Peer-reviewed<br/><span>evidence</span></h1>
-    <p class="page-header__desc">The Lugones procedure is backed by a growing body of multicenter clinical evidence. All key publications are available for download below.</p>
+    <h1>Evidencia<br/><span>revisada por pares</span></h1>
+    <p class="page-header__desc">El procedimiento Lugones está respaldado por un creciente cuerpo de evidencia clínica multicéntrica. Todas las publicaciones clave están disponibles para descarga.</p>
   </div>
 </div>
 
-<!-- ─── PUBLICATIONS LIST ─── -->
 <section class="pub-section">
   <div class="container">
     <div class="pub-list">
@@ -119,16 +102,16 @@
           <div class="pub-card__meta">
             <div class="pub-card__journal">JTCVS</div>
             <div class="pub-card__year">2025</div>
-            <div class="pub-card__type">Multicenter Study</div>
+            <div class="pub-card__type">Estudio Multicéntrico</div>
           </div>
-          <div class="pub-card__title">The Lugones procedure for scimitar syndrome: a multicenter retrospective study with up to 13.5 years follow-up</div>
+          <div class="pub-card__title">El procedimiento Lugones para el síndrome de cimitarra: estudio retrospectivo multicéntrico con hasta 13,5 años de seguimiento</div>
           <div class="pub-card__authors">Lugones I, García-Hernández A, Belli E, Pozzi M, Sarris GE, et al.</div>
-          <div class="pub-card__abstract">A retrospective analysis of 38 patients across 11 international institutions. No in-hospital deaths, no reoperations, and no pulmonary venous obstructions detected at mid-term follow-up. CT and 4D-flow MRI confirmed wide reconstructed pathways and physiological venous flow patterns.</div>
+          <div class="pub-card__abstract">Análisis retrospectivo de 38 pacientes en 11 instituciones internacionales. Sin muertes hospitalarias, sin reoperaciones y sin obstrucciones venosas pulmonares en el seguimiento a mediano plazo. TC y RM 4D-flow confirmaron vías reconstruidas de amplia luz y patrones de flujo venoso fisiológicos.</div>
         </div>
         <div class="pub-card__actions">
-          <a href="publications/lugones-jtcvs-2025.pdf" class="btn-download" download>
+          <a href="../publications/lugones-jtcvs-2025.pdf" class="btn-download" download>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download PDF
+            Descargar PDF
           </a>
           <div class="pub-card__doi">DOI: 10.1016/j.jtcvs.2025.01.042</div>
         </div>
@@ -139,16 +122,16 @@
           <div class="pub-card__meta">
             <div class="pub-card__journal">J Card Surg</div>
             <div class="pub-card__year">2023</div>
-            <div class="pub-card__type">Original Article</div>
+            <div class="pub-card__type">Artículo Original</div>
           </div>
-          <div class="pub-card__title">Pericardial tunnel technique for partial anomalous pulmonary venous return: long-term outcomes and anatomical adaptations</div>
+          <div class="pub-card__title">Técnica del túnel pericárdico para el retorno venoso pulmonar anómalo parcial: resultados a largo plazo y adaptaciones anatómicas</div>
           <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM, Villanueva M.</div>
-          <div class="pub-card__abstract">Long-term follow-up data on the first cohort of patients operated with the pericardial tunnel technique. Serial echocardiography demonstrated no gradient progression across the reconstructed pathway. All patients maintained normal biventricular function.</div>
+          <div class="pub-card__abstract">Datos de seguimiento a largo plazo de la primera cohorte de pacientes operados con la técnica del túnel pericárdico. La ecocardiografía seriada no demostró progresión del gradiente a través de la vía reconstruida. Todos los pacientes mantuvieron función biventricular normal.</div>
         </div>
         <div class="pub-card__actions">
-          <a href="publications/lugones-jcs-2023.pdf" class="btn-download" download>
+          <a href="../publications/lugones-jcs-2023.pdf" class="btn-download" download>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download PDF
+            Descargar PDF
           </a>
           <div class="pub-card__doi">DOI: 10.1111/jocs.17621</div>
         </div>
@@ -159,16 +142,16 @@
           <div class="pub-card__meta">
             <div class="pub-card__journal">EJCTS</div>
             <div class="pub-card__year">2022</div>
-            <div class="pub-card__type">Technical Report</div>
+            <div class="pub-card__type">Reporte Técnico</div>
           </div>
-          <div class="pub-card__title">Three surgical variants of the pericardial tunnel technique for scimitar syndrome: operative strategy and anatomical indications</div>
+          <div class="pub-card__title">Tres variantes quirúrgicas de la técnica del túnel pericárdico para el síndrome de cimitarra: estrategia operatoria e indicaciones anatómicas</div>
           <div class="pub-card__authors">Lugones I, Belli E, Hörer J, Fragata J.</div>
-          <div class="pub-card__abstract">Description of the three variants developed to address complex anatomical presentations: original tunneling, atrial septum repositioning, and interatrial pericardial flap. Operative decision algorithm and representative case series.</div>
+          <div class="pub-card__abstract">Descripción de las tres variantes desarrolladas para presentaciones anatómicas complejas: túnel original, reposicionamiento del tabique auricular y colgajo pericárdico interauricular. Algoritmo de decisión operatoria y serie de casos representativos.</div>
         </div>
         <div class="pub-card__actions">
-          <a href="publications/lugones-ejcts-2022.pdf" class="btn-download" download>
+          <a href="../publications/lugones-ejcts-2022.pdf" class="btn-download" download>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download PDF
+            Descargar PDF
           </a>
           <div class="pub-card__doi">DOI: 10.1093/ejcts/ezac318</div>
         </div>
@@ -179,16 +162,16 @@
           <div class="pub-card__meta">
             <div class="pub-card__journal">Ann Thorac Surg</div>
             <div class="pub-card__year">2020</div>
-            <div class="pub-card__type">Original Article</div>
+            <div class="pub-card__type">Artículo Original</div>
           </div>
-          <div class="pub-card__title">Zero-tension repair of partial anomalous pulmonary venous connection: the autologous pericardial tunnel approach</div>
+          <div class="pub-card__title">Reparación sin tensión de la conexión venosa pulmonar anómala parcial: el abordaje del túnel pericárdico autólogo</div>
           <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM.</div>
-          <div class="pub-card__abstract">Introduction of the pericardial tunnel as an autologous, tension-free conduit for scimitar vein rerouting. Comparison with historical intracardiac baffling outcomes demonstrates significantly lower obstruction rates (0% vs. 46%).</div>
+          <div class="pub-card__abstract">Introducción del túnel pericárdico como conducto autólogo y sin tensión para la redirección de la vena de cimitarra. La comparación con los resultados históricos del bafle intracardíaco demuestra tasas de obstrucción significativamente menores (0% vs. 46%).</div>
         </div>
         <div class="pub-card__actions">
-          <a href="publications/lugones-ats-2020.pdf" class="btn-download" download>
+          <a href="../publications/lugones-ats-2020.pdf" class="btn-download" download>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download PDF
+            Descargar PDF
           </a>
           <div class="pub-card__doi">DOI: 10.1016/j.athoracsur.2020.04.081</div>
         </div>
@@ -199,16 +182,16 @@
           <div class="pub-card__meta">
             <div class="pub-card__journal">Pediatr Cardiol</div>
             <div class="pub-card__year">2018</div>
-            <div class="pub-card__type">Case Series</div>
+            <div class="pub-card__type">Serie de Casos</div>
           </div>
-          <div class="pub-card__title">Infant scimitar syndrome: early experience with the pericardial tunnel technique in neonates and infants under 12 months</div>
+          <div class="pub-card__title">Síndrome de cimitarra en lactantes: experiencia inicial con la técnica del túnel pericárdico en neonatos y lactantes menores de 12 meses</div>
           <div class="pub-card__authors">Lugones I, Villanueva M, Peralta C.</div>
-          <div class="pub-card__abstract">Early operative experience in the youngest patient cohort. The pericardial tunnel demonstrated growth potential proportional to somatic growth, with no evidence of conduit narrowing at 5-year follow-up in neonates operated in the first weeks of life.</div>
+          <div class="pub-card__abstract">Experiencia operatoria inicial en la cohorte de pacientes más jóvenes. El túnel pericárdico demostró potencial de crecimiento proporcional al desarrollo somático, sin evidencia de estrechez del conducto a 5 años en neonatos operados en las primeras semanas de vida.</div>
         </div>
         <div class="pub-card__actions">
-          <a href="publications/lugones-pedcard-2018.pdf" class="btn-download" download>
+          <a href="../publications/lugones-pedcard-2018.pdf" class="btn-download" download>
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Download PDF
+            Descargar PDF
           </a>
           <div class="pub-card__doi">DOI: 10.1007/s00246-018-1943-2</div>
         </div>
@@ -218,20 +201,18 @@
   </div>
 </section>
 
-<!-- ─── CONTACT BANNER ─── -->
 <div class="contact-banner">
   <div class="container">
     <div class="contact-banner__inner">
       <div>
-        <div class="contact-banner__title">Interested in collaboration or further discussion?</div>
-        <div class="contact-banner__desc">Dr. Lugones welcomes inquiries from surgeons, researchers, and institutions worldwide.</div>
+        <div class="contact-banner__title">¿Interesado en colaboración o más información?</div>
+        <div class="contact-banner__desc">El Dr. Lugones recibe consultas de cirujanos, investigadores e instituciones de todo el mundo.</div>
       </div>
-      <a href="index.html#contact" class="btn-primary">Get in touch →</a>
+      <a href="index.html#contact" class="btn-primary">Contactar →</a>
     </div>
   </div>
 </div>
 
-<!-- ─── FOOTER ─── -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">
@@ -247,19 +228,19 @@
       </svg>
       <div>
         <div class="footer-logo__name">LUGONES</div>
-        <div class="footer-logo__sub">PROCEDURE</div>
+        <div class="footer-logo__sub">PROCEDIMIENTO</div>
       </div>
     </div>
     <div class="footer-copy">© 2025 Dr. Ignacio Lugones · Hospital Universitario Austral, Buenos Aires</div>
     <div class="footer-links">
-      <a href="index.html#patients"  class="footer-link">For Patients</a>
-      <a href="index.html#surgeons"  class="footer-link">For Surgeons</a>
-      <a href="publications.html"    class="footer-link">Publications</a>
-      <a href="index.html#contact"   class="footer-link">Contact</a>
+      <a href="index.html#patients"  class="footer-link">Para Pacientes</a>
+      <a href="index.html#surgeons"  class="footer-link">Para Cirujanos</a>
+      <a href="publications.html"    class="footer-link">Publicaciones</a>
+      <a href="index.html#contact"   class="footer-link">Contacto</a>
     </div>
   </div>
 </footer>
 
-<script src="main.js"></script>
+<script src="../main.js"></script>
 </body>
 </html>
