@@ -86,7 +86,7 @@
     #syndrome { background: #FFFFFF; padding: var(--section-py) 0; }
     #syndrome .section-label__text { color: rgba(11,31,58,0.4); }
     .syndrome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-    .syndrome h2 { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; color: var(--navy); }
+    #syndrome h2 { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 24px; color: var(--navy); }
     .toggle-bar { display: flex; background: rgba(11,31,58,0.06); border-radius: 6px; padding: 3px; width: fit-content; margin-bottom: 28px; }
     .toggle-btn { background: transparent; color: rgba(11,31,58,0.55); font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 12px; letter-spacing: 0.04em; padding: 7px 18px; border-radius: 4px; transition: all 0.2s; }
     .toggle-btn.active { background: var(--crimson); color: var(--white); }
@@ -214,6 +214,13 @@
     .form-submit:hover { background: var(--crimson2); }
     .form-note { font-family: 'DM Sans', sans-serif; font-size: 12px; color: rgba(11,31,58,0.35); text-align: center; font-style: italic; margin-top: 4px; }
 
+    /* ─── IMAGES ─── */
+    .section-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .center-photo-wrap { border-radius: 12px; overflow: hidden; height: 300px; margin-bottom: 28px; }
+    .hospital-img-wrap { border-radius: 10px; overflow: hidden; height: 200px; margin-bottom: 12px; }
+    .procedure-img-wrap { border-radius: 12px; overflow: hidden; height: 260px; margin-top: 32px; }
+    .patients-img-wrap { border-radius: 12px; overflow: hidden; height: 260px; margin-top: 32px; }
+
     /* ─── ANIMATIONS ─── */
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .fade-in { opacity: 0; }
@@ -232,7 +239,7 @@
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 1px; }
       .stat-card { padding: 20px 18px; }
       .stat-card__number { font-size: 32px; }
-      .syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 32px; }
+      #syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 32px; }
       .syndrome-grid { grid-template-columns: 1fr; gap: 40px; }
       .procedure-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
       .variants-section { padding-top: 40px; }
@@ -249,7 +256,7 @@
     }
     @media (max-width: 480px) {
       .hero-content h1 { font-size: 36px; }
-      .syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 28px; }
+      #syndrome h2, #procedure h2, #results h2, #patients h2, #surgeons h2, #center h2, #contact h2 { font-size: 28px; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -346,7 +353,7 @@
     </div>
     <div class="syndrome-grid">
       <div>
-        <h2 class="syndrome">What is Scimitar<br/>Syndrome?</h2>
+        <h2>What is Scimitar<br/>Syndrome?</h2>
         <div class="toggle-bar">
           <button class="toggle-btn active" data-view="patient" onclick="switchView('patient')">For Patients</button>
           <button class="toggle-btn" data-view="surgeon" onclick="switchView('surgeon')">For Surgeons</button>
@@ -365,14 +372,7 @@
       </div>
       <div>
         <div class="syndrome-diagram">
-          <svg viewBox="0 0 68 80" width="60" height="60" fill="none" opacity="0.35">
-            <path d="M 30 7 C 46 5 66 20 64 50 C 63 55 61 58 58 60 C 55 62 52 61 50 58 C 48 55 52 50 52 44 C 52 28 38 14 32 11 C 30 10 28 8 30 7 Z" fill="#0B1F3A"/>
-            <circle cx="58" cy="60" r="9.5" fill="#0B1F3A"/>
-            <path d="M 58 60 C 46 54 26 46 8 50" stroke="#0B1F3A" stroke-width="5.5" stroke-linecap="round"/>
-            <circle cx="8" cy="50" r="5" fill="#0B1F3A"/>
-          </svg>
-          <div class="syndrome-diagram__label">Anatomical diagram</div>
-          <div class="syndrome-diagram__note">Asset to be provided by Dr. Lugones</div>
+          <img src="assets/img/2209.jpg" alt="Surgical team" class="section-img"/>
         </div>
         <div class="why-classical">
           <div class="why-classical__title">Why classical techniques fail</div>
@@ -401,6 +401,9 @@
         <h2>The Pericardial<br/><span>Tunnel Technique</span></h2>
         <p>Instead of constructing a synthetic tube or creating an internal baffle, the Lugones procedure uses the pericardium — the natural sac surrounding the heart — as a ready-made biological tunnel.</p>
         <p>The scimitar vein is sutured to the pericardium, which guides blood tension-free into the left atrium. The body's own tissue provides a wide, living conduit that grows with the patient and never scars shut.</p>
+        <div class="procedure-img-wrap">
+          <img src="assets/img/64896.jpg" alt="Surgeons operating" class="section-img"/>
+        </div>
       </div>
       <div class="steps">
         <div class="step">
@@ -494,6 +497,9 @@
         <h2>Your path to<br/><span>a full recovery</span></h2>
         <p class="lead">Whether you are an infant, a child, or an adult who has recently received a diagnosis, Dr. Lugones and his team are here to guide you from first consultation to full recovery.</p>
         <a href="#contact" class="btn-primary">Book a Video Consultation →</a>
+        <div class="patients-img-wrap">
+          <img src="assets/img/31856.jpg" alt="Doctor with patient" class="section-img"/>
+        </div>
       </div>
       <div class="timeline">
         <div class="timeline-item">
@@ -602,11 +608,8 @@
     <div class="center-grid">
       <div>
         <h2>Dr. Ignacio<br/>Lugones</h2>
-        <div class="center-photo-placeholder">
-          <div class="placeholder-label">
-            <div class="placeholder-label__main">Portrait photo</div>
-            <div class="placeholder-label__sub">To be provided</div>
-          </div>
+        <div class="center-photo-wrap">
+          <img src="assets/img/2151237457.jpg" alt="Dr. Ignacio Lugones" class="section-img"/>
         </div>
         <div class="bio-list">
           <div class="bio-item">
@@ -634,7 +637,9 @@
       <div class="center-right">
         <div>
           <div class="center-block__title">Hospital Universitario Austral</div>
-          <div class="hospital-placeholder"><span>Hospital imagery — to be provided</span></div>
+          <div class="hospital-img-wrap">
+            <img src="assets/img/2150829891.jpg" alt="Hospital Universitario Austral" class="section-img"/>
+          </div>
           <p class="center-desc">Located in Pilar, Buenos Aires, Hospital Austral is one of Argentina's leading academic medical centers and the primary site for the Lugones procedure. Internationally recognized and JCI-accredited.</p>
         </div>
         <div>
