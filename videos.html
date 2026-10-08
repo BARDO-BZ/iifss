@@ -117,7 +117,7 @@
     <div class="videos-grid">
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-0">
-          <video src="assets/variant-original.mp4" muted loop preload="metadata" aria-label="Surgical animation: The Pericardial Tunnel technique"><track kind="descriptions" label="Surgical animation description"/></video>
+          <video src="assets/original.mp4" muted loop preload="metadata" aria-label="Surgical animation: The Pericardial Tunnel technique"><track kind="descriptions" label="Surgical animation description"/></video>
           <button class="video-card__play" onclick="playThumb(0)" aria-label="Play video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -133,7 +133,7 @@
 
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-1">
-          <video src="assets/variant-a.mp4" muted loop preload="metadata" aria-label="Surgical animation: Variant A — Atrial Septum Repositioning"><track kind="descriptions" label="Surgical animation description"/></video>
+          <video src="assets/VarianteA.mp4" muted loop preload="metadata" aria-label="Surgical animation: Variant A — Atrial Septum Repositioning"><track kind="descriptions" label="Surgical animation description"/></video>
           <button class="video-card__play" onclick="playThumb(1)" aria-label="Play video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -149,7 +149,7 @@
 
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-2">
-          <video src="assets/variant-b.mp4" muted loop preload="metadata" aria-label="Surgical animation: Variant B — Interatrial Pericardial Flap"><track kind="descriptions" label="Surgical animation description"/></video>
+          <video src="assets/VarianteB.mp4" muted loop preload="metadata" aria-label="Surgical animation: Variant B — Interatrial Pericardial Flap"><track kind="descriptions" label="Surgical animation description"/></video>
           <button class="video-card__play" onclick="playThumb(2)" aria-label="Play video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -173,7 +173,7 @@
       </div>
       <div class="featured-video">
         <div class="featured-video__player">
-          <video id="featured-player" src="assets/variant-original.mp4" controls autoplay loop muted playsinline><track kind="descriptions" label="Surgical animation description"/></video>
+          <video id="featured-player" src="assets/original.mp4" controls autoplay loop muted playsinline><track kind="descriptions" label="Surgical animation description"/></video>
         </div>
         <div class="featured-video__info">
           <div class="featured-video__info-tag">Surgical animation</div>
@@ -226,9 +226,9 @@
 <script src="main.js"></script>
 <script>
   const variants = [
-    { src: 'assets/variant-original.mp4', title: 'Original — The Pericardial Tunnel',       desc: 'The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.' },
-    { src: 'assets/variant-a.mp4',        title: 'Variant A — Atrial Septum Repositioning', desc: 'Atrial septum repositioning for cases where the left atrium is small or the scimitar vein inserts high. The septum is moved to enlarge the left atrial volume.' },
-    { src: 'assets/variant-b.mp4',        title: 'Variant B — Interatrial Pericardial Flap',desc: 'An interatrial pericardial flap is used to bridge the connection when standard tunneling is insufficient due to anatomical constraints.' },
+    { src: 'assets/original.mp4', title: 'Original — The Pericardial Tunnel',       desc: 'The scimitar vein is sutured to the pericardium, which acts as a natural wide-lumen tunnel routing blood directly into the left atrium. No synthetic material. No tension.' },
+    { src: 'assets/VarianteA.mp4',        title: 'Variant A — Atrial Septum Repositioning', desc: 'Atrial septum repositioning for cases where the left atrium is small or the scimitar vein inserts high. The septum is moved to enlarge the left atrial volume.' },
+    { src: 'assets/VarianteB.mp4',        title: 'Variant B — Interatrial Pericardial Flap',desc: 'An interatrial pericardial flap is used to bridge the connection when standard tunneling is insufficient due to anatomical constraints.' },
   ];
 
   function playThumb(i) {

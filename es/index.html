@@ -383,7 +383,7 @@
       </div>
       <div class="variant-display">
         <div class="variant-video">
-          <video id="variant-video" autoplay loop muted playsinline controls src="../assets/variant-original.mp4"></video>
+          <video id="variant-video" autoplay loop muted playsinline controls src="../assets/original.mp4"></video>
         </div>
         <div class="variant-info">
           <div class="variant-info__tag">Animación quirúrgica</div>
@@ -714,9 +714,9 @@
   }
 
   const variants = [
-    { label: 'Original',    src: '../assets/variant-original.mp4', desc: 'La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.' },
-    { label: 'Variante A',  src: '../assets/variant-a.mp4',        desc: 'Reposicionamiento del tabique auricular para casos en que la aurícula izquierda es pequeña o la vena de cimitarra se inserta alta. El tabique se desplaza para ampliar el volumen auricular.' },
-    { label: 'Variante B',  src: '../assets/variant-b.mp4',        desc: 'Se utiliza un colgajo pericárdico interauricular para establecer la conexión cuando el túnel estándar resulta insuficiente por limitaciones anatómicas.' },
+    { label: 'Original',    src: '../assets/original.mp4', desc: 'La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.' },
+    { label: 'Variante A',  src: '../assets/VarianteA.mp4',        desc: 'Reposicionamiento del tabique auricular para casos en que la aurícula izquierda es pequeña o la vena de cimitarra se inserta alta. El tabique se desplaza para ampliar el volumen auricular.' },
+    { label: 'Variante B',  src: '../assets/VarianteB.mp4',        desc: 'Se utiliza un colgajo pericárdico interauricular para establecer la conexión cuando el túnel estándar resulta insuficiente por limitaciones anatómicas.' },
   ];
   function switchVariant(i) {
     document.querySelectorAll('.variant-btn').forEach((b, idx) => b.classList.toggle('active', idx === i));

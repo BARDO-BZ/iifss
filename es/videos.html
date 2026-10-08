@@ -110,7 +110,7 @@
     <div class="videos-grid">
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-0">
-          <video src="../assets/variant-original.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: El Túnel Pericárdico"><track kind="descriptions" label="Descripción de la animación"/></video>
+          <video src="../assets/original.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: El Túnel Pericárdico"><track kind="descriptions" label="Descripción de la animación"/></video>
           <button class="video-card__play" onclick="playThumb(0)" aria-label="Reproducir video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -126,7 +126,7 @@
 
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-1">
-          <video src="../assets/variant-a.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: Variante A — Reposicionamiento del Tabique Auricular"><track kind="descriptions" label="Descripción de la animación"/></video>
+          <video src="../assets/VarianteA.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: Variante A — Reposicionamiento del Tabique Auricular"><track kind="descriptions" label="Descripción de la animación"/></video>
           <button class="video-card__play" onclick="playThumb(1)" aria-label="Reproducir video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -142,7 +142,7 @@
 
       <div class="video-card">
         <div class="video-card__thumb" id="thumb-2">
-          <video src="../assets/variant-b.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: Variante B — Colgajo Pericárdico Interauricular"><track kind="descriptions" label="Descripción de la animación"/></video>
+          <video src="../assets/VarianteB.mp4" muted loop preload="metadata" aria-label="Animación quirúrgica: Variante B — Colgajo Pericárdico Interauricular"><track kind="descriptions" label="Descripción de la animación"/></video>
           <button class="video-card__play" onclick="playThumb(2)" aria-label="Reproducir video">
             <div class="video-card__play-btn" aria-hidden="true">
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3l10 6-10 6V3z" fill="white"/></svg>
@@ -166,7 +166,7 @@
       </div>
       <div class="featured-video">
         <div class="featured-video__player">
-          <video id="featured-player" src="../assets/variant-original.mp4" controls autoplay loop muted playsinline><track kind="descriptions" label="Descripción de la animación"/></video>
+          <video id="featured-player" src="../assets/original.mp4" controls autoplay loop muted playsinline><track kind="descriptions" label="Descripción de la animación"/></video>
         </div>
         <div class="featured-video__info">
           <div class="featured-video__info-tag">Animación quirúrgica</div>
@@ -217,9 +217,9 @@
 <script src="../main.js"></script>
 <script>
   const variants = [
-    { src: '../assets/variant-original.mp4', title: 'Original — El Túnel Pericárdico',                   desc: 'La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.' },
-    { src: '../assets/variant-a.mp4',        title: 'Variante A — Reposicionamiento del Tabique',        desc: 'Reposicionamiento del tabique auricular para casos con aurícula izquierda pequeña o inserción alta de la vena de cimitarra. El tabique se desplaza para ampliar el volumen auricular.' },
-    { src: '../assets/variant-b.mp4',        title: 'Variante B — Colgajo Pericárdico Interauricular',  desc: 'Se utiliza un colgajo pericárdico interauricular para establecer la conexión cuando el túnel estándar resulta insuficiente por limitaciones anatómicas.' },
+    { src: '../assets/original.mp4', title: 'Original — El Túnel Pericárdico',                   desc: 'La vena de cimitarra se sutura al pericardio, que actúa como un túnel natural de amplia luz dirigiendo la sangre directamente hacia la aurícula izquierda. Sin material sintético. Sin tensión.' },
+    { src: '../assets/VarianteA.mp4',        title: 'Variante A — Reposicionamiento del Tabique',        desc: 'Reposicionamiento del tabique auricular para casos con aurícula izquierda pequeña o inserción alta de la vena de cimitarra. El tabique se desplaza para ampliar el volumen auricular.' },
+    { src: '../assets/VarianteB.mp4',        title: 'Variante B — Colgajo Pericárdico Interauricular',  desc: 'Se utiliza un colgajo pericárdico interauricular para establecer la conexión cuando el túnel estándar resulta insuficiente por limitaciones anatómicas.' },
   ];
 
   function playThumb(i) {
