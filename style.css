@@ -67,6 +67,10 @@ button { cursor: pointer; border: none; background: transparent; font-family: in
   display: inline-block;
 }
 .btn-secondary:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+.link-hospital{
+  text-decoration: underline;
+  color: #8B1C28;
+}
 
 /* ─── NAV ─── */
 #nav {
@@ -160,6 +164,8 @@ footer { background: var(--navy3); border-top: 1px solid rgba(255,255,255,0.05);
 .page-header h1 { font-weight: 700; font-size: 56px; letter-spacing: -0.03em; line-height: 1.04; margin-bottom: 16px; }
 .page-header h1 span { color: var(--crimson); }
 .page-header__desc { font-family: 'DM Sans', sans-serif; font-weight: 300; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 580px; }
+.page-header__desc a { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.page-header__desc a:hover { color: var(--crimson); }
 .back-link {
   display: inline-flex;
   align-items: center;

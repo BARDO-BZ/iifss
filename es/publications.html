@@ -11,30 +11,27 @@
   <style>
     .pub-section { background: var(--offwhite); padding: 80px 0 120px; }
     .pub-list { display: flex; flex-direction: column; gap: 16px; }
-    .pub-card { background: #FFFFFF; border: 1px solid rgba(11,31,58,0.1); border-radius: 12px; padding: 28px 32px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; transition: border-color 0.2s, box-shadow 0.2s; }
+    .pub-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(11,31,58,0.1);
+      border-radius: 12px;
+      padding: 28px 32px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
     .pub-card:hover { border-color: rgba(181,36,48,0.25); box-shadow: 0 4px 24px rgba(11,31,58,0.06); }
-    .pub-card__meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
-    .pub-card__journal { background: rgba(181,36,48,0.08); border: 1px solid rgba(181,36,48,0.18); border-radius: 4px; padding: 3px 10px; font-weight: 600; font-size: 10px; color: var(--crimson); letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
-    .pub-card__year { font-size: 11px; color: rgba(11,31,58,0.35); letter-spacing: 0.05em; }
-    .pub-card__type { font-size: 10px; font-weight: 500; color: rgba(11,31,58,0.3); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(11,31,58,0.12); border-radius: 3px; padding: 2px 8px; }
-    .pub-card__title { font-weight: 600; font-size: 16px; color: var(--navy); line-height: 1.35; margin-bottom: 6px; }
-    .pub-card__authors { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(11,31,58,0.45); font-style: italic; margin-bottom: 10px; }
-    .pub-card__abstract { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(11,31,58,0.6); line-height: 1.65; }
-    .pub-card__actions { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; flex-shrink: 0; }
-    .btn-download { display: flex; align-items: center; gap: 8px; background: var(--crimson); color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.04em; padding: 10px 18px; border-radius: 5px; white-space: nowrap; transition: background 0.2s; }
-    .btn-download:hover { background: var(--crimson2); }
-    .pub-card__doi { font-size: 10px; color: rgba(11,31,58,0.3); letter-spacing: 0.04em; text-align: right; }
+    .pub-card__year { font-weight: 600; font-size: 11px; color: var(--crimson); letter-spacing: 0.08em; margin-bottom: 8px; }
+    .pub-card__title { font-weight: 600; font-size: 16px; color: var(--navy); line-height: 1.35; margin-bottom: 8px; }
+    .pub-card__authors { font-family: 'DM Sans', sans-serif; font-size: 13px; color: rgba(11,31,58,0.5); font-style: italic; line-height: 1.5; }
+
     .contact-banner { background: var(--navy); border-top: 1px solid rgba(255,255,255,0.06); padding: 64px 0; }
     .contact-banner__inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .contact-banner__title { font-weight: 600; font-size: 20px; color: #fff; margin-bottom: 6px; }
     .contact-banner__desc { font-family: 'DM Sans', sans-serif; font-size: 14px; color: rgba(255,255,255,0.5); line-height: 1.6; }
     @media (max-width: 768px) {
-      .pub-card { grid-template-columns: 1fr; gap: 20px; padding: 20px; }
-      .pub-card__actions { flex-direction: row; align-items: center; justify-content: space-between; }
+      .pub-card { padding: 20px; }
       .pub-card__title { font-size: 15px; }
       .contact-banner__inner { flex-direction: column; gap: 20px; align-items: flex-start; }
     }
-    @media (max-width: 480px) { .pub-card__actions { flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
 <body>
@@ -89,7 +86,7 @@
       <div class="section-label__text">Publicaciones</div>
     </div>
     <h1>Evidencia<br/><span>revisada por pares</span></h1>
-    <p class="page-header__desc">El procedimiento Lugones está respaldado por un creciente cuerpo de evidencia clínica multicéntrica. Todas las publicaciones clave están disponibles para descarga.</p>
+    <p class="page-header__desc">El procedimiento Lugones está respaldado por un creciente cuerpo de evidencia clínica multicéntrica. Todas las publicaciones clave están disponibles a pedido a través de nuestro <a href="index.html#contact">formulario de contacto</a>.</p>
   </div>
 </div>
 
@@ -98,103 +95,51 @@
     <div class="pub-list">
 
       <div class="pub-card">
-        <div>
-          <div class="pub-card__meta">
-            <div class="pub-card__journal">JTCVS</div>
-            <div class="pub-card__year">2025</div>
-            <div class="pub-card__type">Estudio Multicéntrico</div>
-          </div>
-          <div class="pub-card__title">El procedimiento Lugones para el síndrome de cimitarra: estudio retrospectivo multicéntrico con hasta 13,5 años de seguimiento</div>
-          <div class="pub-card__authors">Lugones I, García-Hernández A, Belli E, Pozzi M, Sarris GE, et al.</div>
-          <div class="pub-card__abstract">Análisis retrospectivo de 38 pacientes en 11 instituciones internacionales. Sin muertes hospitalarias, sin reoperaciones y sin obstrucciones venosas pulmonares en el seguimiento a mediano plazo. TC y RM 4D-flow confirmaron vías reconstruidas de amplia luz y patrones de flujo venoso fisiológicos.</div>
-        </div>
-        <div class="pub-card__actions">
-          <a href="../publications/lugones-jtcvs-2025.pdf" class="btn-download" download>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar PDF
-          </a>
-          <div class="pub-card__doi">DOI: 10.1016/j.jtcvs.2025.01.042</div>
-        </div>
+        <div class="pub-card__year">2018</div>
+        <div class="pub-card__title">The pericardial tunnel technique might produce optimal morphological repair of the scimitar syndrome</div>
+        <div class="pub-card__authors">Bahaaldin Alsoufi</div>
       </div>
 
       <div class="pub-card">
-        <div>
-          <div class="pub-card__meta">
-            <div class="pub-card__journal">J Card Surg</div>
-            <div class="pub-card__year">2023</div>
-            <div class="pub-card__type">Artículo Original</div>
-          </div>
-          <div class="pub-card__title">Técnica del túnel pericárdico para el retorno venoso pulmonar anómalo parcial: resultados a largo plazo y adaptaciones anatómicas</div>
-          <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM, Villanueva M.</div>
-          <div class="pub-card__abstract">Datos de seguimiento a largo plazo de la primera cohorte de pacientes operados con la técnica del túnel pericárdico. La ecocardiografía seriada no demostró progresión del gradiente a través de la vía reconstruida. Todos los pacientes mantuvieron función biventricular normal.</div>
-        </div>
-        <div class="pub-card__actions">
-          <a href="../publications/lugones-jcs-2023.pdf" class="btn-download" download>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar PDF
-          </a>
-          <div class="pub-card__doi">DOI: 10.1111/jocs.17621</div>
-        </div>
+        <div class="pub-card__year">2024</div>
+        <div class="pub-card__title">Eleven Years After Scimitar Syndrome Repair With the Lugones Technique: Usefulness of Four-Dimensional Flow Magnetic Resonance Imaging</div>
+        <div class="pub-card__authors">Idara Zezular, Lisa Carlson Hanse, Hyon Ju Choe, Damian Craiem, Ignacio Lugones</div>
       </div>
 
       <div class="pub-card">
-        <div>
-          <div class="pub-card__meta">
-            <div class="pub-card__journal">EJCTS</div>
-            <div class="pub-card__year">2022</div>
-            <div class="pub-card__type">Reporte Técnico</div>
-          </div>
-          <div class="pub-card__title">Tres variantes quirúrgicas de la técnica del túnel pericárdico para el síndrome de cimitarra: estrategia operatoria e indicaciones anatómicas</div>
-          <div class="pub-card__authors">Lugones I, Belli E, Hörer J, Fragata J.</div>
-          <div class="pub-card__abstract">Descripción de las tres variantes desarrolladas para presentaciones anatómicas complejas: túnel original, reposicionamiento del tabique auricular y colgajo pericárdico interauricular. Algoritmo de decisión operatoria y serie de casos representativos.</div>
-        </div>
-        <div class="pub-card__actions">
-          <a href="../publications/lugones-ejcts-2022.pdf" class="btn-download" download>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar PDF
-          </a>
-          <div class="pub-card__doi">DOI: 10.1093/ejcts/ezac318</div>
-        </div>
+        <div class="pub-card__year">2017</div>
+        <div class="pub-card__title">Modified In Situ Pericardial Rerouting Technique for Scimitar Syndrome Repair</div>
+        <div class="pub-card__authors">Ignacio Lugones, María Fernanda Biancolini, Victoria Eugenia Zerpa Pacheco, Inés Ana Martínez, Jesús María Maximiliano Damsky Barbosa, Ana María Susana de Dios</div>
       </div>
 
       <div class="pub-card">
-        <div>
-          <div class="pub-card__meta">
-            <div class="pub-card__journal">Ann Thorac Surg</div>
-            <div class="pub-card__year">2020</div>
-            <div class="pub-card__type">Artículo Original</div>
-          </div>
-          <div class="pub-card__title">Reparación sin tensión de la conexión venosa pulmonar anómala parcial: el abordaje del túnel pericárdico autólogo</div>
-          <div class="pub-card__authors">Lugones I, Peralta C, De Dios AM.</div>
-          <div class="pub-card__abstract">Introducción del túnel pericárdico como conducto autólogo y sin tensión para la redirección de la vena de cimitarra. La comparación con los resultados históricos del bafle intracardíaco demuestra tasas de obstrucción significativamente menores (0% vs. 46%).</div>
-        </div>
-        <div class="pub-card__actions">
-          <a href="../publications/lugones-ats-2020.pdf" class="btn-download" download>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar PDF
-          </a>
-          <div class="pub-card__doi">DOI: 10.1016/j.athoracsur.2020.04.081</div>
-        </div>
+        <div class="pub-card__year">2014</div>
+        <div class="pub-card__title">A New Surgical Approach to Scimitar Syndrome</div>
+        <div class="pub-card__authors">Ignacio Lugones, Rubén García</div>
       </div>
 
       <div class="pub-card">
-        <div>
-          <div class="pub-card__meta">
-            <div class="pub-card__journal">Pediatr Cardiol</div>
-            <div class="pub-card__year">2018</div>
-            <div class="pub-card__type">Serie de Casos</div>
-          </div>
-          <div class="pub-card__title">Síndrome de cimitarra en lactantes: experiencia inicial con la técnica del túnel pericárdico en neonatos y lactantes menores de 12 meses</div>
-          <div class="pub-card__authors">Lugones I, Villanueva M, Peralta C.</div>
-          <div class="pub-card__abstract">Experiencia operatoria inicial en la cohorte de pacientes más jóvenes. El túnel pericárdico demostró potencial de crecimiento proporcional al desarrollo somático, sin evidencia de estrechez del conducto a 5 años en neonatos operados en las primeras semanas de vida.</div>
-        </div>
-        <div class="pub-card__actions">
-          <a href="../publications/lugones-pedcard-2018.pdf" class="btn-download" download>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 6l3 3 3-3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            Descargar PDF
-          </a>
-          <div class="pub-card__doi">DOI: 10.1007/s00246-018-1943-2</div>
-        </div>
+        <div class="pub-card__year">2017</div>
+        <div class="pub-card__title">Lugones' technique for correction of Scimitar syndrome</div>
+        <div class="pub-card__authors">Monica G. Bouza, Bunty R. Ramchandani, Daniel P. Camargo, Luis C. Maroto</div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-card__year">2018</div>
+        <div class="pub-card__title">Pericardial tunnel technique in the surgical management of the vertical form of scimitar syndrome</div>
+        <div class="pub-card__authors">Yanjun Sun, Haibo Zhang, Jinfen Liu, Zhiwei Xu, Shunmin Wang, Hongbin Zhu</div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-card__year">2021</div>
+        <div class="pub-card__title">The Lugones Procedure for Surgical Repair of Scimitar Syndrome: Preserved Growth in a Young Infant</div>
+        <div class="pub-card__authors">Virginie Fouilloux, Oscar Werner, Marien Lenoir</div>
+      </div>
+
+      <div class="pub-card">
+        <div class="pub-card__year">2022</div>
+        <div class="pub-card__title">The Lugones Procedure for Scimitar Syndrome Repair Through Right Axillary Thoracotomy: Not Only a Cosmetically Superior Approach</div>
+        <div class="pub-card__authors">Héctor S. Diliz-Nava, Javier H. López Terrazas, Alexis J. Palacios Macedo-Quenot, Idara Zezular, Verónica Laudani, Ignacio Lugones</div>
       </div>
 
     </div>
